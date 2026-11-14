@@ -1,4 +1,4 @@
-export const hotelTvNSources: TSources = [
+export const hotelTvnSources: TSources = [
   {
     name: 'hotel-tvn',
     filename: 'hotel_tvn',
