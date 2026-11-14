@@ -6,7 +6,7 @@ export const hotelTvnSources: TSources = [
   },
   {
     name: 'ipiptv/collect-txt',
-    filename: 'hotel_tvn',
+    filename: 'TVhotel_tvn',
     url: 'https://raw.githubusercontent.com/ipiptv/collect-txt/main/bbxx365.m3u',
   },
   {
