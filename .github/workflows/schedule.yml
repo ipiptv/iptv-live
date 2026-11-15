@@ -73,7 +73,8 @@ jobs:
       # 迷你版：只留央视/卫视/专享/4K/国际台，每频道 2 条源，约 70KB。
       # 国内弱网或播放器超时短时，小文件才下得完。
       - name: Build mini playlist (small file for weak networks)
-        run: python scripts/make_mini.py
+        timeout-minutes: 10
+        run: python scripts/make_mini.py --verify
 
       # 国内直连 pages.dev 会因限速中断（URLSession 报"网络连接已中断"），
       # 故把产物镜像到 publish 分支，供 raw.githubusercontent / 加速代理 拉取。
