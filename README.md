@@ -27,11 +27,13 @@
 
 以下文件由本仓库每日两次自动生成（`main.py` + 精编脚本），可直接填进播放器：
 
-| 文件 | 用途 | 地址 |
-|------|------|------|
-| `bbxx365_mini.m3u` | 精编版：仅真直播，每台 5 条线路，约 130KB | <https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_mini.m3u> |
-| `bbxx365_hotel.m3u` | 央视 / 卫视 / 酒店源白名单合并版 | <https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_hotel.m3u> |
-| `bbxx365.m3u` | 全集（约两万条，未做验活） | <https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365.m3u> |
+| 文件 | 用途 | 条数 / 大小 | 地址 |
+|------|------|------|------|
+| `bbxx365_mini_home.m3u` | **推荐**：家用网络实测版，只留能播的，每台最多 10 条，按实际起播速度排序 | 1209 条 / 210KB | <https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_mini_home.m3u> |
+| `bbxx365_mini.m3u` | 云端精编版：验活 + 按源类型排序，每台 5 条 | 801 条 / 130KB | <https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_mini.m3u> |
+| `bbxx365_hotel.m3u` | 央视 / 卫视 / 酒店源白名单合并版，未验活 | 15870 条 / 2.8MB | <https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_hotel.m3u> |
+| `bbxx365_lite.m3u` | 上游原始瘦身版（只保留优质组合），未验活 | 约 1 万条 | <https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_lite.m3u> |
+| `bbxx365.m3u` | 全集：全部抓取结果，未验活、未测速 | 21476 条 / 3.5MB | <https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365.m3u> |
 
 > Cloudflare Pages 直连（`iptv-4us.pages.dev/xxx.m3u`）在国内大文件传输不稳定，国内网络优先用上面的 GitHub 地址。
 
