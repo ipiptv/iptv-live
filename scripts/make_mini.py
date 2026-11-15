@@ -28,10 +28,40 @@ GROUPS = {
     "💓4K(Auto)", "💕国际台",
 }
 
+# 分组在文件里的出场顺序（集合本身无序，必须显式写死）：央视打头
+GROUP_ORDER = ["❤️央视频道", "❤️专享央视", "❤️卫视频道", "❤️专享卫视",
+               "💓4K(Auto)", "💕国际台"]
+
 BAD_URL = ("kwimgs.com", "jiduo.me", "kwai")
 
 # 名字里带这些的，基本不是真频道：移动传媒、购物台、测试台、轮播台——进去常年放广告
 BAD_NAME = ("测试", "移动传媒", "轮播", "广告", "试播", "Demo", "demo")
+
+
+# ① 云上测速不可信：改成按「源的类型」打分，优先国内基础设施/CDN，降权裸 IP 小盒子。
+HIGH_HINTS = (
+    "migu", "cmcc", "chinaunicom", "chinanet", "chinatelecom", "bestv", "gotvt",
+    "newcntv", "qcloudcdn", "myqcloud", "aliyuncs", "aliyun", "hwclouds",
+    "myhuaweicloud", "ks-cdn", "tptv", "wasu", "jomodns", "cdntip", "zgdns",
+)
+GOOD_PORT = ("", "80", "443", "1935", "554", "8080", "8443", "9999")
+_IPV4 = re.compile(r"^\d{1,3}(\.\d{1,3}){3}$")
+
+
+def source_score(url, tier=0):
+    from urllib.parse import urlparse
+    p = urlparse(url)
+    host, port, scheme = (p.hostname or "").lower(), str(p.port or ""), p.scheme
+    score = tier * 2                     # 画质档位仍作为加分项
+    if any(h in host for h in HIGH_HINTS):
+        score += 4                       # 咪咕/运营商 CDN/腾讯云这级别
+    if _IPV4.match(host):
+        score -= 2                       # 裸 IP 多为个人盒子，跨省不稳
+    if scheme == "https":
+        score += 1
+    if port and port not in GOOD_PORT:
+        score -= 1
+    return score
 
 
 def parse(path):
@@ -76,8 +106,17 @@ def main() -> int:
         if len(lst) < CANDIDATES and url not in [u for _, u in lst]:
             lst.append((extinf, url))
 
-    order = list(GROUPS)
-    keys = sorted(buckets, key=lambda k: (order.index(k[0]), k[1]))
+    order = GROUP_ORDER
+
+    def name_key(k):
+        """央视按编号排：CCTV1、CCTV2…CCTV17，纯 CCTV1 优先于 CCTV1高清；CCTV+ 等排最后。"""
+        n = k[1]
+        m = re.search(r"CCTV\s*[-－—]?\s*(\d+)", n, re.I)
+        if m:
+            return (order.index(k[0]), 0, int(m.group(1)), len(n), n)
+        return (order.index(k[0]), 1, 999, len(n), n)
+
+    keys = sorted(buckets, key=name_key)
 
     if not verify:
         out = ["#EXTM3U"]
@@ -105,10 +144,13 @@ def main() -> int:
 
     out, used = ["#EXTM3U"], set()
     for k in keys:
+        # ③ 不按测速排（云上测出来的速度不等于用户家里的速度）：
+        # 真直播优先，其次按源类型打分，同分保持原顺序交给播放器自己切换。
         items = sorted(
             picked.get(k, []),
             key=lambda t: (0 if t[0]["kind"] == "live" else 1,
-                           -t[0].get("tier", 0), t[0]["ttfb"]),
+                           -source_score(t[2], t[0].get("tier", 0)),
+                           t[0]["ttfb"]),
         )
         kept = 0
         for d, extinf, url in items:
