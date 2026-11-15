@@ -52,6 +52,20 @@ jobs:
         env:
           IPTV_PROXY_IP_RANGES: ${{ vars.IPTV_PROXY_IP_RANGES }}
           IPTV_PROXY_PORT: ${{ vars.IPTV_PROXY_PORT }}
+
+      # ↓ 以下三步必须在 pnpm m3u 之后：pnpm m3u 启动时会清空整个 m3u/ 目录
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install opencc-python-reimplemented
+      - name: Run bbxx365 script (output into m3u/)
+        timeout-minutes: 30
+        run: python main.py
+
       - run: sudo apt-get install -y tree
 
       - name: Publish m3u (Cloudflare direct upload or empty commit)
