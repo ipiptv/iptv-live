@@ -1,8 +1,7 @@
-name: 'Daily Job'
+name: 'Daily Job (manual only)'
+# 定时发布已统一由 schedule.yml 负责（每天两次，产物直接发到 Pages）。
+# 本工作流只在需要单独跑一次脚本 / 下载产物留档时手动触发。
 on:
-  schedule:
-   - cron: '45 20 * * *'
-   - cron: '45 5 * * *'
   workflow_dispatch:
     inputs:
       environment:

@@ -2,7 +2,8 @@ name: update schedule
 
 on:
   schedule:
-    - cron: "17 21,6 * * *"  # UTC 21:17=北京5:17，UTC 6:17=北京14:17
+    # UTC 21:30 = 北京 05:30 ｜ UTC 06:30 = 北京 14:30（每天两次，单一发布时间点）
+    - cron: "30 21,6 * * *"
   workflow_dispatch:
 # ← 添加这行，允许手动触发测试
 
@@ -65,6 +66,9 @@ jobs:
       - name: Run bbxx365 script (output into m3u/)
         timeout-minutes: 30
         run: python main.py
+
+      - name: Merge bbxx365 + hotel_tvn (whitelist)
+        run: python scripts/merge_bbxx365_hotel.py
 
       - run: sudo apt-get install -y tree
 
