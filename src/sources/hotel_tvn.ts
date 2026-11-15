@@ -7,6 +7,6 @@ export const hotelTvnSources: TSources = [
   {
     name: 'dogwalkerg-iptv-collect',
     filename: 'dogwalkerg_urls_daily',
-    url: 'https://raw.githubusercontent.com/dogwalkerg/IPTV-collect-tv-txt/main/live.m3u',
+    url: 'https://raw.githubusercontent.com/ipiptv/collect-txt/main/assets/urls-daily.txt',
   },
 ];
