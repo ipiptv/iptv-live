@@ -70,6 +70,11 @@ jobs:
       - name: Merge bbxx365 + hotel_tvn (whitelist)
         run: python scripts/merge_bbxx365_hotel.py
 
+      # 迷你版：只留央视/卫视/专享/4K/国际台，每频道 2 条源，约 70KB。
+      # 国内弱网或播放器超时短时，小文件才下得完。
+      - name: Build mini playlist (small file for weak networks)
+        run: python scripts/make_mini.py
+
       # 国内直连 pages.dev 会因限速中断（URLSession 报"网络连接已中断"），
       # 故把产物镜像到 publish 分支，供 raw.githubusercontent / 加速代理 拉取。
       # 用 orphan + force push，分支上永远只有一个提交，不会无限膨胀。
@@ -78,7 +83,7 @@ jobs:
           set -e
           mkdir -p /tmp/pub && cd /tmp/pub
           git init -q -b publish
-          for f in bbxx365.m3u bbxx365_lite.m3u bbxx365_hotel.m3u bbxx365.txt bbxx365_lite.txt; do
+          for f in bbxx365.m3u bbxx365_lite.m3u bbxx365_hotel.m3u bbxx365_mini.m3u bbxx365.txt bbxx365_lite.txt; do
             [ -f "$GITHUB_WORKSPACE/m3u/$f" ] && cp "$GITHUB_WORKSPACE/m3u/$f" .
           done
           git add -A
