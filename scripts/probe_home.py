@@ -15,8 +15,33 @@ import make_mini  # noqa: E402
 from rank_stream import analyze  # noqa: E402
 
 CACHE = "/tmp/home_probe.json"
+MIN_SPEED = 150
+CAND_CAP = 25  # 每频道最多纳入多少候选来实测（候选越多越可能凑出 10 条）  # 低于此吞吐（KB/s）的源直接不要，避免“能连上但打开要等”
 WORKERS = 40
 TIMEOUT = 6
+
+
+def operator_entries():
+    """路一：国内运营商单播源（河南移动 / 河南电信；联通暂无公开清单）。"""
+    import urllib.request
+    base = "https://raw.githubusercontent.com/xisohi/CHINA-IPTV/main/Unicast/henan"
+    out = []
+    for isp in ("mobile", "telecom", "unicom"):
+        try:
+            txt = urllib.request.urlopen(f"{base}/{isp}.txt", timeout=15).read().decode("utf-8", "ignore")
+        except Exception as e:
+            print(f"  {isp} 拉取失败: {e}")
+            continue
+        for ln in txt.splitlines():
+            if "," not in ln or "http" not in ln:
+                continue
+            name, url = ln.split(",", 1)
+            name, url = name.strip(), url.strip()
+            if not name or name.startswith("【"):
+                continue
+            out.append((isp, name, url))
+    print(f"  运营商源拉到 {len(out)} 条")
+    return out
 
 
 def candidates():
@@ -33,9 +58,71 @@ def candidates():
         if any(b in name for b in make_mini.BAD_NAME):
             continue
         lst = buckets.setdefault((g, name), [])
-        if len(lst) < make_mini.CANDIDATES and url not in [u for _, u in lst]:
+        if len(lst) < CAND_CAP and url not in [u for _, u in lst]:
             lst.append((extinf, url))
     return buckets
+
+
+def _fetch(url, seconds=3.0, limit=2_000_000):
+    """下载指定地址，返回 (字节数, 首字节耗时ms)。"""
+    import ssl
+    import urllib.request
+    ctx = ssl.create_default_context()
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    t0 = time.monotonic()
+    got, ttfb = 0, None
+    try:
+        with urllib.request.urlopen(req, timeout=TIMEOUT, context=ctx) as r:
+            while got < limit and time.monotonic() - t0 < seconds:
+                chunk = r.read(65536)
+                if not chunk:
+                    break
+                if ttfb is None:
+                    ttfb = (time.monotonic() - t0) * 1000
+                got += len(chunk)
+    except Exception:
+        pass
+    dt = max(time.monotonic() - t0, 0.001)
+    return got, (ttfb or int(dt * 1000)), int(got / dt / 1024)
+
+
+def hls_probe(url):
+    """真按“能不能出画面”测：取 playlists 里的真实分片下载，算起播耗时与码率。"""
+    from urllib.parse import urljoin
+    import ssl
+    import urllib.request
+    ctx = ssl.create_default_context()
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
+    try:
+        body = urllib.request.urlopen(
+            urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"}),
+            timeout=TIMEOUT, context=ctx).read(200_000).decode("utf-8", "ignore")
+    except Exception:
+        return {"seg_ttfb": 0, "seg_kbps": 0, "seg_time": 0}
+    if "#EXTM3U" not in body:
+        # 不是 m3u8（直接是流/ts），退回直连测速
+        b, t, k = _fetch(url)
+        return {"seg_ttfb": t, "seg_kbps": k, "seg_time": int(t / 1000)}
+    # 若是多码率主列表，先选一条子列表
+    segs = [ln.strip() for ln in body.splitlines() if ln.strip() and not ln.startswith("#")]
+    if not segs:
+        return {"seg_ttfb": 0, "seg_kbps": 0, "seg_time": 0}
+    target = urljoin(url, segs[0])
+    if target.split("?")[0].endswith(".m3u8"):
+        try:
+            sub = urllib.request.urlopen(
+                urllib.request.Request(target, headers={"User-Agent": "Mozilla/5.0"}),
+                timeout=TIMEOUT, context=ctx).read(200_000).decode("utf-8", "ignore")
+            segs = [ln.strip() for ln in sub.splitlines() if ln.strip() and not ln.startswith("#")]
+            target = urljoin(target, segs[0]) if segs else target
+        except Exception:
+            pass
+    b, t, k = _fetch(target, seconds=2.5, limit=1_000_000)
+    return {"seg_ttfb": t, "seg_kbps": k,
+            "seg_time": round(b / max(k, 1) / 1024, 1) if k else 99}
 
 
 def probe_all(urls):
@@ -44,6 +131,8 @@ def probe_all(urls):
             r = analyze(u, timeout=TIMEOUT)
         except Exception:
             r = {"kind": "error", "ttfb": 0, "height": 0, "kbps": 0, "tier": 0}
+        if r["kind"] == "live":
+            r.update(hls_probe(u))
         r["url"] = u
         return r
 
@@ -60,8 +149,32 @@ def probe_all(urls):
 
 
 def main() -> int:
+    per = 10
+    if "--per" in sys.argv:
+        per = int(sys.argv[sys.argv.index("--per") + 1])
+
     buckets = candidates()
     urls = [u for lst in buckets.values() for _, u in lst]
+
+    ops = operator_entries()
+    # 运营商源并入同名频道（放在最前），没有同名频道的单列一组
+    by_name = {}
+    for k in buckets:
+        by_name.setdefault(k[1], []).append(k)
+    op_extra = {}
+    for isp, name, url in ops:
+        if url in urls:
+            continue
+        extinf = f' tvg-name="{name}" group-title="🇨🇳运营商源",{name}'
+        hits = by_name.get(name)
+        if hits:
+            buckets[hits[0]].append((extinf, url))
+            urls.append(url)
+        else:
+            op_extra.setdefault(name, []).append((extinf, url))
+            urls.append(url)
+    for name, lst in op_extra.items():
+        buckets[("🇨🇳运营商源", name)] = lst[:6]
     if "--build" in sys.argv:
         done = json.load(open(CACHE))
     else:
@@ -82,8 +195,13 @@ def main() -> int:
             if not r or r["kind"] in ("dead", "junk", "vod", "mp4", "error"):
                 continue
             rows.append((r, extinf, url))
-        rows.sort(key=lambda t: (t[0]["ttfb"], -t[0].get("tier", 0)))
-        chosen = rows[:5]
+        # 起播 ≤3 秒且码率够 → 排最前；不满 per 条的再用“能播但慢一点”的补齐
+        fast = [t for t in rows
+                if t[0].get("seg_kbps", 0) >= MIN_SPEED and t[0].get("seg_time", 99) <= 3]
+        fast.sort(key=lambda t: (-t[0].get("seg_kbps", 0), t[0].get("seg_time", 99)))
+        rest = [t for t in rows if t not in fast]
+        rest.sort(key=lambda t: (t[0].get("seg_time", 99), -t[0].get("seg_kbps", 0)))
+        chosen = (fast + rest)[:per]
         if chosen:
             picked[k] = chosen
             total += len(chosen)
@@ -91,12 +209,15 @@ def main() -> int:
     out = ["#EXTM3U"]
     order = make_mini.GROUP_ORDER
 
+    def gorder(g):
+        return order.index(g) if g in order else len(order)
+
     def name_key(k):
         n = k[1]
         m = re.search(r"CCTV\s*[-－—]?\s*(\d+)", n, re.I)
         if m:
-            return (order.index(k[0]), 0, int(m.group(1)), len(n), n)
-        return (order.index(k[0]), 1, 999, len(n), n)
+            return (gorder(k[0]), 0, int(m.group(1)), len(n), n)
+        return (gorder(k[0]), 1, 999, len(n), n)
 
     for k in sorted(picked, key=name_key):
         for r, extinf, url in picked[k]:
