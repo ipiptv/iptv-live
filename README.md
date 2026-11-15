@@ -23,6 +23,18 @@
 | [xisohi/CHINA-IPTV](https://github.com/xisohi/CHINA-IPTV) | 全国各省电信、联通、移动、广电 IPTV 组播 / 单播源，站点上见「IPTV 分地区列表」页；组播源转发配置见 [OpenWrt udpxy 配置指南](docs/openwrt-updpxy.md)、[OpenWrt igmpproxy 配置指南](docs/blog-operator-iptv-igmpproxy.md) |
 
 
+## 本站订阅地址
+
+以下文件由本仓库每日两次自动生成（`main.py` + 精编脚本），可直接填进播放器：
+
+| 文件 | 用途 | 地址 |
+|------|------|------|
+| `bbxx365_mini.m3u` | 精编版：仅真直播，每台 5 条线路，约 130KB | <https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_mini.m3u> |
+| `bbxx365_hotel.m3u` | 央视 / 卫视 / 酒店源白名单合并版 | <https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_hotel.m3u> |
+| `bbxx365.m3u` | 全集（约两万条，未做验活） | <https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365.m3u> |
+
+> Cloudflare Pages 直连（`iptv-4us.pages.dev/xxx.m3u`）在国内大文件传输不稳定，国内网络优先用上面的 GitHub 地址。
+
 ## 点播源
 
 | 来源 | 说明 |
