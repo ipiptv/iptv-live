@@ -1,0 +1,5 @@
+UK: Sky Sports News,http://nocable.cc:8080//OURTV/OURTV@4806/35241
+UK: SKY SPORTS F1,http://nocable.cc:8080//OURTV/OURTV@4806/35244
+UK: SKY SPORTS Golf,http://nocable.cc:8080//OURTV/OURTV@4806/35240
+UK: SKY SPORTS Arena,http://nocable.cc:8080//OURTV/OURTV@4806/35238
+UK: SKY SPORTS Cricket,http://nocable.cc:8080//OURTV/OURTV@4806/45940

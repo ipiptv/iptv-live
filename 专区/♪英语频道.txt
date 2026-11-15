@@ -1,0 +1,41 @@
+CNN International (720p),https://ds2c506obo7m8.cloudfront.net/v1/manifest/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-7zjq3tdqasbg8/51afc09f-23c7-44d8-b866-8c4669d00460/1.m3u8
+CNN International (1080p),https://ds2c506obo7m8.cloudfront.net/v1/manifest/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-7zjq3tdqasbg8/51afc09f-23c7-44d8-b866-8c4669d00460/0.m3u8
+CNN International,https://ds2c506obo7m8.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-7zjq3tdqasbg8/index.m3u8
+NBC News NOW (1080p),https://plex-xumoent-nbcnn-x17gi.fast.nbcuni.com/live/master_5.m3u8
+Sky News (1080p),https://d25w9q07b2mtmw.cloudfront.net/live/master_5.m3u8
+ABC News Australia (720p),https://abc-news-dmd-streams-1.akamaized.net/out/v1/701126012d044971b3fa89406a440133/index_5.m3u8
+Al Jazeera English (1080p),https://live-hls-web-aje-fa.getaj.net/AJE/01.m3u8
+NewsMax,https://nmxlive.akamaized.net/hls/live/529965/Live_1/index.m3u8
+Red Bull TV,http://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master_6660.m3u8
+CNA,https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_5.m3u8
+BBC News,http://125.227.210.55:8165/VideoInput/play.ts
+DW News,https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/stream05/streamPlaylist.m3u8
+ABC News Australia,https://stream1.freetv.fun/abc-news-australia-1.m3u8
+ABC News Australia,https://stream1.freetv.fun/abc-news-australia-2.ctv
+BAND NEWS,https://stream1.freetv.fun/band-news-2.ctv
+BAND NEWS,https://stream1.freetv.fun/band-news-1.m3u8
+CNN,https://turnerlive.warnermediacdn.com/hls/live/586495/cnngo/cnn_slate/VIDEO_0_3564000.m3u8
+CNN,https://jmp2.uk/stvp-ESBD190000137
+CNN,http://ysift55.xyz/live/52TLK6U/TNLMRY9/1052462.ts
+CNN,http://31.43.191.125:8080/VIP019301734188047280/7bce5254f13d/34577
+CNN,http://fastrunner.live:8080/live/LXdVGQ2ulN/2YV8Pnu7e9/568.ts
+CNN,http://kytv.xyz:80/live/brendan1/brendan1/1846753.ts
+CNN,http://primestreams.tv:826/live/TammyMccready/eGj6lFxVyG/1347.ts
+CNN,https://jmp2.uk/stvp-GBBD8000016N
+CNN,http://primep2.tv:826/live/SourPatchKid/nlnE4DVQUs/102155.ts
+CNN,http://primep2.tv:826/live/SourPatchKid/nlnE4DVQUs/105877.ts
+CNN,https://jmp2.uk/stvp-DEBD800001S4
+CNN,https://jmp2.uk/stvp-CHBD800001D0
+CNN,https://jmp2.uk/stvp-ATBD800001VA
+CNN,http://lunar.pm:8080/live/kita/Twin/104092.ts
+CNN,http://d029dcec.kazmazpaz.ru/iptv/FHKC2D3GGKYK3Q/6499/index.m3u8
+BBC,https://d3pxo1qcgzxtxs.cloudfront.net/10005/99951298/hls/playlist.m3u8?ads.xumo_channelId=99951298
+BBC,https://stream1.freetv.fun/bbc-news-5.m3u8
+VOA美国之音,https://voa-ingest.akamaized.net/hls/live/2033878/tvmc08/playlist.m3u8
+半·新闻,http://live-hls-web-aja.getaj.net/AJA/02.m3u8
+新加坡国际,https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_4.m3u8
+新加坡国际,http://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_5.m3u8
+CNA,http://primestreams.tv:826/live/TammyMccready/eGj6lFxVyG/119453.ts
+CNA,http://primep2.tv:826/live/SourPatchKid/nlnE4DVQUs/112852.ts
+CNA,http://ysift55.xyz/live/52TLK6U/TNLMRY9/1052455.ts
+东森美洲卫视,http://38.64.72.148/hls/modn/list/2015/playlist.m3u8

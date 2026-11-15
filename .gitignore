@@ -9,3 +9,10 @@ back
 .env
 config
 coverage
+
+# bbxx365 runtime output
+m3u/
+work/
+data/
+history/
+*.zip
