@@ -39,24 +39,35 @@ BAD_NAME = ("测试", "移动传媒", "轮播", "广告", "试播", "Demo", "dem
 
 
 # ① 云上测速不可信：改成按「源的类型」打分，优先国内基础设施/CDN，降权裸 IP 小盒子。
-HIGH_HINTS = (
-    "migu", "cmcc", "chinaunicom", "chinanet", "chinatelecom", "bestv", "gotvt",
-    "newcntv", "qcloudcdn", "myqcloud", "aliyuncs", "aliyun", "hwclouds",
-    "myhuaweicloud", "ks-cdn", "tptv", "wasu", "jomodns", "cdntip", "zgdns",
-)
+# 用户是河南联通：跨网互通是真实瓶颈，所以按「单网 vs 多线」分档加权。
+CN_UNICOM = ("chinaunicom", "unicom", "cnc", "cu.", "10010")          # 联通自有 CDN，最优
+CN_MULTI = ("qcloudcdn", "myqcloud", "aliyuncs", "aliyun", "hwclouds", # 阿里/腾讯/华为多线 BGP，联通也通
+            "myhuaweicloud", "ks-cdn", "cdntip", "zgdns", "jomodns",
+            "tptv", "bestv", "gotvt", "newcntv", "wasu")
+CN_MOBILE = ("migu", "cmcc", "10086", "chinamobile")                  # 移动单网资源
+CN_TELECOM = ("chinanet", "chinatelecom", "telecom", "189")           # 电信单网资源
 GOOD_PORT = ("", "80", "443", "1935", "554", "8080", "8443", "9999")
 _IPV4 = re.compile(r"^\d{1,3}(\.\d{1,3}){3}$")
 
 
+def _hit(host, hints):
+    return any(h in host for h in hints)
+
+
 def source_score(url, tier=0):
+    """联通家宽视角的源质量分：联通自有 > 多线 BGP > 移动/电信单网 > 裸 IP 盒子。"""
     from urllib.parse import urlparse
     p = urlparse(url)
     host, port, scheme = (p.hostname or "").lower(), str(p.port or ""), p.scheme
-    score = tier * 2                     # 画质档位仍作为加分项
-    if any(h in host for h in HIGH_HINTS):
-        score += 4                       # 咪咕/运营商 CDN/腾讯云这级别
+    score = tier * 2
+    if _hit(host, CN_UNICOM):
+        score += 6
+    elif _hit(host, CN_MULTI):
+        score += 4
+    elif _hit(host, CN_MOBILE) or _hit(host, CN_TELECOM):
+        score += 2
     if _IPV4.match(host):
-        score -= 2                       # 裸 IP 多为个人盒子，跨省不稳
+        score -= 2
     if scheme == "https":
         score += 1
     if port and port not in GOOD_PORT:
