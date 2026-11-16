@@ -2,13 +2,18 @@ name: update schedule
 
 on:
   schedule:
-    # UTC 21:30 = 北京 05:30 ｜ UTC 06:30 = 北京 14:30（每天两次，单一发布时间点）
-    - cron: "30 21,6 * * *"
+    # 三班，间隔 8 小时：UTC 21:30 / 05:30 / 13:30 = 北京 05:30 / 13:30 / 21:30
+    - cron: "30 21,5,13 * * *"
   workflow_dispatch:
 # ← 添加这行，允许手动触发测试
 
 permissions:
   contents: write
+
+# 同一时间只允许一个发布任务，避免定时与手动触发互相覆盖
+concurrency:
+  group: publish-pipeline
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -103,6 +108,9 @@ jobs:
         run: |
           if [ -n "${CLOUDFLARE_API_TOKEN}" ]; then
             pnpm static
+            # 站点首页渲染的是 README.md，必须一起放进发布目录，否则页面空白
+            cp README.md m3u/ 2>/dev/null || true
+            cp LIST.temp.md m3u/ 2>/dev/null || true
             tree m3u
             npx wrangler pages deploy m3u --project-name="${PROJECT_NAME}" --branch=main
           else
