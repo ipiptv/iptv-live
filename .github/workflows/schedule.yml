@@ -87,16 +87,20 @@ jobs:
       - name: Mirror m3u to publish branch (CN-friendly source)
         run: |
           set -e
-          mkdir -p /tmp/pub && cd /tmp/pub
-          git init -q -b publish
-          for f in bbxx365.m3u bbxx365_lite.m3u bbxx365_hotel.m3u bbxx365_mini.m3u bbxx365.txt bbxx365_lite.txt; do
+          PUBURL="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
+          rm -rf /tmp/pub && mkdir -p /tmp/pub
+          # 先拉回现有 publish 分支，保留本仓库生成不了的文件（bbxx365_mini_home.m3u 只能在家里网络实测产出），
+          # 避免每次流水线把它冲掉、订阅地址 404。
+          git clone -q --depth 1 -b publish "$PUBURL" /tmp/pub || ( cd /tmp/pub && git init -q -b publish && git remote add origin "$PUBURL" )
+          cd /tmp/pub
+          for f in bbxx365.m3u bbxx365_lite.m3u bbxx365_hotel.m3u bbxx365_mini.m3u bbxx365_mini_home.m3u bbxx365.txt bbxx365_lite.txt; do
             [ -f "$GITHUB_WORKSPACE/m3u/$f" ] && cp "$GITHUB_WORKSPACE/m3u/$f" .
           done
           git add -A
           git -c user.name="github-actions[bot]" \
               -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
-              commit -q -m "publish $(date -u +%Y-%m-%dT%H:%MZ)"
-          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" publish
+              commit -q -m "publish $(date -u +%Y-%m-%dT%H:%MZ)" || true
+          git push -f "$PUBURL" publish
 
       - run: sudo apt-get install -y tree
 
@@ -108,6 +112,8 @@ jobs:
         run: |
           if [ -n "${CLOUDFLARE_API_TOKEN}" ]; then
             pnpm static
+            # mini_home 只在家里网络实测产出，从 publish 分支取回，保证站点上也有这份
+            cp /tmp/pub/bbxx365_mini_home.m3u m3u/ 2>/dev/null || true
             python scripts/build_site_page.py
             # 站点首页渲染的是 README.md，必须一起放进发布目录，否则页面空白
             cp README.md m3u/ 2>/dev/null || true
