@@ -108,6 +108,7 @@ jobs:
         run: |
           if [ -n "${CLOUDFLARE_API_TOKEN}" ]; then
             pnpm static
+            python scripts/build_site_page.py
             # 站点首页渲染的是 README.md，必须一起放进发布目录，否则页面空白
             cp README.md m3u/ 2>/dev/null || true
             cp LIST.temp.md m3u/ 2>/dev/null || true
