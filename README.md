@@ -25,17 +25,19 @@
 
 ## 本站订阅地址
 
-以下文件由本仓库每日两次自动生成（`main.py` + 精编脚本），可直接填进播放器：
+以下文件由本仓库每日三次自动生成（`main.py` + 精编脚本），可直接填进播放器：
 
-| 文件 | 用途 | 条数 / 大小 | 地址 |
-|------|------|------|------|
-| `bbxx365_mini_home.m3u` | **推荐**：家用网络实测版，只留能播的，每台最多 10 条，按实际起播速度排序 | 1209 条 / 210KB | <https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_mini_home.m3u> |
-| `bbxx365_mini.m3u` | 云端精编版：验活 + 按源类型排序，每台 5 条 | 801 条 / 130KB | <https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_mini.m3u> |
-| `bbxx365_hotel.m3u` | 央视 / 卫视 / 酒店源白名单合并版，未验活 | 15870 条 / 2.8MB | <https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_hotel.m3u> |
-| `bbxx365_lite.m3u` | 上游原始瘦身版（只保留优质组合），未验活 | 约 1 万条 | <https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_lite.m3u> |
-| `bbxx365.m3u` | 全集：全部抓取结果，未验活、未测速 | 21476 条 / 3.5MB | <https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365.m3u> |
+| 文件 | 用途 | 条数 / 大小 | GitHub 地址（完整版） | Gitee 地址（国内加速） |
+|------|------|------|------|------|
+| `bbxx365_mini_home.m3u` | **推荐**：家用网络实测版，只留能播的，每台最多 10 条，按实际起播速度排序 | 1209 条 / 210KB | <https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_mini_home.m3u> | <https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_mini_home.m3u> |
+| `bbxx365_mini.m3u` | 云端精编版：验活 + 按源类型排序，每台 5 条 | 801 条 / 130KB | <https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_mini.m3u> | <https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_mini.m3u> |
+| `bbxx365_hotel.m3u` | 央视 / 卫视 / 酒店源白名单合并版，未验活 | 15870 条 / 2.8MB | <https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_hotel.m3u> | <https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_hotel.m3u> |
+| `bbxx365_lite.m3u` | 上游原始瘦身版（只保留优质组合），未验活 | 约 1 万条 | <https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_lite.m3u> | <https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_lite.m3u> |
+| `bbxx365.m3u` | 全集：全部抓取结果，未验活、未测速 | 21476 条 / 3.5MB | <https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365.m3u> | <https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365.m3u> |
 
-> Cloudflare Pages 直连（`iptv-4us.pages.dev/xxx.m3u`）在国内大文件传输不稳定，国内网络优先用上面的 GitHub 地址。
+> Cloudflare Pages 直连（`iptv-4us.pages.dev/xxx.m3u`）在国内大文件传输不稳定；GitHub raw 国内时通时断。**国内网络优先用 Gitee 那列。**
+>
+> Gitee 会对仓库内容做自动审查：文件里只要出现 `VOA` / `美国之音` 这类条目，整份 m3u 就会返回 451。所以推送到 Gitee 的版本会剔掉这几台（比 GitHub 版少 1 条），其余内容完全一致——这是 `scripts/gitee_sync.sh` 在推送前自动做的。
 
 ## 点播源
 
