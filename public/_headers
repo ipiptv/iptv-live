@@ -6,3 +6,18 @@
 
 /*.json
   Content-Type: application/json; charset=utf-8
+
+/
+  Cache-Control: public, s-maxage=300, max-age=0, must-revalidate
+
+/*.html
+  Cache-Control: public, s-maxage=300, max-age=0, must-revalidate
+
+/*.m3u
+  Cache-Control: public, s-maxage=300, max-age=60
+
+/*.md
+  Cache-Control: public, s-maxage=300, max-age=60
+
+/*.list
+  Cache-Control: public, s-maxage=300, max-age=60
