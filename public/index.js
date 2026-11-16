@@ -386,7 +386,9 @@
 
     let markdown;
     try {
-      const response = await fetch(markdownUrl);
+      // 带时间戳查询串 + no-store：避免边缘节点或浏览器把旧的 404 一直返回，
+      // 造成「服务端明明有、页面却提示没有」。
+      const response = await fetch(`${markdownUrl}?_=${Date.now()}`, { cache: 'no-store' });
       if (id !== requestId) return;
       if (!response.ok) {
         renderState({ code: 404, title: '页面不存在', text: '没有找到对应的列表，可能该源已下线或尚未生成。' });
