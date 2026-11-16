@@ -1,5 +1,5 @@
-name: 'Daily Job (manual only)'
-# 定时发布已统一由 schedule.yml 负责（每天两次，产物直接发到 Pages）。
+name: '抓源体检（手动）'
+# 定时发布已统一由 schedule.yml 负责（每天三班），本工作流只做手动抓源体检。
 # 本工作流只在需要单独跑一次脚本 / 下载产物留档时手动触发。
 on:
   workflow_dispatch:
