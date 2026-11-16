@@ -114,7 +114,6 @@ jobs:
             pnpm static
             # mini_home 只在家里网络实测产出，从 publish 分支取回，保证站点上也有这份
             cp /tmp/pub/bbxx365_mini_home.m3u m3u/ 2>/dev/null || true
-            python scripts/build_site_page.py
             # 站点首页渲染的是 README.md，必须一起放进发布目录，否则页面空白
             cp README.md m3u/ 2>/dev/null || true
             cp LIST.temp.md m3u/ 2>/dev/null || true
