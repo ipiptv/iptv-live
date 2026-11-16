@@ -35,7 +35,9 @@
 | `bbxx365_lite.m3u` | 上游原始瘦身版（只保留优质组合），未验活 | 约 1 万条 | <https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_lite.m3u> | <https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_lite.m3u> |
 | `bbxx365.m3u` | 全集：全部抓取结果，未验活、未测速 | 21476 条 / 3.5MB | <https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365.m3u> | <https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365.m3u> |
 
-> Cloudflare Pages 直连（`iptv-4us.pages.dev/xxx.m3u`）在国内大文件传输不稳定；GitHub raw 国内时通时断。**国内网络优先用 Gitee 那列。**
+> **国内网络优先用 Gitee 那列**：GitHub raw 在国内时通时断，Gitee 实测稳定、可整份下载。
+>
+> Cloudflare Pages 站点（`iptv-4us.pages.dev`）已停止更新（2026-11-16），最后一版仍可访问但内容不再刷新；浏览入口直接用本 README（Gitee 仓库首页同样渲染）。
 >
 > Gitee 会对仓库内容做自动审查：文件里只要出现 `VOA` / `美国之音` 这类条目，整份 m3u 就会返回 451。所以推送到 Gitee 的版本会剔掉这几台（比 GitHub 版少 1 条），其余内容完全一致——这是 `scripts/gitee_sync.sh` 在推送前自动做的。
 
