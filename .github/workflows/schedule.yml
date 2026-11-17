@@ -5,7 +5,9 @@ on:
     # 三班，间隔 8 小时：UTC 21:30 / 05:30 / 13:30 = 北京 05:30 / 13:30 / 21:30
     - cron: "30 21,5,13 * * *"
   workflow_dispatch:
-# ← 添加这行，允许手动触发测试
+  push:
+    branches: [main]
+# ← 临时加 push 触发，验证一次后立即 revert
 
 permissions:
   contents: write
