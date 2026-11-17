@@ -32,6 +32,16 @@ jobs:
           persist-credentials: true
           fetch-depth: 0
 
+      # 失效缓存 / 主机信誉库：不进仓库（data/ 被忽略），用 cache 当"滚动状态"，
+      # 每次跑完自动存一份新的，下次优先取最近的一份。7 天没跑缓存被清时从空开始。
+      - name: Restore stream-check state
+        uses: actions/cache@v4
+        with:
+          path: data/stream-check
+          key: stream-check-${{ github.run_id }}
+          restore-keys: |
+            stream-check-
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
@@ -80,6 +90,13 @@ jobs:
       - name: Build mini playlist (small file for weak networks)
         timeout-minutes: 10
         run: python scripts/make_mini.py --verify
+
+      # 体检：复检已过期的失效地址（恢复就放行），顺带轮转抽样发现新失效。
+      # 默认只记"与网络位置无关"的硬错误（连接失败/404），超时和 403 一律忽略——
+      # 跑在海外 CI 上的超时不能证明国内看不了。
+      - name: Stream health check (failure cache + host reputation)
+        timeout-minutes: 20
+        run: python scripts/stream_check.py --budget 1800 --discover 500
 
       # 国内直连 pages.dev 会因限速中断（URLSession 报"网络连接已中断"），
       # 故把产物镜像到 publish 分支，供 raw.githubusercontent / 加速代理 拉取。

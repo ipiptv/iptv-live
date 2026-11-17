@@ -47,6 +47,24 @@
 |------|------|
 | [王小二放牛娃](https://www.xn--4kq62z5rby2qupq9ub.top/) | TVBox点播 |
 
+## 源体检（失效缓存 / 主机信誉库）
+
+抓源脚本 `main.py` 有三道准入闸门：永久黑名单、**失效缓存**、**主机信誉库**。后两者由 `scripts/stream_check.py` 维护，状态存在 `data/stream-check/`（不进仓库，GitHub Actions 用 cache 滚动保存）：
+
+| 文件 | 作用 |
+|------|------|
+| `config.json` | 过期策略：超时 12h、404/连接失败 168h、连续失败 ≥5 次且首失败 ≥7 天拉长到 720h |
+| `failure-cache.json` | 单个地址的失效记录，按 URL 匹配，到期自动放行 |
+| `host-reputation.json` | 按域名/IP:端口累计失败；同一主机 ≥10 个地址、跨 ≥2 天、强失效 ≥8 次且零成功 → 临时跳过 72h，持续 30 天转"待人工复核" |
+
+```bash
+python3 scripts/stream_check.py                     # 复检过期失效 + 轮转抽样发现新失效
+python3 scripts/stream_check.py --record-all        # 本机实测时用：超时也算证据
+python3 scripts/stream_check.py --discover-only     # 只抽样发现，不复检
+```
+
+流水线里每班跑「复检 1800 条 + 抽样 500 条」。默认只认**与网络位置无关的硬错误**（连接失败 / 404），超时、403、5xx 一律忽略——海外 CI 的超时不代表国内看不了，这也是不采用云端测速排序的原因。
+
 ## EPG 数据源
 
 | 来源 | 说明 |
