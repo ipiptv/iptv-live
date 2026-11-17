@@ -5,7 +5,9 @@ on:
     # 三班，间隔 8 小时：UTC 21:30 / 05:30 / 13:30 = 北京 05:30 / 13:30 / 21:30
     - cron: "30 21,5,13 * * *"
   workflow_dispatch:
-# ← 添加这行，允许手动触发测试
+  # 临时：网页 Run workflow 按钮在手机端不渲染，改用 push 触发这一次验证
+  push:
+    branches: [main]
 
 permissions:
   contents: write
