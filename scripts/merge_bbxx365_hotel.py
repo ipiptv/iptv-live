@@ -151,8 +151,11 @@ def fetch_ott():
     import urllib.request
 
     url = ott_sub_url()
-    if not url:
-        print("警告：未配置 OTT_SUB_URL，跳过付费源拉取", file=sys.stderr)
+    if not url or not url.lower().startswith(("http://", "https://")):
+        print(
+            "警告：OTT_SUB_URL 未配置或不是完整网址（当前长度 %d），跳过付费源拉取" % len(url),
+            file=sys.stderr,
+        )
         if os.path.exists(OTT_CACHE) and os.path.getsize(OTT_CACHE) > 0:
             print("使用缓存 %s" % OTT_CACHE, file=sys.stderr)
             return read_lines(OTT_CACHE)
