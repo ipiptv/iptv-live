@@ -12,7 +12,7 @@
 #   未配置时脚本直接跳过，流水线不会失败。
 set -euo pipefail
 
-FILES="bbxx365.m3u bbxx365_hotel.m3u bbxx365_lite.m3u bbxx365_mini.m3u bbxx365_mini_home.m3u"
+FILES="bbxx365.m3u bbxx365_hotel.m3u bbxx365_lite.m3u bbxx365_mini.m3u bbxx365_mini_home.m3u hotel_tvn.m3u"
 GITEE_REPO="git@gitee.com:IptvIptv/Iptv.git"
 WORK="${GITHUB_WORKSPACE:-$(pwd)}"
 

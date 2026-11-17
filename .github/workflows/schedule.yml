@@ -83,6 +83,9 @@ jobs:
         run: python main.py
 
       - name: Merge bbxx365 + hotel_tvn (whitelist)
+        env:
+          # 付费源订阅地址含账号凭证，走 Secret，不写进仓库
+          OTT_SUB_URL: ${{ secrets.OTT_SUB_URL }}
         run: python scripts/merge_bbxx365_hotel.py
 
       # 迷你版：只留央视/卫视/专享/4K/国际台，每频道 2 条源，约 70KB。

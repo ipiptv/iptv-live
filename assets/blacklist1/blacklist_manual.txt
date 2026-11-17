@@ -435,3 +435,4 @@ CCTV 中國央視,https://www.goodiptv.club/youtube/bEZYrBMYNNg
 高分科幻动作片,https://www.goodiptv.club/yy/1382749948
 外国科幻大片,https://www.goodiptv.club/yy/1382747628
 国内科幻片,https://www.goodiptv.club/yy/1382745110
+CCTV1 广告源,http://120.237.39.10:9901/tsfile/live/1015_1.m3u8?key=txiptv&playlive=1&down=1

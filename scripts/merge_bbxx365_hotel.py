@@ -23,6 +23,27 @@ OUT = os.path.join(ROOT, "m3u", "bbxx365_hotel.m3u")
 
 HEADER = '#EXTM3U x-tvg-url="https://live.fanmingming.cn/e.xml,https://tv.whyun.com/epg/51zmt.xml"\n'
 
+# ottiptv 付费订阅源：需要 UA=qqlive 才能播，缓存到 m3u/ottiptv.m3u 供下次兜底
+# 订阅地址含账号凭证，不能写进公开仓库：优先读环境变量 OTT_SUB_URL（云端用 GitHub Secret），
+# 本地可放在 data/ott_sub_url.txt（已 gitignore）
+OTT_URL_FILE = os.path.join(ROOT, "data", "ott_sub_url.txt")
+OTT_CACHE = os.path.join(ROOT, "m3u", "ottiptv.m3u")
+OTT_UA = "qqlive"
+OTT_PREFIX = "🎯"
+
+
+def ott_sub_url():
+    url = os.environ.get("OTT_SUB_URL", "").strip()
+    if url:
+        return url
+    if os.path.exists(OTT_URL_FILE):
+        try:
+            with open(OTT_URL_FILE, "r", encoding="utf-8") as f:
+                return f.read().strip()
+        except OSError:
+            pass
+    return ""
+
 # 更新时间分组只保留一条，播放地址固定为这个
 UPDATE_URL = (
     "https://txmov2.a.kwimgs.com/upic/2024/01/09/12/"
@@ -34,8 +55,9 @@ UPDATE_URL = (
 GROUPS = [
     ("央视频道", "❤️央视频道"),
     ("卫视频道", "❤️卫视频道"),
-    ("专享卫视", "❤️专享卫视"),
-    ("专享央视", "❤️专享央视"),
+    # 专享卫视/专享央视不再单独成组：卫视类并入卫视频道，央视类并入央视频道
+    ("专享卫视", "❤️卫视频道"),
+    ("专享央视", "❤️央视频道"),
     ("儿童专享", "💓儿童专享"),
     ("电影点播", "❤️电影点播"),
     ("电视剧", "💓电视剧"),
@@ -43,7 +65,8 @@ GROUPS = [
     ("港澳台", "💓港澳台"),   # 同时覆盖“港澳台”与“💓港澳台📶”
     ("国际台", "💕国际台"),
     ("4K(Auto)", "💓4K(Auto)"),
-    ("4K(Test)", "💓4K(Test)"),
+    # 4K 只保留一组：4K(Test) 并入 4K(Auto)
+    ("4K(Test)", "💓4K(Auto)"),
     ("更新时间", "❤️更新时间"),
 ]
 
@@ -119,12 +142,119 @@ def build_hotel(lines):
     return buckets
 
 
+def channel_name(extinf):
+    return extinf.split(",", 1)[1].strip() if "," in extinf else extinf
+
+
+def fetch_ott():
+    """抓 ottiptv 订阅；失败时回退到上次缓存。返回行列表或 None。"""
+    import urllib.request
+
+    url = ott_sub_url()
+    if not url:
+        print("警告：未配置 OTT_SUB_URL，跳过付费源拉取", file=sys.stderr)
+        if os.path.exists(OTT_CACHE) and os.path.getsize(OTT_CACHE) > 0:
+            print("使用缓存 %s" % OTT_CACHE, file=sys.stderr)
+            return read_lines(OTT_CACHE)
+        return None
+
+    req = urllib.request.Request(url, headers={"User-Agent": OTT_UA})
+    try:
+        with urllib.request.urlopen(req, timeout=45) as resp:
+            data = resp.read().decode("utf-8", "ignore")
+        if "#EXTINF" not in data:
+            raise ValueError("返回内容不是 m3u")
+        os.makedirs(os.path.dirname(OTT_CACHE), exist_ok=True)
+        with open(OTT_CACHE, "w", encoding="utf-8") as f:
+            f.write(data)
+        print("ottiptv 拉取成功：%d 字节" % len(data.encode("utf-8")))
+        return data.splitlines()
+    except Exception as exc:
+        print("警告：ottiptv 拉取失败（%s），尝试使用缓存" % exc, file=sys.stderr)
+        if os.path.exists(OTT_CACHE) and os.path.getsize(OTT_CACHE) > 0:
+            print("使用缓存 %s" % OTT_CACHE, file=sys.stderr)
+            return read_lines(OTT_CACHE)
+        return None
+
+
+def build_ott(lines):
+    """按原分组归桶，分组名统一加 🎯 前缀；每条注入 UA，避免播放器手动设置。"""
+    buckets = {}
+    order = []
+    i = 0
+    while i < len(lines):
+        if lines[i].startswith("#EXTINF"):
+            extinf = lines[i]
+            j = i + 1
+            while j < len(lines) and lines[j].startswith("#"):
+                j += 1
+            if j < len(lines):
+                url = lines[j].strip()
+                if url.startswith("http"):
+                    group = get_group(extinf) or "其他"
+                    target = OTT_PREFIX + group
+                    if target not in buckets:
+                        buckets[target] = []
+                        order.append(target)
+                    buckets[target].append(
+                        (
+                            set_group(extinf, target)
+                            + (
+                                "\n#EXTVLCOPT:http-user-agent=" + OTT_UA
+                                if os.environ.get("OTT_UA_INJECT", "0") != "0"
+                                else ""
+                            ),
+                            url,
+                        )
+                    )
+                i = j + 1
+                continue
+        i += 1
+    return buckets, order
+
+
+def dedupe_buckets(buckets):
+    """按目标分组去重。
+
+    1) 同一分组内「同名 + 同址」重复的只保留一条（同一个网址只出现一次）；
+    2) 跨分组同名的频道只保留在优先级最高的分组里（GROUPS 顺序即优先级，
+       例如 CCTV4K 同时出现在 4K 组与央视组时，只留在央视组）。
+    同一频道在同一分组内的多条不同地址全部保留（那是备选源，不是重复）。
+    """
+    merged = {}
+    order = []
+    for idx, (_, target) in enumerate(GROUPS):
+        if target not in merged:
+            merged[target] = []
+            order.append(target)
+        merged[target].extend(buckets[idx])
+
+    result = {target: [] for target in order}
+    claimed_prev = set()
+    for target in order:
+        seen_key = set()
+        out = []
+        for extinf, url in merged[target]:
+            name = channel_name(extinf)
+            if name in claimed_prev:
+                continue
+            key = (name, url)
+            if key in seen_key:
+                continue
+            seen_key.add(key)
+            out.append((extinf, url))
+        result[target] = out
+        claimed_prev |= {channel_name(e) for e, _ in out}
+    return result, order
+
+
 def main():
     if not os.path.exists(BBXX):
         print("缺少 %s，请先运行 main.py" % BBXX, file=sys.stderr)
         return 1
 
-    bbxx_buckets = build_bbxx(read_lines(BBXX))
+    bbxx_raw = build_bbxx(read_lines(BBXX))
+    bbxx_buckets, group_order = dedupe_buckets(bbxx_raw)
 
     if os.path.exists(HOTEL) and os.path.getsize(HOTEL) > 0:
         hotel_buckets = build_hotel(read_lines(HOTEL))
@@ -139,10 +269,24 @@ def main():
         for extinf, url in hotel_buckets[g]:
             result.append(extinf)
             result.append(url)
-    for idx in range(len(GROUPS)):
-        for extinf, url in bbxx_buckets[idx]:
+    for target in group_order:
+        for extinf, url in bbxx_buckets[target]:
             result.append(extinf)
             result.append(url)
+
+    # ottiptv 付费源放最后，分组保留原结构，分组名加 🎯
+    # OTT_ENABLE=0 可临时关掉（播放器不支持 #EXTVLCOPT 时用）
+    ott_raw = fetch_ott() if os.environ.get("OTT_ENABLE", "1") != "0" else None
+    ott_buckets, ott_order = ({}, [])
+    if ott_raw:
+        ott_buckets, ott_order = build_ott(ott_raw)
+        for target in ott_order:
+            for extinf, url in ott_buckets[target]:
+                result.append(extinf)
+                result.append(url)
+    else:
+        print("警告：本次没有 ottiptv 内容", file=sys.stderr)
+
 
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as f:
@@ -153,10 +297,13 @@ def main():
     total = sum(1 for l in result if l.startswith("#EXTINF"))
     print("酒店源频道数: %d" % hotel_count)
     print("bbxx365 白名单频道数: %d" % sum(len(v) for v in bbxx_buckets.values()))
+    print("ottiptv 频道数: %d" % sum(len(v) for v in ott_buckets.values()))
     print("合并完成: %s（共 %d 个频道）" % (OUT, total))
 
-    for idx, (_, name) in enumerate(GROUPS):
-        print("  %-12s %d" % (name, len(bbxx_buckets[idx])))
+    for target in group_order:
+        print("  %-12s %d" % (target, len(bbxx_buckets[target])))
+    for target in ott_order:
+        print("  %-12s %d" % (target, len(ott_buckets[target])))
     return 0
 
 
