@@ -144,6 +144,8 @@ jobs:
           for f in bbxx365.m3u bbxx365_lite.m3u bbxx365_hotel.m3u bbxx365_mini.m3u bbxx365_mini_home.m3u bbxx365.txt bbxx365_lite.txt sources.json; do
             [ -f "$GITHUB_WORKSPACE/m3u/$f" ] && cp "$GITHUB_WORKSPACE/m3u/$f" .
           done
+          # 后台管理页也镜像过去，供 GitHub Pages 直接当网页打开
+          [ -f "$GITHUB_WORKSPACE/admin.html" ] && cp "$GITHUB_WORKSPACE/admin.html" .
           git add -A
           git -c user.name="github-actions[bot]" \
               -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
