@@ -82,6 +82,29 @@ jobs:
         timeout-minutes: 30
         run: python main.py
 
+      # 上游源列表同步：把 kimwang1978/collect-txt 的 主频道/专区/地方台/手工区/*.txt
+      # 镜像过来（只新增和更新，本地改过的不覆盖，上游删的保留），再回写仓库，
+      # 这样上游加了新源地址，本仓库第二天就跑到了。
+      - name: Sync upstream source lists
+        timeout-minutes: 10
+        run: python scripts/sync_upstream_sources.py
+        env:
+          UPSTREAM_REPO: kimwang1978/collect-txt
+
+      - name: Commit upstream sync (only when changed)
+        run: |
+          set -e
+          git config user.name "iptv-bot"
+          git config user.email "ipiptv@users.noreply.github.com"
+          git add 主频道 专区 地方台 手工区
+          if git diff --cached --quiet; then
+            echo "上游源列表无变化，跳过提交"
+          else
+            git commit -m "chore: 同步上游源列表 $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git push origin HEAD:main
+            echo "已提交并推送上游更新"
+          fi
+
       - name: Merge bbxx365 + hotel_tvn (whitelist)
         env:
           # 付费源订阅地址含账号凭证，走 Secret，不写进仓库
