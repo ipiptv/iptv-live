@@ -20,6 +20,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BBXX = os.path.join(ROOT, "m3u", "bbxx365.m3u")
 HOTEL = os.path.join(ROOT, "m3u", "hotel_tvn.m3u")
 OUT = os.path.join(ROOT, "m3u", "bbxx365_hotel.m3u")
+OTT_OUT = os.path.join(ROOT, "m3u", "bbxx365_ott.m3u")
 
 HEADER = '#EXTM3U x-tvg-url="https://live.fanmingming.cn/e.xml,https://tv.whyun.com/epg/51zmt.xml"\n'
 
@@ -277,18 +278,19 @@ def main():
             result.append(extinf)
             result.append(url)
 
-    # ottiptv 付费源放最后，分组保留原结构，分组名加 🎯
-    # OTT_ENABLE=0 可临时关掉（播放器不支持 #EXTVLCOPT 时用）
+    # ottiptv 付费源单独成一份（bbxx365_ott.m3u），不再混进主力源
+    # OTT_ENABLE=0 可临时关掉
     ott_raw = fetch_ott() if os.environ.get("OTT_ENABLE", "1") != "0" else None
     ott_buckets, ott_order = ({}, [])
+    ott_lines = []
     if ott_raw:
         ott_buckets, ott_order = build_ott(ott_raw)
         for target in ott_order:
             for extinf, url in ott_buckets[target]:
-                result.append(extinf)
-                result.append(url)
+                ott_lines.append(extinf)
+                ott_lines.append(url)
     else:
-        print("警告：本次没有 ottiptv 内容", file=sys.stderr)
+        print("警告：本次没有 ottiptv 内容，付费源文件保持上一版", file=sys.stderr)
 
 
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
@@ -297,10 +299,18 @@ def main():
         f.write("\n".join(result))
         f.write("\n")
 
+    ott_total = 0
+    if ott_lines:
+        with open(OTT_OUT, "w", encoding="utf-8") as f:
+            f.write(HEADER)
+            f.write("\n".join(ott_lines))
+            f.write("\n")
+        ott_total = sum(1 for l in ott_lines if l.startswith("#EXTINF"))
+
     total = sum(1 for l in result if l.startswith("#EXTINF"))
     print("酒店源频道数: %d" % hotel_count)
     print("bbxx365 白名单频道数: %d" % sum(len(v) for v in bbxx_buckets.values()))
-    print("ottiptv 频道数: %d" % sum(len(v) for v in ott_buckets.values()))
+    print("ottiptv 频道数: %d（已单列到 %s）" % (ott_total, OTT_OUT))
     print("合并完成: %s（共 %d 个频道）" % (OUT, total))
 
     for target in group_order:
