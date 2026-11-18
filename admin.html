@@ -189,13 +189,14 @@
     <div class="settings-bar">
         <div class="settings-row">
             <input type="text" id="github-token" placeholder="GitHub Token（用于同步配置）" value="">
-            <input type="text" id="github-repo" placeholder="仓库名，如 ipiptv/collect-txt" value="ipiptv/collect-txt">
+            <input type="text" id="github-repo" placeholder="仓库名，如 ipiptv/collect-txt" value="ipiptv/iptv-sources">
             <button class="btn btn-secondary" onclick="loadFromGitHub()">同步</button>
         </div>
         <div class="sync-status" id="sync-status">未同步</div>
     </div>
 
     <div class="container">
+        <div class="sync-status" id="meta-line" style="margin-bottom:12px;"></div>
         <div id="source-list"></div>
     </div>
 
@@ -222,25 +223,83 @@
     </div>
 
     <script>
+        // 预设订阅：指向本流水线自己的产物（Gitee 镜像，国内直连），内容由云端自动覆盖，
+        // 条数/更新时间从同目录 sources.json 自动读取，不需要手改这个页面。
         const DEFAULT_SOURCES = [
-            { id: 1, name: '纯净版（推荐）', url: 'https://cdn.jsdelivr.net/gh/ipiptv/collect-txt@main/chunjingban.m3u', note: '已测速 · 每日更新', tested: true },
-            { id: 2, name: '央视', url: 'https://cdn.jsdelivr.net/gh/ipiptv/collect-txt@main/cctv.m3u', note: 'CCTV 系列', tested: false },
-            { id: 3, name: '卫视', url: 'https://cdn.jsdelivr.net/gh/ipiptv/collect-txt@main/weishi.m3u', note: '各省级卫视', tested: false },
-            { id: 4, name: '港澳台', url: 'https://cdn.jsdelivr.net/gh/ipiptv/collect-txt@main/gangaotai.m3u', note: '香港、澳门、台湾', tested: false },
-            { id: 5, name: '体育', url: 'https://cdn.jsdelivr.net/gh/ipiptv/collect-txt@main/sports.m3u', note: '体育频道', tested: false },
-            { id: 6, name: '4K', url: 'https://cdn.jsdelivr.net/gh/ipiptv/collect-txt@main/4k.m3u', note: '超高清', tested: false }
+            { id: 1, name: '合并版（主力）', url: 'https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_hotel.m3u', note: '酒店源 + 付费源', tested: true },
+            { id: 2, name: '全集版', url: 'https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365.m3u', note: '全部源，最杂', tested: false },
+            { id: 3, name: '精简版', url: 'https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_lite.m3u', note: '挑过的常规源', tested: false },
+            { id: 4, name: '迷你版', url: 'https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_mini.m3u', note: '弱网 / 播放器超时短', tested: false },
+            { id: 5, name: '本机实测版', url: 'https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_mini_home.m3u', note: '家里联通实测', tested: true },
+            { id: 6, name: '酒店源', url: 'https://gitee.com/IptvIptv/Iptv/raw/master/hotel_tvn.m3u', note: '频道少但相对稳', tested: false }
         ];
 
-        let sources = JSON.parse(localStorage.getItem('iptv_sources') || 'null') || [...DEFAULT_SOURCES];
+        // 默认列表的版本号：一旦这里的预设换了，浏览器里存的旧列表会自动作废，
+        // 免得打开页面还显示上一次的旧订阅（这就是之前"改了又被覆盖"的真相）。
+        const DEFAULT_VERSION = 'v2026-11-18';
+
+        function loadStoredSources() {
+            try {
+                const raw = JSON.parse(localStorage.getItem('iptv_sources'));
+                if (raw && raw.__v === DEFAULT_VERSION && Array.isArray(raw.list)) {
+                    return raw.list;
+                }
+            } catch (e) { /* 解析失败就当没有 */ }
+            return null;
+        }
+
+        let sources = loadStoredSources() || [...DEFAULT_SOURCES];
+        let meta = {};
+        let metaUpdatedAt = '';
         let editingId = null;
         let configSha = null;
 
         // 从本地存储加载 Token 和仓库
         document.getElementById('github-token').value = localStorage.getItem('github_token') || '';
-        document.getElementById('github-repo').value = localStorage.getItem('github_repo') || 'ipiptv/collect-txt';
+        document.getElementById('github-repo').value = localStorage.getItem('github_repo') || 'ipiptv/iptv-sources';
 
         function saveToLocal() {
-            localStorage.setItem('iptv_sources', JSON.stringify(sources));
+            localStorage.setItem('iptv_sources', JSON.stringify({ __v: DEFAULT_VERSION, list: sources }));
+        }
+
+        function fileOf(url) {
+            return (url || '').split('#')[0].split('?')[0].split('/').pop();
+        }
+
+        function countBadge(url) {
+            const it = meta[fileOf(url)];
+            if (!it || !it.count) return '';
+            return `<span class="badge badge-green">${it.count} 条 · ${it.groups || '?'} 组</span>`;
+        }
+
+        // 每次打开页面都重新拉一次产物清单，条数和更新时间跟着流水线走
+        async function loadMeta() {
+            const urls = [
+                'https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/sources.json',
+                'https://gitee.com/IptvIptv/Iptv/raw/master/sources.json',
+                'm3u/sources.json'
+            ];
+            for (const u of urls) {
+                try {
+                    const r = await fetch(u, { cache: 'no-store' });
+                    if (!r.ok) continue;
+                    const j = await r.json();
+                    if (!j || !j.sources) continue;
+                    meta = {};
+                    j.sources.forEach(it => { meta[it.file] = it; });
+                    metaUpdatedAt = j.updated_at_cst || j.updated_at || '';
+                    updateMetaLine();
+                    render();
+                    return;
+                } catch (e) { /* 换下一个源 */ }
+            }
+        }
+
+        function updateMetaLine() {
+            const el = document.getElementById('meta-line');
+            if (el) {
+                el.textContent = metaUpdatedAt ? `产物更新时间：${metaUpdatedAt}（北京时间，每天自动更新 3 次）` : '';
+            }
         }
 
         function render() {
@@ -252,6 +311,7 @@
                             <span class="source-name">${s.name}</span>
                             ${s.tested ? '<span class="badge badge-green">已测速</span>' : '<span class="badge badge-orange">未测速</span>'}
                             ${s.note ? `<span class="badge badge-blue">${s.note}</span>` : ''}
+                            ${countBadge(s.url)}
                         </div>
                         <div class="source-actions">
                             <button class="btn btn-secondary" onclick="editSource(${s.id})">编辑</button>
@@ -423,6 +483,7 @@
         // 页面加载时自动同步
         window.onload = function() {
             render();
+            loadMeta();
             const token = document.getElementById('github-token').value.trim();
             const repo = document.getElementById('github-repo').value.trim();
             if (token && repo) {
