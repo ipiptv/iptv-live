@@ -83,6 +83,9 @@ const withFetchSlot = async <T>(task: () => Promise<T>): Promise<T> => {
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
+/** 单个上游源最多等 30 秒，超时按失败处理并走重试 */
+const FETCH_TIMEOUT_MS = 30000;
+
 export const getContent = (src: IRemoteSource) =>
   withFetchSlot(async () => {
     const now = hrtime.bigint();
@@ -93,7 +96,8 @@ export const getContent = (src: IRemoteSource) =>
     // 网络错误和 5xx 视为临时故障重试，4xx 直接返回
     for (let attempt = 1; ; attempt++) {
       try {
-        const res = await fetch(url);
+        // 加超时：个别上游挂住时不能一直等下去（之前会卡在 pnpm m3u 十几分钟不动）
+        const res = await fetch(url, { signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
         if (res.status < 500 || attempt >= FETCH_RETRIES) {
           return [res.ok, await res.text(), now] as const;
         }
