@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-18T12:23:26Z",
-  "updated_at_cst": "2026-11-18 20:23",
+  "updated_at": "2026-11-18T12:50:18Z",
+  "updated_at_cst": "2026-11-18 20:50",
   "sources": [
     {
       "file": "bbxx365_hotel.m3u",
@@ -8,16 +8,16 @@
       "note": "常规分组 + 🌹酒店源，已按规则归并去重；付费源已单独一份",
       "gitee": "https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_hotel.m3u",
       "github": "https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_hotel.m3u",
-      "count": 11637,
+      "count": 11563,
       "groups": 13
     },
     {
       "file": "bbxx365.m3u",
       "name": "全集版",
-      "note": "全部源，不筛不并，条数最多，失效源也最多",
+      "note": "全部源，不筛不并；已删同名同地址的完全重复，同频道多条备用源保留",
       "gitee": "https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365.m3u",
       "github": "https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365.m3u",
-      "count": 17835,
+      "count": 16266,
       "groups": 69
     },
     {
@@ -26,7 +26,7 @@
       "note": "挑过的常规源，比全集干净，比合并版杂",
       "gitee": "https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_lite.m3u",
       "github": "https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_lite.m3u",
-      "count": 6898,
+      "count": 6887,
       "groups": 24
     },
     {
@@ -35,7 +35,7 @@
       "note": "只留央视/卫视/专享/4K/国际台，每台 2 条源，弱网和播放器超时短时用",
       "gitee": "https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_mini.m3u",
       "github": "https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_mini.m3u",
-      "count": 470,
+      "count": 457,
       "groups": 4
     },
     {
