@@ -13,6 +13,9 @@ coverage
 # bbxx365 runtime output
 m3u/
 work/
-data/
+data/*
 history/
 *.zip
+
+# 上游同步基线必须跟仓库走，否则云端每天都是"首次同步"
+!data/upstream_sync_state.json

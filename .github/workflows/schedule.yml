@@ -96,7 +96,7 @@ jobs:
           set -e
           git config user.name "iptv-bot"
           git config user.email "ipiptv@users.noreply.github.com"
-          git add 主频道 专区 地方台 手工区
+          git add 主频道 专区 地方台 手工区 data/upstream_sync_state.json
           if git diff --cached --quiet; then
             echo "上游源列表无变化，跳过提交"
           else
