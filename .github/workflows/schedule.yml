@@ -82,6 +82,11 @@ jobs:
         timeout-minutes: 30
         run: python main.py
 
+      # 全集版只删「完全重复」：同一个频道名 + 同一个播放地址（分组标签不同也算重复）。
+      # 同频道不同地址的备用源全部保留，顺序不动。
+      - name: Dedupe exact duplicates (bbxx365.m3u)
+        run: python scripts/dedupe_exact.py m3u/bbxx365.m3u
+
       # 上游源列表同步：把 kimwang1978/collect-txt 的 主频道/专区/地方台/手工区/*.txt
       # 镜像过来（只新增和更新，本地改过的不覆盖，上游删的保留），再回写仓库，
       # 这样上游加了新源地址，本仓库第二天就跑到了。
