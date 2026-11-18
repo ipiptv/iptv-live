@@ -1,15 +1,15 @@
 {
-  "updated_at": "2026-11-18T03:05:48Z",
-  "updated_at_cst": "2026-11-18 11:05",
+  "updated_at": "2026-11-18T12:23:26Z",
+  "updated_at_cst": "2026-11-18 20:23",
   "sources": [
     {
       "file": "bbxx365_hotel.m3u",
-      "name": "合并版（酒店源 + 付费源）",
-      "note": "主力推荐：常规分组 + 🌹酒店源 + 🎯付费源，已按规则归并去重",
+      "name": "合并版（主力）",
+      "note": "常规分组 + 🌹酒店源，已按规则归并去重；付费源已单独一份",
       "gitee": "https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_hotel.m3u",
       "github": "https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_hotel.m3u",
-      "count": 12104,
-      "groups": 29
+      "count": 11637,
+      "groups": 13
     },
     {
       "file": "bbxx365.m3u",
@@ -17,7 +17,7 @@
       "note": "全部源，不筛不并，条数最多，失效源也最多",
       "gitee": "https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365.m3u",
       "github": "https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365.m3u",
-      "count": 18176,
+      "count": 17835,
       "groups": 69
     },
     {
@@ -26,7 +26,7 @@
       "note": "挑过的常规源，比全集干净，比合并版杂",
       "gitee": "https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_lite.m3u",
       "github": "https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_lite.m3u",
-      "count": 6926,
+      "count": 6898,
       "groups": 24
     },
     {
@@ -35,7 +35,7 @@
       "note": "只留央视/卫视/专享/4K/国际台，每台 2 条源，弱网和播放器超时短时用",
       "gitee": "https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_mini.m3u",
       "github": "https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_mini.m3u",
-      "count": 479,
+      "count": 470,
       "groups": 4
     },
     {
@@ -45,6 +45,15 @@
       "gitee": "https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_mini_home.m3u",
       "github": "https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_mini_home.m3u",
       "missing": true
+    },
+    {
+      "file": "bbxx365_ott.m3u",
+      "name": "付费源（ottiptv）",
+      "note": "单独一份：🎯 分组，播放器需把 UA 设为 qqlive",
+      "gitee": "https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_ott.m3u",
+      "github": "https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_ott.m3u",
+      "count": 223,
+      "groups": 16
     },
     {
       "file": "hotel_tvn.m3u",

@@ -226,17 +226,18 @@
         // 预设订阅：指向本流水线自己的产物（Gitee 镜像，国内直连），内容由云端自动覆盖，
         // 条数/更新时间从同目录 sources.json 自动读取，不需要手改这个页面。
         const DEFAULT_SOURCES = [
-            { id: 1, name: '合并版（主力）', url: 'https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_hotel.m3u', note: '酒店源 + 付费源', tested: true },
+            { id: 1, name: '合并版（主力）', url: 'https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_hotel.m3u', note: '常规 + 酒店源', tested: true },
             { id: 2, name: '全集版', url: 'https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365.m3u', note: '全部源，最杂', tested: false },
             { id: 3, name: '精简版', url: 'https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_lite.m3u', note: '挑过的常规源', tested: false },
             { id: 4, name: '迷你版', url: 'https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_mini.m3u', note: '弱网 / 播放器超时短', tested: false },
             { id: 5, name: '本机实测版', url: 'https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_mini_home.m3u', note: '家里联通实测', tested: true },
-            { id: 6, name: '酒店源', url: 'https://gitee.com/IptvIptv/Iptv/raw/master/hotel_tvn.m3u', note: '频道少但相对稳', tested: false }
+            { id: 6, name: '付费源 ottiptv', url: 'https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_ott.m3u', note: '需 UA qqlive', tested: false },
+            { id: 7, name: '酒店源', url: 'https://gitee.com/IptvIptv/Iptv/raw/master/hotel_tvn.m3u', note: '频道少但相对稳', tested: false }
         ];
 
         // 默认列表的版本号：一旦这里的预设换了，浏览器里存的旧列表会自动作废，
         // 免得打开页面还显示上一次的旧订阅（这就是之前"改了又被覆盖"的真相）。
-        const DEFAULT_VERSION = 'v2026-11-18';
+        const DEFAULT_VERSION = 'v2026-11-18b';
 
         function loadStoredSources() {
             try {
