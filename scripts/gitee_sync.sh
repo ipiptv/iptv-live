@@ -12,7 +12,12 @@
 #   未配置时脚本直接跳过，流水线不会失败。
 set -euo pipefail
 
-FILES="bbxx365.m3u bbxx365_hotel.m3u bbxx365_ott.m3u bbxx365_lite.m3u bbxx365_mini.m3u bbxx365_mini_home.m3u hotel_tvn.m3u sources.json e.xml cc.xml difang.xml"
+# 节目单：EPG 仓 output 分支有多少分类就同步多少（e.xml/cc.xml/difang.xml/gat.xml…）
+XML_FILES=""
+for x in "$WORK"/m3u/*.xml "$WORK"/m3u/*.xml.gz; do
+  [ -f "$x" ] && XML_FILES="$XML_FILES $(basename "$x")"
+done
+FILES="bbxx365.m3u bbxx365_hotel.m3u bbxx365_ott.m3u bbxx365_lite.m3u bbxx365_mini.m3u bbxx365_mini_home.m3u hotel_tvn.m3u sources.json$XML_FILES"
 GITEE_REPO="git@gitee.com:IptvIptv/Iptv.git"
 WORK="${GITHUB_WORKSPACE:-$(pwd)}"
 

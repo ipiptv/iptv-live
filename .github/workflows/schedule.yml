@@ -185,17 +185,33 @@ jobs:
       # 同步一份到 Gitee（国内访问快）。Gitee 会审查仓库内容，含 VOA/美国之音的条目
       # 会让整份 m3u 变成 451，所以这里推的是剔除这些条目后的干净版；
       # GitHub raw 仍然是完整版本。
-      # EPG 节目单：从 ipiptv/EPG 仓库的 output 分支拉 xml，随本流水线一起同步到 Gitee
-      - name: Fetch EPG xml (from ipiptv/EPG output branch)
+      # EPG 节目单：自动读取 ipiptv/EPG 的 output 分支文件清单，有多少分类就拉多少
+      - name: Fetch EPG xml (all categories from ipiptv/EPG output branch)
         continue-on-error: true
         run: |
-          for f in e.xml cc.xml difang.xml; do
-            if curl -fsSL --retry 3 --max-time 120 "https://raw.githubusercontent.com/ipiptv/EPG/output/$f" -o "m3u/$f"; then
-              echo "已获取 EPG: $f ($(wc -c < m3u/$f) 字节)"
-            else
-              echo "跳过 EPG: $f（本次没取到）"
-            fi
-          done
+          python3 - <<'PY'
+          import json, urllib.request, pathlib
+          def get(url, timeout=180):
+              req = urllib.request.Request(url, headers={'User-Agent': 'iptv-sources'})
+              return urllib.request.urlopen(req, timeout=timeout).read()
+          names = []
+          try:
+              items = json.loads(get('https://api.github.com/repos/ipiptv/EPG/contents/?ref=output', 60))
+              names = [x['name'] for x in items if x.get('name','').endswith(('.xml','.xml.gz'))]
+          except Exception as e:
+              print('读取 EPG 清单失败，用默认列表:', e)
+              names = ['e.xml', 'cc.xml', 'difang.xml', 'gat.xml']
+          ok = 0
+          for n in names:
+              try:
+                  data = get('https://raw.githubusercontent.com/ipiptv/EPG/output/' + n)
+                  pathlib.Path('m3u/' + n).write_bytes(data)
+                  print('已获取 EPG: %s (%d 字节)' % (n, len(data)))
+                  ok += 1
+              except Exception as e:
+                  print('跳过 EPG: %s (%s)' % (n, e))
+          print('本次共获取 %d/%d 个节目单文件' % (ok, len(names)))
+          PY
 
       - name: Sync m3u to Gitee (CN-friendly mirror)
         env:
