@@ -65,6 +65,12 @@ print(f"{dst}: {len(out)} 行")
 PY
 done
 
+# 后台管理页：从仓库根目录直接复制（不过滤频道，它不是 m3u）
+if [ -f "$WORK/admin.html" ]; then
+  cp "$WORK/admin.html" /tmp/gitee/admin.html
+  echo "admin.html: 已复制到 Gitee 根目录"
+fi
+
 cd /tmp/gitee
 git add -A
 if git diff --cached --quiet; then
