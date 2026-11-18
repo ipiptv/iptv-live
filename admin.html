@@ -275,14 +275,17 @@
         // 每次打开页面都重新拉一次产物清单，条数和更新时间跟着流水线走
         async function loadMeta() {
             const urls = [
-                'https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/sources.json',
-                'https://gitee.com/IptvIptv/Iptv/raw/master/sources.json',
                 'sources.json',
+                'https://gitee.com/IptvIptv/Iptv/raw/master/sources.json',
+                'https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/sources.json',
                 'm3u/sources.json'
             ];
             for (const u of urls) {
                 try {
-                    const r = await fetch(u, { cache: 'no-store' });
+                    const ctl = new AbortController();
+                    const timer = setTimeout(() => ctl.abort(), 5000);
+                    const r = await fetch(u, { cache: 'no-store', signal: ctl.signal });
+                    clearTimeout(timer);
                     if (!r.ok) continue;
                     const j = await r.json();
                     if (!j || !j.sources) continue;
