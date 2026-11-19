@@ -19,3 +19,7 @@ history/
 
 # 上游同步基线必须跟仓库走，否则云端每天都是"首次同步"
 !data/upstream_sync_state.json
+
+# 上游关键源的落盘兜底缓存必须跟仓库走
+!data/upstream-cache/
+!data/upstream-cache/*.m3u

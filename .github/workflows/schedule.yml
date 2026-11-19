@@ -102,10 +102,15 @@ jobs:
           git config user.name "iptv-bot"
           git config user.email "ipiptv@users.noreply.github.com"
           git add 主频道 专区 地方台 手工区 data/upstream_sync_state.json
+          # 关键源的落盘兜底缓存（拉不到上游时用它续命），也要跟着仓库走
+          if [ -d data/upstream-cache ]; then
+            git add data/upstream-cache
+            find data/upstream-cache -name '*.m3u' -exec ls -l {} \; | awk '{print "缓存:", $9, $5, "字节"}'
+          fi
           if git diff --cached --quiet; then
-            echo "上游源列表无变化，跳过提交"
+            echo "上游源列表与缓存均无变化，跳过提交"
           else
-            git commit -m "chore: 同步上游源列表 $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git commit -m "chore: 同步上游源列表与缓存 $(date -u '+%Y-%m-%d %H:%M UTC')"
             git push origin HEAD:main
             echo "已提交并推送上游更新"
           fi

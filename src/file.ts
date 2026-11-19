@@ -86,6 +86,46 @@ const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 /** 单个上游源最多等 30 秒，超时按失败处理并走重试 */
 const FETCH_TIMEOUT_MS = 30000;
 
+/**
+ * 关键源的落盘兜底。
+ * 这些上游（GitHub raw / pages.dev）国内时常拉不到，一失败这一轮就会少一批频道。
+ * 这里在拉成功时把原文存一份到 data/upstream-cache/，拉失败就改读上一次的缓存，
+ * 保证每轮产物都完整；换缓存与仓库同步由流水线负责提交。
+ */
+const UPSTREAM_CACHE_DIR = path.join(projectRoot, 'data', 'upstream-cache');
+const UPSTREAM_CACHE_FILES = new Set([
+  'o_cn',
+  'o_s_cn',
+  'fmml_ipv6',
+  'fmml_itv',
+  'hotel_tvn',
+  'cymz6_lives',
+]);
+
+const upstreamCachePath = (filename: string) =>
+  path.join(UPSTREAM_CACHE_DIR, `${filename.replace(/\//g, '_')}.m3u`);
+
+const saveUpstreamCache = (filename: string, content: string) => {
+  if (!UPSTREAM_CACHE_FILES.has(filename)) return;
+  try {
+    fs.mkdirSync(UPSTREAM_CACHE_DIR, { recursive: true });
+    fs.writeFileSync(upstreamCachePath(filename), content);
+  } catch (e) {
+    console.warn(`[cache] ${filename} 缓存写入失败`, e);
+  }
+};
+
+const loadUpstreamCache = (filename: string): string | null => {
+  if (!UPSTREAM_CACHE_FILES.has(filename)) return null;
+  try {
+    const file = upstreamCachePath(filename);
+    if (!fs.existsSync(file)) return null;
+    return fs.readFileSync(file, 'utf-8');
+  } catch {
+    return null;
+  }
+};
+
 export const getContent = (src: IRemoteSource) =>
   withFetchSlot(async () => {
     const now = hrtime.bigint();
@@ -93,19 +133,44 @@ export const getContent = (src: IRemoteSource) =>
       ? withGithubRawUrlProxy(src.url)
       : src.url;
 
+    let ok = false;
+    let content = '';
+    let lastError: unknown = null;
+
     // 网络错误和 5xx 视为临时故障重试，4xx 直接返回
     for (let attempt = 1; ; attempt++) {
       try {
         // 加超时：个别上游挂住时不能一直等下去（之前会卡在 pnpm m3u 十几分钟不动）
         const res = await fetch(url, { signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
+        if (res.ok) {
+          ok = true;
+          content = await res.text();
+          break;
+        }
         if (res.status < 500 || attempt >= FETCH_RETRIES) {
-          return [res.ok, await res.text(), now] as const;
+          content = await res.text();
+          break;
         }
       } catch (e) {
-        if (attempt >= FETCH_RETRIES) throw e;
+        lastError = e;
+        if (attempt >= FETCH_RETRIES) break;
       }
       await sleep(1000 * attempt);
     }
+
+    if (ok) {
+      saveUpstreamCache(src.filename, content);
+      return [true, content, now] as const;
+    }
+
+    const cached = loadUpstreamCache(src.filename);
+    if (cached) {
+      console.warn(`[cache] ${src.filename} 拉取失败，改用上一次的缓存`);
+      return [true, cached, now] as const;
+    }
+
+    if (lastError) throw lastError;
+    return [false, content, now] as const;
   });
 
 export const writeM3u = async (filename: string, playlist: IPlaylist) => {
