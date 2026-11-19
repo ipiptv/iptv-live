@@ -99,7 +99,6 @@ const UPSTREAM_CACHE_FILES = new Set([
   'fmml_ipv6',
   'fmml_itv',
   'hotel_tvn',
-  'cymz6_lives',
 ]);
 
 const upstreamCachePath = (filename: string) =>
@@ -129,9 +128,12 @@ const loadUpstreamCache = (filename: string): string | null => {
 export const getContent = (src: IRemoteSource) =>
   withFetchSlot(async () => {
     const now = hrtime.bigint();
-    const url = /^https:\/\/raw.githubusercontent.com\//.test(src.url)
-      ? withGithubRawUrlProxy(src.url)
-      : src.url;
+    // 白名单里的关键源不走 ghfast 代理：代理在 CI 上偶发 403，直连 raw 更稳，且原始地址才适合落盘缓存
+    const directRaw = UPSTREAM_CACHE_FILES.has(src.filename);
+    const url =
+      !directRaw && /^https:\/\/raw.githubusercontent.com\//.test(src.url)
+        ? withGithubRawUrlProxy(src.url)
+        : src.url;
 
     let ok = false;
     let content = '';
