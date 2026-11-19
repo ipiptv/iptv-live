@@ -1,5 +1,4 @@
 import { chinaIptvSources } from './china_iptv';
-import { cymz6LivesSources } from './cymz6_lives';
 import { epgPwSources } from './epg_pw';
 import { fanmingmingLiveSources } from './fanmingming_live';
 import { hotelTvnSources } from './hotel_tvn';
@@ -24,7 +23,6 @@ export const sources: TSources = [
   // 然后放入你原本想添加的其他源
   ...fanmingmingLiveSources,
   ...yuechanLiveSources,
-  ...cymz6LivesSources,
   ...yangM3uSources,
   ...joevessIptvSources,
   ...hotelTvnSources,
