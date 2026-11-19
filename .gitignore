@@ -23,3 +23,4 @@ history/
 # 上游关键源的落盘兜底缓存必须跟仓库走
 !data/upstream-cache/
 !data/upstream-cache/*.m3u
+!data/home-blocklist.txt

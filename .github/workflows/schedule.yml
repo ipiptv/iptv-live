@@ -5,6 +5,8 @@ on:
     # 三班，间隔 8 小时：UTC 21:30 / 05:30 / 13:30 = 北京 05:30 / 13:30 / 21:30
     - cron: "30 21,5,13 * * *"
   workflow_dispatch:
+  push:
+    branches: [main]
 # ← 添加这行，允许手动触发测试
 
 permissions:
@@ -135,6 +137,10 @@ jobs:
       # 全量也按主力同一套规则规整分组（只改 group-title 与排列顺序，不筛频道）
       - name: Regroup full playlist (same rules as main)
         run: python scripts/regroup_full.py
+
+      # 按本机实测归纳的死链规律再筛一遍主力，产出 bbxx365_mini_home.m3u
+      - name: Build home-verified playlist
+        run: python scripts/filter_home.py
 
       # 迷你版：只留央视/卫视/专享/4K/国际台，每频道 2 条源，约 70KB。
       # 国内弱网或播放器超时短时，小文件才下得完。
