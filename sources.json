@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-19T00:45:25Z",
-  "updated_at_cst": "2026-11-19 08:45",
+  "updated_at": "2026-11-19T00:59:55Z",
+  "updated_at_cst": "2026-11-19 08:59",
   "sources": [
     {
       "file": "bbxx365_hotel.m3u",
@@ -35,7 +35,7 @@
       "note": "只留央视/卫视/专享/4K/国际台，每台 2 条源，弱网和播放器超时短时用",
       "gitee": "https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_mini.m3u",
       "github": "https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_mini.m3u",
-      "count": 454,
+      "count": 452,
       "groups": 4
     },
     {
