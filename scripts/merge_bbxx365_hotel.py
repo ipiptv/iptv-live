@@ -59,19 +59,173 @@ GROUPS = [
     # 专享卫视/专享央视不再单独成组：卫视类并入卫视频道，央视类并入央视频道
     ("专享卫视", "❤️卫视频道"),
     ("专享央视", "❤️央视频道"),
-    ("儿童专享", "💓儿童专享"),
+    # 少儿/儿童/动画类全部并到一个分组
+    ("儿童专享", "🧸少儿动画"),
+    ("动画片", "🧸少儿动画"),
+    # 直播电影频道优先级要高于点播组，否则 CHC 这类频道会被点播组先占走
+    ("电影频道", "🎬电影频道"),
     ("电影点播", "❤️电影点播"),
-    ("电视剧", "💓电视剧"),
-    ("台湾台", "💓台湾台"),
-    ("港澳台", "💓港澳台"),   # 同时覆盖“港澳台”与“💓港澳台📶”
-    ("国际台", "💕国际台"),
+    # 主题片（按题材轮播的电影频道）并入点播组
+    ("主题片", "❤️电影点播"),
+    # 明星轮播房（按演员分的电影轮播）同样并入点播组
+    ("明星", "❤️电影点播"),
+    # 专享源🅰️/🅱️ 基本是电影轮播与演员房，并入点播组
+    ("专享源", "❤️电影点播"),
+    # 优质个源以境外纪录片为主
+    ("优质个源", "🎭专题频道"),
+    ("电视剧", "💓电视剧场"),
+    # 港澳台 + 台湾 + 国际台 合成一个“境外频道”分组
+    ("台湾台", "🌏境外频道"),
+    ("港澳台", "🌏境外频道"),   # 同时覆盖“港澳台”与“💓港澳台📶”
+    ("国际台", "🌏境外频道"),
     ("4K(Auto)", "💓4K(Auto)"),
     # 4K 只保留一组：4K(Test) 并入 4K(Auto)
     ("4K(Test)", "💓4K(Auto)"),
     ("更新时间", "❤️更新时间"),
+    # 专题/综艺类统一并进“专题频道”
+    ("直播中国", "🎭专题频道"),
+    ("MTV", "🎭专题频道"),
+    ("春晚", "🎭专题频道"),
+    ("戏曲频道", "🎭专题频道"),
+    ("纪录片", "🎭专题频道"),
+    ("解说频道", "🎭专题频道"),
+    ("游戏频道", "🎭专题频道"),
+    ("收音机频道", "🎭专题频道"),
+    ("综艺频道", "🎭专题频道"),
+    # 补掉零散分组的归属
+    ("SPORTS", "⚽体育频道"),
+    ("咪咕直播", "⚽体育频道"),
+    ("英语频道", "🌏境外频道"),
+    ("定制台", "🌏境外频道"),
+    # 单剧分集（甄嬛传/以家人之名/雪中悍刀行 这类按集拆分的点播）单独成组
+    ("甄嬛传", "🎬剧集点播"),
+    ("以家人之名", "🎬剧集点播"),
+    ("雪中悍刀行", "🎬剧集点播"),
+    # 下面两个是收纳目标（关键词不会命中全量分组，只用来承接按台名归属的频道）
+    # 体育类全部并成一个分组
+    ("体育频道", "⚽体育频道"),
+    ("剧集点播", "🎬剧集点播"),
+    ("地方频道", "🏙️地方频道"),
+    ("专题频道", "🎭专题频道"),
 ]
 
+# 省级/直辖市地方台分组：统一并进“地方频道”
+PROVINCE_NAMES = [
+    "广东", "浙江", "湖南", "上海", "湖北", "河北", "江苏", "山东", "黑龙江",
+    "四川", "福建", "吉林", "河南", "安徽", "甘肃", "广西", "辽宁", "陕西",
+    "北京", "新疆", "山西", "重庆", "海南", "青海", "江西", "云南", "宁夏",
+    "内蒙", "天津", "贵州",
+]
+GROUPS += [(name + "频道", "🏙️地方频道") for name in PROVINCE_NAMES]
+
 HOTEL_GROUPS = ["央视频道", "卫视频道", "其他频道"]
+
+# 主力只保留这些分组（用户在清单上勾选的）
+MAIN_KEEP_GROUPS = {
+    "❤️央视频道",
+    "❤️卫视频道",
+    "🧸少儿动画",
+    "💓电视剧场",
+    "🎬电影频道",
+    "⚽体育频道",
+    "🌏境外频道",
+    "🎭专题频道",
+    "❤️更新时间",
+}
+
+# 兜底分组：命中不了任何规则的频道统一放这里
+OTHER_GROUP = "🧩其他频道"
+
+# 输出时各分组的排列顺序（更新时间固定排最后）
+OUTPUT_ORDER = [
+    "❤️央视频道",
+    "❤️卫视频道",
+    "🧸少儿动画",
+    "💓电视剧场",
+    "🎬电影频道",
+    "⚽体育频道",
+    "🌏境外频道",
+    "🎬剧集点播",
+    "❤️电影点播",
+    "🎭专题频道",
+    "🏙️地方频道",
+    "🧩其他频道",
+    "❤️更新时间",
+]
+
+# 频道名命中这些关键词的，不管原来在哪个分组，统一进“少儿动画”
+KID_NAME_RE = re.compile(r"少儿|卡通|动画|儿童|动漫", re.IGNORECASE)
+KID_GROUP = "🧸少儿动画"
+
+# 频道名命中这些关键词的，不论原分组，统一进“体育频道”
+SPORT_NAME_RE = re.compile(r"体育|足球|篮球|赛事|NBA|网球|羽毛球|排球|乒乓", re.IGNORECASE)
+SPORT_GROUP = "⚽体育频道"
+
+# 个别散落在地方台/影视组里的台，按台名单独收进指定分组（主力原本不收地方台）
+NAME_TARGET = {
+    # 散落在地方台/影视组里的电视剧台
+    "湖南电视剧": "💓电视剧场",
+    "福建电视剧": "💓电视剧场",
+    "武汉二台电视剧": "💓电视剧场",
+    "辽宁影视剧": "💓电视剧场",
+    # 教育/央媒系
+    "CETV2": "❤️央视频道",
+    "CETV4": "❤️央视频道",
+    "中国交通": "❤️央视频道",
+    # 港澳台/境外
+    "翡翠台": "🌏境外频道",
+    "凤凰中文": "🌏境外频道",
+    "凤凰资讯": "🌏境外频道",
+    # 省市地方台
+    "广东公共": "🏙️地方频道",
+    "广东影视": "🏙️地方频道",
+    "广东新闻": "🏙️地方频道",
+    "广东珠江": "🏙️地方频道",
+    "广州台": "🏙️地方频道",
+    "廉江公共": "🏙️地方频道",
+    "五华台": "🏙️地方频道",
+    "安徽经视": "🏙️地方频道",
+    "山东教育": "🏙️地方频道",
+    "现代教育": "🏙️地方频道",
+    "湖南公共": "🏙️地方频道",
+    "河南公共": "🏙️地方频道",
+    "河南新农村": "🏙️地方频道",
+    "河南新闻": "🏙️地方频道",
+    "河南民生": "🏙️地方频道",
+    "河南法制": "🏙️地方频道",
+    "黑龙江影视": "🏙️地方频道",
+    "黑龙江文体": "🏙️地方频道",
+    "黑龙江新闻法治": "🏙️地方频道",
+    "黑龙江都市": "🏙️地方频道",
+    "松原": "🏙️地方频道",
+    "松原公共": "🏙️地方频道",
+    # 4K 频道按归属拆走，不再单独成组
+    "CCTV4K": "❤️央视频道",
+    "湖南卫视4K": "❤️卫视频道",
+    "东方卫视4K": "❤️卫视频道",
+    "浙江卫视4K": "❤️卫视频道",
+    "北京卫视4K": "❤️卫视频道",
+    "深圳卫视4K": "❤️卫视频道",
+    "广东卫视4K": "❤️卫视频道",
+    "翡翠台4K": "🌏境外频道",
+    "北京4K": "🏙️地方频道",
+    "苏州4K": "🏙️地方频道",
+    "河北4K": "🏙️地方频道",
+    "南国都市4K": "🏙️地方频道",
+    "Love Nature 4K": "🎭专题频道",
+    "🐼直播熊猫": "🎭专题频道",
+    # 戏曲/武术/财富/纪实等专题与付费频道
+    "梨园": "🎭专题频道",
+    "岭南戏曲": "🎭专题频道",
+    "武术世界": "🎭专题频道",
+    "汽摩": "🎭专题频道",
+    "财富天下": "🎭专题频道",
+    "金鹰纪实": "🎭专题频道",
+    "星河": "🎭专题频道",
+    "茶": "🎭专题频道",
+    "移动": "🎭专题频道",
+    "IPTV8": "🎭专题频道",
+}
 
 GROUP_RE = re.compile(r'group-title="([^"]*)"')
 
@@ -105,7 +259,19 @@ def build_bbxx(lines):
     while i < len(lines):
         line = lines[i]
         if line.startswith("#EXTINF"):
+            name = channel_name(line)
+            is_kid = bool(KID_NAME_RE.search(name))
             idx, new_name = match_group(get_group(line))
+            target = NAME_TARGET.get(name)
+            if not target and SPORT_NAME_RE.search(name):
+                target = SPORT_GROUP
+            if target:
+                idx = next(j for j, (k, v) in enumerate(GROUPS) if v == target)
+                new_name = target
+            elif is_kid:
+                # 名字带少儿/卡通/动画的，不论原分组、也不论是否在白名单，统一并到少儿动画组
+                idx = next(j for j, (k, v) in enumerate(GROUPS) if v == KID_GROUP)
+                new_name = KID_GROUP
             if idx >= 0:
                 url = lines[i + 1] if i + 1 < len(lines) else ""
                 buckets[idx].append((set_group(line, new_name), url))
@@ -122,6 +288,35 @@ def build_bbxx(lines):
     return buckets
 
 
+# 酒店源（hotel_tvn）进主力时的分组归并：央视、卫视各自合成一个分组，不再带 🌹 前缀分家
+HOTEL_GROUP_TARGET = {
+    "央视频道": "❤️央视频道",
+    "卫视频道": "❤️卫视频道",
+    "其他频道": "🌹其他频道",
+}
+
+# 酒店源里要剔掉的脏数据：测试占位项 + 外文频道（中文台如“旅游卫视”保留）
+HOTEL_DROP_PATTERN = re.compile(r"测试")
+HOTEL_DROP_NAMES = {
+    "abaitv",
+    "mtkr",
+    "qazsport",
+    "qazaqstantv",
+    "новое телевидение",
+    "новоетелевидение",
+    "рикатв",
+}
+
+
+def should_drop_hotel(extinf):
+    name = channel_name(extinf).strip()
+    if not name:  # 空频道名
+        return True
+    if HOTEL_DROP_PATTERN.search(name):
+        return True
+    return name.lower() in HOTEL_DROP_NAMES
+
+
 def build_hotel(lines):
     buckets = {g: [] for g in HOTEL_GROUPS}
     i = 0
@@ -135,8 +330,18 @@ def build_hotel(lines):
                     matched = g
                     break
             if matched:
+                if should_drop_hotel(line):
+                    i += 2
+                    continue
                 url = lines[i + 1] if i + 1 < len(lines) else ""
-                buckets[matched].append((set_group(line, "🌹" + group), url))
+                name = channel_name(line)
+                target = (
+                    NAME_TARGET.get(name)
+                    or (SPORT_GROUP if SPORT_NAME_RE.search(name) else None)
+                    or (KID_GROUP if KID_NAME_RE.search(name) else None)
+                    or HOTEL_GROUP_TARGET[matched]
+                )
+                buckets[matched].append((set_group(line, target), url))
             i += 2
         else:
             i += 1
@@ -268,13 +473,42 @@ def main():
         hotel_buckets = {g: [] for g in HOTEL_GROUPS}
         hotel_count = 0
 
-    result = []
+    # 先按分组名汇总两边的条目，再按 OUTPUT_ORDER 规定的顺序输出
+    merged: dict = {}
+    order: list = []
+    seen = set()
     for g in HOTEL_GROUPS:
         for extinf, url in hotel_buckets[g]:
-            result.append(extinf)
-            result.append(url)
+            target = get_group(extinf)
+            key = (channel_name(extinf), url)
+            if key in seen:
+                continue
+            seen.add(key)
+            if target not in merged:
+                merged[target] = []
+                order.append(target)
+            merged[target].append((extinf, url))
     for target in group_order:
         for extinf, url in bbxx_buckets[target]:
+            key = (channel_name(extinf), url)
+            if key in seen:
+                continue
+            seen.add(key)
+            if target not in merged:
+                merged[target] = []
+                order.append(target)
+            merged[target].append((extinf, url))
+
+    # 输出顺序：央视 → 卫视 → 少儿动画 → 电视剧 → 其余按 OUTPUT_ORDER 依次排，更新时间放最后
+    final_order = [g for g in OUTPUT_ORDER if g in merged]
+    final_order += [g for g in order if g not in final_order and g not in OUTPUT_ORDER]
+
+    result = []
+    for g in final_order:
+        # 主力只留白名单里的分组，其余（地方/点播/剧集/其他）不进主力
+        if g not in MAIN_KEEP_GROUPS:
+            continue
+        for extinf, url in merged[g]:
             result.append(extinf)
             result.append(url)
 

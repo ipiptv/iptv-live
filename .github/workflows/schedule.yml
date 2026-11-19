@@ -122,11 +122,19 @@ jobs:
             echo "已提交并推送上游更新"
           fi
 
+      # 全量补成“全集”：把酒店源里全量没有的频道补进 bbxx365.m3u
+      - name: Augment full playlist with hotel-only channels
+        run: python scripts/augment_full.py
+
       - name: Merge bbxx365 + hotel_tvn (whitelist)
         env:
           # 付费源订阅地址含账号凭证，走 Secret，不写进仓库
           OTT_SUB_URL: ${{ secrets.OTT_SUB_URL }}
         run: python scripts/merge_bbxx365_hotel.py
+
+      # 全量也按主力同一套规则规整分组（只改 group-title 与排列顺序，不筛频道）
+      - name: Regroup full playlist (same rules as main)
+        run: python scripts/regroup_full.py
 
       # 迷你版：只留央视/卫视/专享/4K/国际台，每频道 2 条源，约 70KB。
       # 国内弱网或播放器超时短时，小文件才下得完。
