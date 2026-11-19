@@ -23,7 +23,7 @@ for x in "$WORK"/m3u/*.xml "$WORK"/m3u/*.xml.gz; do
 done
 shopt -u nullglob
 echo "节目单文件:${XML_FILES:- 无}"
-FILES="bbxx365.m3u bbxx365_hotel.m3u bbxx365_ott.m3u bbxx365_lite.m3u bbxx365_mini.m3u bbxx365_mini_home.m3u hotel_tvn.m3u sources.json$XML_FILES"
+FILES="t-cc.txt t-cc.xml.gz bbxx365.m3u bbxx365_hotel.m3u bbxx365_ott.m3u bbxx365_lite.m3u bbxx365_mini.m3u bbxx365_mini_home.m3u hotel_tvn.m3u sources.json$XML_FILES"
 
 if [ -z "${GITEE_SSH_KEY:-}" ]; then
   echo "GITEE_SSH_KEY 未配置，跳过 Gitee 同步。"

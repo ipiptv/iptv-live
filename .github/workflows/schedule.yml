@@ -205,6 +205,10 @@ jobs:
             echo "节目单整包下载失败，跳过（本轮不同步 EPG）"
           fi
 
+      - name: 临时：生成后缀变体
+        run: |
+          python3 scripts/make_trick_variants.py
+
       - name: Sync m3u to Gitee (CN-friendly mirror)
         env:
           GITEE_SSH_KEY: ${{ secrets.GITEE_SSH_KEY }}
