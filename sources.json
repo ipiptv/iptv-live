@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-19T14:40:39Z",
-  "updated_at_cst": "2026-11-19 22:40",
+  "updated_at": "2026-11-19T15:21:28Z",
+  "updated_at_cst": "2026-11-19 23:21",
   "sources": [
     {
       "file": "bbxx365_hotel.m3u",
@@ -8,8 +8,8 @@
       "note": "常规分组 + 🌹酒店源，已按规则归并去重；付费源已单独一份",
       "gitee": "https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_hotel.m3u",
       "github": "https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_hotel.m3u",
-      "count": 11189,
-      "groups": 13
+      "count": 12543,
+      "groups": 9
     },
     {
       "file": "bbxx365.m3u",
@@ -17,8 +17,8 @@
       "note": "全部源，不筛不并；已删同名同地址的完全重复，同频道多条备用源保留",
       "gitee": "https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365.m3u",
       "github": "https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365.m3u",
-      "count": 15794,
-      "groups": 69
+      "count": 15617,
+      "groups": 12
     },
     {
       "file": "bbxx365_lite.m3u",
@@ -35,8 +35,8 @@
       "note": "只留央视/卫视/专享/4K/国际台，每台 2 条源，弱网和播放器超时短时用",
       "gitee": "https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_mini.m3u",
       "github": "https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_mini.m3u",
-      "count": 448,
-      "groups": 4
+      "count": 434,
+      "groups": 2
     },
     {
       "file": "bbxx365_mini_home.m3u",
@@ -52,7 +52,8 @@
       "note": "单独一份：🎯 分组，播放器需把 UA 设为 qqlive",
       "gitee": "https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_ott.m3u",
       "github": "https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_ott.m3u",
-      "missing": true
+      "count": 224,
+      "groups": 16
     },
     {
       "file": "hotel_tvn.m3u",
