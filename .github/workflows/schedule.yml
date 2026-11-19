@@ -106,12 +106,19 @@ jobs:
           if [ -d data/upstream-cache ]; then
             git add data/upstream-cache
             find data/upstream-cache -name '*.m3u' -exec ls -l {} \; | awk '{print "缓存:", $9, $5, "字节"}'
+          else
+            echo "未生成 data/upstream-cache（本轮上游全部拉取成功或未命中白名单）"
           fi
           if git diff --cached --quiet; then
             echo "上游源列表与缓存均无变化，跳过提交"
           else
             git commit -m "chore: 同步上游源列表与缓存 $(date -u '+%Y-%m-%d %H:%M UTC')"
-            git push origin HEAD:main
+            # 期间可能有别的提交落到 main（例如临时触发的回滚），先 rebase 再推，避免 non-fast-forward
+            if ! git push origin HEAD:main; then
+              git fetch -q origin main
+              git rebase -X ours origin/main || git rebase --abort || true
+              git push origin HEAD:main
+            fi
             echo "已提交并推送上游更新"
           fi
 
