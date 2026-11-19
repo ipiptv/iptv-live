@@ -12,6 +12,9 @@
 #   未配置时脚本直接跳过，流水线不会失败。
 set -euo pipefail
 
+GITEE_REPO="git@gitee.com:IptvIptv/Iptv.git"
+WORK="${GITHUB_WORKSPACE:-$(pwd)}"
+
 # 节目单：EPG 仓 output 分支有多少分类就同步多少（e.xml/cc.xml/difang.xml/gat.xml…）
 XML_FILES=""
 shopt -s nullglob
@@ -21,8 +24,6 @@ done
 shopt -u nullglob
 echo "节目单文件:${XML_FILES:- 无}"
 FILES="bbxx365.m3u bbxx365_hotel.m3u bbxx365_ott.m3u bbxx365_lite.m3u bbxx365_mini.m3u bbxx365_mini_home.m3u hotel_tvn.m3u sources.json$XML_FILES"
-GITEE_REPO="git@gitee.com:IptvIptv/Iptv.git"
-WORK="${GITHUB_WORKSPACE:-$(pwd)}"
 
 if [ -z "${GITEE_SSH_KEY:-}" ]; then
   echo "GITEE_SSH_KEY 未配置，跳过 Gitee 同步。"
