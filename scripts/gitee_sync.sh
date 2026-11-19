@@ -83,5 +83,33 @@ if git diff --cached --quiet; then
   exit 0
 fi
 git commit -q -m "sync $(date -u +%Y-%m-%dT%H:%MZ)"
-git push -q origin master
-echo "已推送 Gitee master"
+
+push_once() {
+  git push origin master 2>&1 | tail -20
+  return ${PIPESTATUS[0]}
+}
+
+if push_once; then
+  echo "已推送 Gitee master"
+else
+  echo "首次推送失败，尝试剔除 gat.xml 后重推（港澳台节目单可能触发 Gitee 内容审查）"
+  for f in gat.xml; do
+    if [ -f "/tmp/gitee/$f" ]; then
+      git rm -q --cached "$f" || true
+      rm -f "/tmp/gitee/$f"
+      echo "已剔除: $f"
+    fi
+  done
+  if git diff --cached --quiet && [ -z "$(git status --porcelain)" ]; then
+    echo "剔除后无可推送内容"
+  else
+    git add -A
+    git commit -q --amend --no-edit
+  fi
+  if push_once; then
+    echo "已推送 Gitee master（不含 gat.xml）"
+  else
+    echo "Gitee 推送失败，请查看上面的 git 报错"
+    exit 1
+  fi
+fi
