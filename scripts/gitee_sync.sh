@@ -53,27 +53,8 @@ for f in $FILES; do
   [ -z "$src" ] && [ -f "/tmp/pub/$f" ] && src="/tmp/pub/$f"
   [ -z "$src" ] && { echo "跳过（无产物）: $f"; continue; }
 
-  python3 - "$src" "/tmp/gitee/$f" <<'PY'
-import sys
-src, dst = sys.argv[1], sys.argv[2]
-drop = ("VOA", "美国之音")
-out, pending = [], False
-for raw in open(src, encoding="utf-8"):
-    line = raw.rstrip("\n")
-    if line.startswith("#EXTINF"):
-        pending = any(w in line for w in drop)
-        if not pending:
-            out.append(line)
-        continue
-    if pending:
-        # 被丢弃条目下面的 URL 行（以及它自己的附属标签）一起丢掉
-        if not line.startswith("#"):
-            pending = False
-        continue
-    out.append(line)
-open(dst, "w", encoding="utf-8").write("\n".join(out) + "\n")
-print(f"{dst}: {len(out)} 行")
-PY
+  # m3u 按条目剔除、xml 按节目条目剔除，规则见 scripts/gitee_filter.py
+  python3 "$WORK/scripts/gitee_filter.py" "$src" "/tmp/gitee/$f"
 done
 
 # 后台管理页：从仓库根目录直接复制（不过滤频道，它不是 m3u）
