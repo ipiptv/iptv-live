@@ -207,32 +207,7 @@ jobs:
 
       - name: 临时：生成 Gitee 审核探测变体
         run: |
-          python3 - <<'PY2'
-          import re, os
-          p = 'm3u/e.xml'
-          if not os.path.exists(p):
-              raise SystemExit(0)
-          s = open(p, encoding='utf-8').read()
-          head = s[:s.index('<channel')]
-          blocks = [b for b in re.split(r'(?=<channel id=")', s) if b.startswith('<channel')]
-          ws = []
-          for b in blocks:
-              cid = re.search(r'<channel id="([^"]+)"', b).group(1)
-              if cid.endswith('卫视') or cid.endswith('衛視'):
-                  ws.append(cid)
-          def build(name, cids):
-              body = []
-              for cid in cids:
-                  b = [x for x in blocks if x.startswith('<channel id="%s"' % cid)][0]
-                  body.append(b)
-                  body.extend(re.findall(r'<programme [^>]*channel="%s"[\s\S]*?</programme>' % re.escape(cid), s))
-              open('m3u/' + name, 'w', encoding='utf-8').write(head + ''.join(body) + '</tv>')
-          print('卫视总数', len(ws))
-          for n in (3, 8, 15, 25, len(ws)):
-              build('v-ws%02d.xml' % n, ws[:n])
-          print('变体已生成')
-          PY2
-
+          python3 scripts/make_probe_variants.py
       - name: Sync m3u to Gitee (CN-friendly mirror)
         env:
           GITEE_SSH_KEY: ${{ secrets.GITEE_SSH_KEY }}
