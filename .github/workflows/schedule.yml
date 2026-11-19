@@ -216,7 +216,23 @@ jobs:
       - name: Sync m3u to Gitee (CN-friendly mirror)
         env:
           GITEE_SSH_KEY: ${{ secrets.GITEE_SSH_KEY }}
-        run: bash scripts/gitee_sync.sh
+        run: |
+          set -o pipefail
+          bash scripts/gitee_sync.sh 2>&1 | tee /tmp/gitee_sync.log
+
+      # 同步失败时把日志留在仓库里，方便排查（失败不影响其它步骤）
+      - name: Record Gitee sync log (on failure)
+        if: failure()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p sync-logs
+          { echo "--- run ${GITHUB_RUN_ID} at $(date -u) ---"; tail -80 /tmp/gitee_sync.log 2>/dev/null || echo "无日志"; } > sync-logs/gitee_sync_last.log
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sync-logs/gitee_sync_last.log
+          git commit -q -m "log: gitee sync failure ${GITHUB_RUN_ID}" || true
+          git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main || true
 
       # - name: "Jekyll theme"
       #   run: mv ./_config.temp.yml ./m3u/_config.yml
