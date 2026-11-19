@@ -215,20 +215,21 @@ jobs:
           s = open(p, encoding='utf-8').read()
           head = s[:s.index('<channel')]
           blocks = [b for b in re.split(r'(?=<channel id=")', s) if b.startswith('<channel')]
-          NEW = {"湖南卫视","四川卫视","海南卫视","青海卫视","新疆卫视","安多卫视","兵团卫视","农林卫视","大湾区卫视","卡酷少儿"}
-          def build(name, sel):
+          ws = []
+          for b in blocks:
+              cid = re.search(r'<channel id="([^"]+)"', b).group(1)
+              if cid.endswith('卫视') or cid.endswith('衛視'):
+                  ws.append(cid)
+          def build(name, cids):
               body = []
-              for b in blocks:
-                  cid = re.search(r'<channel id="([^"]+)"', b).group(1)
-                  if sel(cid):
-                      body.append(b)
-                      body.extend(re.findall(r'<programme [^>]*channel="%s"[\s\S]*?</programme>' % re.escape(cid), s))
+              for cid in cids:
+                  b = [x for x in blocks if x.startswith('<channel id="%s"' % cid)][0]
+                  body.append(b)
+                  body.extend(re.findall(r'<programme [^>]*channel="%s"[\s\S]*?</programme>' % re.escape(cid), s))
               open('m3u/' + name, 'w', encoding='utf-8').write(head + ''.join(body) + '</tv>')
-          SORTS = {}
-          build('v-cctv.xml', lambda c: c.startswith('CCTV') or c in ('CGTN',) or c.startswith('CETV'))
-          build('v-ws-old.xml', lambda c: c.endswith('卫视') and c not in NEW)
-          build('v-ws-new.xml', lambda c: c in NEW)
-          build('v-other.xml', lambda c: not (c.startswith('CCTV') or c in ('CGTN',) or c.startswith('CETV') or c.endswith('卫视')))
+          print('卫视总数', len(ws))
+          for n in (3, 8, 15, 25, len(ws)):
+              build('v-ws%02d.xml' % n, ws[:n])
           print('变体已生成')
           PY2
 
