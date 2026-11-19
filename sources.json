@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-19T09:50:05Z",
-  "updated_at_cst": "2026-11-19 17:50",
+  "updated_at": "2026-11-19T12:20:57Z",
+  "updated_at_cst": "2026-11-19 20:20",
   "sources": [
     {
       "file": "bbxx365_hotel.m3u",
@@ -8,7 +8,7 @@
       "note": "常规分组 + 🌹酒店源，已按规则归并去重；付费源已单独一份",
       "gitee": "https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_hotel.m3u",
       "github": "https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_hotel.m3u",
-      "count": 11247,
+      "count": 11249,
       "groups": 13
     },
     {
@@ -17,7 +17,7 @@
       "note": "全部源，不筛不并；已删同名同地址的完全重复，同频道多条备用源保留",
       "gitee": "https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365.m3u",
       "github": "https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365.m3u",
-      "count": 15882,
+      "count": 15884,
       "groups": 69
     },
     {
