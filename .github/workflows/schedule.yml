@@ -205,22 +205,6 @@ jobs:
             echo "节目单整包下载失败，跳过（本轮不同步 EPG）"
           fi
 
-      - name: 临时：把 e.xml 拆成单频道探测文件
-        run: |
-          python3 - <<'PY'
-          import re, os
-          p = 'm3u/e.xml'
-          if os.path.exists(p):
-              s = open(p, encoding='utf-8').read()
-              head = s[:s.index('<channel')]
-              blocks = [b for b in re.split(r'(?=<channel id=")', s) if b.startswith('<channel')]
-              for i, b in enumerate(blocks, 1):
-                  cid = re.search(r'<channel id="([^"]+)"', b).group(1)
-                  progs = re.findall(r'<programme [^>]*channel="%s"[\s\S]*?</programme>' % re.escape(cid), s)
-                  open('m3u/probe-%02d.xml' % i, 'w', encoding='utf-8').write(head + b + ''.join(progs) + '</tv>')
-              print('探测文件数', len(blocks))
-          PY
-
       - name: Sync m3u to Gitee (CN-friendly mirror)
         env:
           GITEE_SSH_KEY: ${{ secrets.GITEE_SSH_KEY }}
