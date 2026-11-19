@@ -1,7 +1,7 @@
 # 本机（河南联通家宽）实测中「从来没出现过能播源」的主机黑名单
-# 生成：2026-11-19 全量 12542 条主力源实测；每条 >=3 次坏、0 次好
-# 用法：scripts/filter_home.py 读取本文件，命中的地址直接丢弃
-# 主机数量：259
+# 生成：2026-11-20 全量 12542 条主力源，两轮实测合并（首轮 80 并发 + 复测 32 并发/8s）
+# 判定：坏 >=3 次且两轮里 0 次能播
+# 主机数量：248
 
 
 0000505.xyz
@@ -111,7 +111,6 @@
 222.128.55.152
 222.134.19.49
 222.173.108.238
-222.186.39.21
 222.219.183.103
 223.247.25.235
 227w9f5104.zicp.fun
@@ -159,7 +158,6 @@
 69.30.246.194
 7612-5516-affc-d88b.kylintv.tv
 8.135.27.147
-8.155.43.98
 [2409
 a.xiongnas.top
 aktv.top
@@ -173,7 +171,6 @@ app.kds666.top
 b.xiongnas.top
 bobohome.ignorelist.com
 bztv.tvbus.cc
-cdn.iptv8k.top
 cdn.jdshipin.com
 cdn6.cc.cd
 cdn9.163189.xyz
@@ -194,28 +191,21 @@ hlsbkmgsplive.miguvideo.com
 home.amucn.net
 home.scanflove.com
 httop.top
-iptv.catvod.com
 iptv.huuc.edu.cn
 iptv.xxika.net
 jf.jxx2023.work
 jnzq.ohoyee.com
 joyznm.i234.me
-kkk.jjjj.jiduo.me
-lbds.us.ci
 lbyjlt.vv5678.cn
 liuwenxiaokevin.top
-live.264788.xyz
 live.chinacert.cftest5.cn
 live.dxhmt.cn
 live.lalifeier.eu.org
-live.metshop.top
 live.ottiptv.cc
 live.ybtvyun.com
 liveout.btzx.com.cn
-mag.trexlive.me
 marcvision.xyz
 mg.hmysapp.cn
-mtayeh.ottb.xyz
 my.tmos.cn
 nas.iszbd.com
 nas.lyfkai.cn
@@ -229,7 +219,6 @@ player.cntv.cn
 primep2.tv
 primestreams.tv
 qjrhc.jydjd.top
-raw.githubusercontent.com
 sdray.gicp.net
 server.juzhijian.com
 shcm-stream-cf1.stream.264788.xyz
