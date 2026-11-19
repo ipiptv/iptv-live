@@ -44,7 +44,7 @@ rm -rf /tmp/gitee && mkdir -p /tmp/gitee
 # 拉回旧分支再覆盖，保留本流水线在云端产不出的文件（mini_home 只能在家里网络实测产出）
 git clone -q --depth 1 -b master "$GITEE_REPO" /tmp/gitee
 
-rm -f /tmp/gitee/probe-*.xml
+rm -f /tmp/gitee/probe-*.xml /tmp/gitee/v-*.xml
 
 for f in $FILES; do
   src=""
