@@ -14,9 +14,12 @@ set -euo pipefail
 
 # 节目单：EPG 仓 output 分支有多少分类就同步多少（e.xml/cc.xml/difang.xml/gat.xml…）
 XML_FILES=""
+shopt -s nullglob
 for x in "$WORK"/m3u/*.xml "$WORK"/m3u/*.xml.gz; do
-  [ -f "$x" ] && XML_FILES="$XML_FILES $(basename "$x")"
+  if [ -f "$x" ]; then XML_FILES="$XML_FILES $(basename "$x")"; fi
 done
+shopt -u nullglob
+echo "节目单文件:${XML_FILES:- 无}"
 FILES="bbxx365.m3u bbxx365_hotel.m3u bbxx365_ott.m3u bbxx365_lite.m3u bbxx365_mini.m3u bbxx365_mini_home.m3u hotel_tvn.m3u sources.json$XML_FILES"
 GITEE_REPO="git@gitee.com:IptvIptv/Iptv.git"
 WORK="${GITHUB_WORKSPACE:-$(pwd)}"
