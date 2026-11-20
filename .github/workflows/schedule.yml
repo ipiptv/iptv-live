@@ -142,9 +142,6 @@ jobs:
       - name: Build home-verified playlist
         run: python scripts/filter_home.py
 
-      # 临时：把排查用的试验包放进 m3u/，让 Gitee 同步一并推上去
-      - name: Probe packages for Gitee review
-        run: cp tests/gitee-probe/*.m3u m3u/ || true
 
       # 迷你版：只留央视/卫视/专享/4K/国际台，每频道 2 条源，约 70KB。
       # 国内弱网或播放器超时短时，小文件才下得完。

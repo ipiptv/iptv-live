@@ -23,7 +23,7 @@ for x in "$WORK"/m3u/*.xml "$WORK"/m3u/*.xml.gz; do
 done
 shopt -u nullglob
 echo "节目单文件:${XML_FILES:- 无}"
-FILES="t1.m3u t2.m3u t3.m3u t4.m3u bbxx365.m3u bbxx365_hotel.m3u bbxx365_ott.m3u bbxx365_lite.m3u bbxx365_mini.m3u bbxx365_mini_home.m3u hotel_tvn.m3u sources.json$XML_FILES"
+FILES="bbxx365.m3u bbxx365_hotel.m3u bbxx365_ott.m3u bbxx365_lite.m3u bbxx365_mini.m3u bbxx365_mini_home.m3u hotel_tvn.m3u sources.json$XML_FILES"
 
 if [ -z "${GITEE_SSH_KEY:-}" ]; then
   echo "GITEE_SSH_KEY 未配置，跳过 Gitee 同步。"
@@ -44,7 +44,7 @@ rm -rf /tmp/gitee && mkdir -p /tmp/gitee
 # 拉回旧分支再覆盖，保留本流水线在云端产不出的文件（mini_home 只能在家里网络实测产出）
 git clone -q --depth 1 -b master "$GITEE_REPO" /tmp/gitee
 
-rm -f /tmp/gitee/probe-*.xml /tmp/gitee/v-*.xml /tmp/gitee/d[0-9].xml /tmp/gitee/t-*
+rm -f /tmp/gitee/probe-*.xml /tmp/gitee/v-*.xml /tmp/gitee/d[0-9].xml /tmp/gitee/t-* /tmp/gitee/t[1-4].m3u
 
 for f in $FILES; do
   src=""
