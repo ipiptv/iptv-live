@@ -1146,7 +1146,7 @@ http://live.xmcdn.com/live/805/64.m3u8
 #EXTINF:-1 group-title="⚽体育频道",山东体育
 http://livealone302.iqilu.com/iqilu/typd.m3u8
 #EXTINF:-1 group-title="⚽体育频道",陕西体育休闲
-http://hlsztemgsplive.miguvideo.com:8080/migu/kailu/sxtyxx/50/20250804/index.m3u8?msisdn=20261120040255733fd23d579e42df835f00be2c8d0470&mdspid=&spid=600572&netType=0&sid=5910022189&pid=2028597139&timestamp=20261120040255&Channel_ID=0116_2600000900-99000-201600010010027&ProgramID=956909356&ParentNodeID=-99&assertID=5910022189&client_ip=171.8.79.254&SecurityKey=20261120040255&promotionId=&mvid=5900006712&mcid=500020&playurlVersion=WX-A1-9.11.1-RELEASE&userid=&jmhm=&videocodec=h264&appCode=miguvideo_android&bean=mgspad&tid=android&conFee=0&encrypt=43ccf7e3de199add0fe255b3f9ecb60a
+http://hlsztemgsplive.miguvideo.com:8080/migu/kailu/sxtyxx/50/20250804/index.m3u8?msisdn=202611200802559aa012a0c33844818fa8561ba58b7ea1&mdspid=&spid=600572&netType=0&sid=5910022189&pid=2028597139&timestamp=20261120080255&Channel_ID=0116_2600000900-99000-201600010010027&ProgramID=956909356&ParentNodeID=-99&assertID=5910022189&client_ip=171.8.79.254&SecurityKey=20261120080255&promotionId=&mvid=5900006712&mcid=500020&playurlVersion=WX-A1-9.11.1-RELEASE&userid=&jmhm=&videocodec=h264&appCode=miguvideo_android&bean=mgspad&tid=android&conFee=0&encrypt=836147a618435d2d0dea30b69edece67
 #EXTINF:-1 group-title="⚽体育频道",陕西体育休闲
 http://gslbmgsplive.miguvideo.com/migu/kailu/sxtyxx/51/20250804/index.m3u8?msisdn=20250921080053bb7e3ee981dc4bde95a765fbffef7b9e&mdspid=&spid=600572&netType=0&sid=5910022189&pid=2028597139&timestamp=20250921080053&Channel_ID=0116_2600000900-99000-201600010010027&ProgramID=956909356&ParentNodeID=-99&assertID=5910022189&client_ip=106.13.250.88&SecurityKey=20250921080053&promotionId=&mvid=5900006712&mcid=500020&playurlVersion=WX-A1-8.9.1-RELEASE&userid=&jmhm=&videocodec=h264&bean=mgspad&tid=android&conFee=0&puData=43ffb82e5f9372a440dd84479d27b2f6&ddCalcu=64f3e2f2bf67b028d29e754f4983d7d20a44
 #EXTINF:-1 group-title="⚽体育频道",陕西体育休闲
@@ -1156,9 +1156,9 @@ http://63.141.230.178:82/gslb/zbdq5.m3u8?id=btv6
 #EXTINF:-1 group-title="⚽体育频道",快乐垂钓
 http://27.12.12.40:1234/961930263
 #EXTINF:-1 group-title="⚽体育频道",快乐垂钓
-http://116.237.170.51:7788/961930263
-#EXTINF:-1 group-title="⚽体育频道",快乐垂钓
 http://116.52.173.186:1234/961930263
+#EXTINF:-1 group-title="⚽体育频道",快乐垂钓
+http://116.237.170.51:7788/961930263
 #EXTINF:-1 tvg-id="凤凰中文" tvg-name="凤凰中文" tvg-logo="https://tv-res.pages.dev/logo/凤凰中文.png" group-title="🌏境外频道",凤凰中文
 http://120.198.86.251:9901/tsfile/live/1013_1.m3u8?key=txiptv&playlive=1&authid=0
 #EXTINF:-1 tvg-id="凤凰资讯" tvg-name="凤凰资讯" tvg-logo="https://tv-res.pages.dev/logo/凤凰资讯.png" group-title="🌏境外频道",凤凰资讯
@@ -1766,9 +1766,9 @@ https://txmov2.a.kwimgs.com/bs3/video-hls/5202783562064785590_hlshd15.m3u8
 #EXTINF:-1 group-title="🎭专题频道",梨园频道
 https://vdse.bdstatic.com//5787b4fd8574dafb0362d30820022447.mp4?
 #EXTINF:-1 group-title="🎭专题频道",梨园频道
-https://dxtx.hntv.tv/live/lypd.m3u8?txSecret=10c771842a0be59e8b575d765173ec96&txTime=7B923E0A&wsSecret=41543190cdf375f1c73207222bb96542&wsTime=1769313549
+https://dxtx.hntv.tv/live/lypd.m3u8?txSecret=10c771842a0be59e8b575d765173ec96&txTime=7B923E0A&wsSecret=8a5c7a98f1acff7605f5d11d40cef8e3&wsTime=1795068236
 #EXTINF:-1 group-title="🎭专题频道",梨园频道
-https://dxtx.hntv.tv/live/lypd.m3u8?txSecret=10c771842a0be59e8b575d765173ec96&txTime=7B923E0A&wsSecret=204c9bcb18f8deded0484dc8d0cbb56e&wsTime=1795143864
+https://dxtx.hntv.tv/live/lypd.m3u8?txSecret=10c771842a0be59e8b575d765173ec96&txTime=7B923E0A&wsSecret=41543190cdf375f1c73207222bb96542&wsTime=1769313549
 #EXTINF:-1 group-title="🎭专题频道",东森戏剧
 http://mtayeh.ottb.xyz/live/774710333494/659822672281/59157.ts
 #EXTINF:-1 group-title="🎭专题频道",龙华戏剧
@@ -1829,5 +1829,5 @@ http://ngcdn013.cnr.cn/live/wygb/index.m3u8
 http://39.134.65.4/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225714/index.m3u8
 #EXTINF:-1 group-title="🎭专题频道",金牌综艺
 http://39.135.135.24/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225666/index.m3u8
-#EXTINF:-1 group-title="❤️更新时间",20261120 08:04:11
+#EXTINF:-1 group-title="❤️更新时间",20261120 08:18:58
 https://txmov2.a.kwimgs.com/upic/2024/01/09/12/BMjAyNDAxMDkxMjA2MDdfMzQ4MzI0MjA1OF8xMjE2Nzg4Mjk4NTZfMF8z_b_Bc9f7d3b0c4b69136e61d8328a8538bd2.mp4?clientCacheKey=3xajh8b4u5j6uva_b.mp4
