@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-19T17:14:40Z",
-  "updated_at_cst": "2026-11-20 01:14",
+  "updated_at": "2026-11-20T00:04:46Z",
+  "updated_at_cst": "2026-11-20 08:04",
   "sources": [
     {
       "file": "bbxx365_hotel.m3u",
@@ -8,7 +8,7 @@
       "note": "常规分组 + 🌹酒店源，已按规则归并去重；付费源已单独一份",
       "gitee": "https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_hotel.m3u",
       "github": "https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_hotel.m3u",
-      "count": 12471,
+      "count": 12433,
       "groups": 9
     },
     {
@@ -17,7 +17,7 @@
       "note": "全部源，不筛不并；已删同名同地址的完全重复，同频道多条备用源保留",
       "gitee": "https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365.m3u",
       "github": "https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365.m3u",
-      "count": 15521,
+      "count": 15485,
       "groups": 12
     },
     {
@@ -44,7 +44,7 @@
       "note": "家里联通网络实测出来的小清单，最贴合本地，只能在家里网络生成",
       "gitee": "https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_mini_home.m3u",
       "github": "https://raw.githubusercontent.com/ipiptv/iptv-sources/publish/bbxx365_mini_home.m3u",
-      "count": 886,
+      "count": 916,
       "groups": 9
     },
     {
