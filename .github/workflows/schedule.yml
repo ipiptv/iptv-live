@@ -5,9 +5,6 @@ on:
     # 三班，间隔 8 小时：UTC 21:30 / 05:30 / 13:30 = 北京 05:30 / 13:30 / 21:30
     - cron: "30 21,5,13 * * *"
   workflow_dispatch:
-  push:
-    branches: [main]
-# ← 添加这行，允许手动触发测试
 
 permissions:
   contents: write
@@ -231,6 +228,18 @@ jobs:
           else
             echo "节目单整包下载失败，跳过（本轮不同步 EPG）"
           fi
+
+      - name: Check Gitee mini_home status (non-blocking)
+        continue-on-error: true
+        run: |
+          for i in 1 2 3; do
+            code=$(curl -sL -o /dev/null -w "%{http_code}" -A "AptvPlayer/1.0" --max-time 20 \
+              "https://gitee.com/IptvIptv/Iptv/raw/master/bbxx365_mini_home.m3u?c=$(date +%s)")
+            echo "mini_home HTTP $code (try $i)"
+            [ "$code" = "200" ] && break
+            sleep 60
+          done
+          echo "说明：纯境外频道包会被 Gitee 判 451；含境内主体的混合包可通过。若此处长期 451，改用 jsDelivr/publish 地址。"
 
       - name: Sync m3u to Gitee (CN-friendly mirror)
         env:
