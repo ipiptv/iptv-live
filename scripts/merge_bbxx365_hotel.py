@@ -56,14 +56,45 @@ UPDATE_URL = (
 TARGET_ORDER = [
     "❤️央视频道",
     "❤️卫视频道",
+    "💓少儿频道",
+    "🏨酒店央视",
+    "🏨酒店卫视",
     "❤️更新时间",
 ]
+
+# 酒店源单独成组（只放它的央视/卫视，其他频道（HOTEL_GROUPS 里的“其他频道”）不要）
+HOTEL_CCTV_GROUP = "🏨酒店央视"
+HOTEL_SAT_GROUP = "🏨酒店卫视"
+HOTEL_TARGETS = (HOTEL_CCTV_GROUP, HOTEL_SAT_GROUP)
 
 # 按台名归类（上游 bbxx365 的分组名很乱，央视/卫视常被塞进“电视剧”之类，
 # 酒店源又把央视/卫视/其他分开成组，所以统一按台名判断，不看来源分组）
 RE_4K = re.compile(r'(4K|UHD|2160|超高清)', re.I)
 RE_KID = re.compile(r'(儿童|少儿|卡通|动漫|CCTV[\-—]?1[4４]|卡酷|金鹰卡通|优漫|嘉佳|哈哈|炫动|小当家|亲子|宝宝|贝贝|动画)', re.I)
 RE_CCTV = re.compile(r'^(CCTV|CGTN|央视|中央)', re.I)
+# CCTV-14 单独回央视组（它本质是央视频道，只是名字里带“少儿”）
+RE_CCTV14 = re.compile(r'^CCTV[\-—\s]?1[4４]', re.I)
+# 国内少儿台白名单：只认这些，境外的（Cartoon Network/Baby TV/Nickelodeon/迪士尼、
+# 台湾的东森幼幼、靖天卡通，以及聚合站拼出来的“儿童|xxx”点播剧名）全部不要。
+RE_KID_DOMESTIC = re.compile(
+    r'(少儿|金鹰卡通|卡酷|优漫|嘉佳卡通|哈哈炫动|炫动卡通|动漫秀场|新动漫|北京卡通|'
+    r'家庭少儿|成长少儿|亲子|宝贝|宝宝|贝贝|酷卡|快乐卡通|动漫|动画)',
+    re.I,
+)
+# 境外/非国内少儿台的特征词，命中就丢
+RE_KID_FOREIGN = re.compile(
+    r'(Cartoon ?Network|Baby ?TV|CBeebies|Nickelodeon|Nick ?Jr|Disney|迪士尼|Animax|'
+    r'3ABN|Japanim|Kuriakos|MOMO|靖天|東森|东森|幼幼|Cartoonito|Boomerang|Tooncast|'
+    r'\bKids\b|BabyFirst|First ?Kids)',
+    re.I,
+)
+# 聚合站的点播剧名（“名侦探柯南”“熊出没”这类挂着儿童剧目的假台）
+RE_KID_EPISODE = re.compile(
+    r'(名侦探柯南|熊出没|海绵宝宝|中华小当家|双月之城|萌鸡小队|宇宙护卫队|黑莓动画|'
+    r'猫和老鼠|小猪佩奇|汪汪队|奥特曼|数码宝贝|灌篮高手|火影忍者|海贼王|'
+    r'精选动漫|经典动漫|动漫精选|热门动漫)',
+    re.I,
+)
 # 儿童组走白名单：只保留国内的少儿/卡通台。聚合站生成的“儿童|xxx”、境外台
 # （3ABN Kids / Japanim TV / Kuriakos Kids / MOMO亲子 / 靖天卡通）和剧集点播（
 # 名侦探柯南、熊出没、海绵宝宝这类）实测都播不了或不稳定，一律不要。
@@ -135,23 +166,59 @@ def name_group(extinf):
     return -1, None
 
 
-def classify(extinf):
+def classify(extinf, source="bbxx"):
     """按台名 + 来源分组名归到目标分组，归不进去返回 None（直接丢弃）。
 
     4K 频道不再单独成堆：剥掉 4K 后缀先看它本来是哪个台——
     CCTV4K 归央视，北京卫视4K / 河北4K / 苏州4K 这类带地名的归卫视，
     境外 4K（Love Nature 之类）没有归属，直接丢弃；4K 组不再保留。
+
+    source="hotel" 时只认央视/卫视，分别进酒店专用的两组；酒店源的“其他频道”不要。
     """
     name = channel_name(extinf)
     group = get_group(extinf)
     is_4k = bool(RE_4K.search(name) or RE_GROUP_4K.search(group))
     base = RE_4K_SUFFIX.sub("", name).strip()
 
+    is_cctv = bool(
+        RE_CCTV14.match(base)
+        or RE_CCTV14.match(name)
+        or RE_CCTV.match(base)
+        or RE_CCTV.match(name)
+        or RE_GROUP_CCTV.search(group)
+    )
+    is_sat = bool(
+        RE_SAT.search(name)
+        or RE_SAT.search(base)
+        or RE_GROUP_SAT.search(group)
+    )
+
+    if source == "hotel":
+        # 酒店源：央视 → 酒店央视，卫视 → 酒店卫视；其他频道一律不要
+        if is_cctv:
+            return HOTEL_CCTV_GROUP
+        if is_sat:
+            return HOTEL_SAT_GROUP
+        if is_4k and RE_FOREIGN_4K.search(name):
+            return None
+        return None
+
+    # 少儿类：CCTV14 回央视；国内少儿台进“少儿频道”；境外/点播剧名丢掉
     if RE_KID.search(name) or RE_KID.search(base) or RE_GROUP_KID.search(group):
-        return None  # 少儿频道整体不要（实测大多播不了）
-    if RE_CCTV.match(base) or RE_CCTV.match(name) or RE_GROUP_CCTV.search(group):
+        if RE_CCTV14.match(base) or RE_CCTV14.match(name):
+            return "❤️央视频道"
+        if (
+            RE_KID_FOREIGN.search(name)
+            or RE_KID_EPISODE.search(name)
+            or "|" in name
+            or not (RE_KID_DOMESTIC.search(name) or RE_KID_DOMESTIC.search(base))
+        ):
+            return None
+        return "💓少儿频道"
+
+    if is_cctv:
         return "❤️央视频道"
-    if RE_SAT.search(name) or RE_SAT.search(base) or RE_GROUP_SAT.search(group):
+    if is_sat:
         return "❤️卫视频道"
     if is_4k and base and len(base) <= 6 and any(w in base for w in REGION_WORDS):
         # 只有“带地名的 4K 台”（北京4K/河北4K/苏州4K）才按卫视处理，
@@ -215,7 +282,7 @@ def shared_paths(extinf_urls, threshold=3):
     return {k for k, v in seen.items() if len(v) >= threshold}
 
 
-def collect(lines, shared=frozenset(), blocked_hosts=frozenset()):
+def collect(lines, source="bbxx", shared=frozenset(), blocked_hosts=frozenset()):
     """把一份 m3u 的条目按目标分组收进来，返回 {分组: [(extinf, url)]}。"""
     buckets = {g: [] for g in TARGET_ORDER}
     i = 0
@@ -223,7 +290,7 @@ def collect(lines, shared=frozenset(), blocked_hosts=frozenset()):
         line = lines[i]
         if line.startswith("#EXTINF"):
             url = lines[i + 1] if i + 1 < len(lines) else ""
-            target = classify(line)
+            target = classify(line, source)
             key = URL_KEY_RE.match(url)
             hm = HOST_RE.match(url)
             if target and (
@@ -241,7 +308,10 @@ def collect(lines, shared=frozenset(), blocked_hosts=frozenset()):
 
 
 def merge_and_dedupe(bucket_list):
-    """多份来源合并：同一分组内「同名+同址」只留一条；跨分组同名只留优先组里的。"""
+    """多份来源合并：同一分组内「同名+同址」只留一条；跨分组同名只留优先组里的。
+
+    酒店两组例外：它们本来就是同一批台单独再放一份，不参与跨组“抢台名”。
+    """
     merged = {g: [] for g in TARGET_ORDER}
     for buckets in bucket_list:
         for g in TARGET_ORDER:
@@ -256,11 +326,12 @@ def merge_and_dedupe(bucket_list):
                 first = merged[g][0][0]
                 result[g] = [(first, UPDATE_URL)]
             continue
+        is_hotel = g in HOTEL_TARGETS
         seen = set()
         out = []
         for extinf, url in merged[g]:
             name = channel_name(extinf)
-            if name in claimed:
+            if not is_hotel and name in claimed:
                 continue
             key = (name, url)
             if key in seen:
@@ -268,7 +339,8 @@ def merge_and_dedupe(bucket_list):
             seen.add(key)
             out.append((extinf, url))
         result[g] = out
-        claimed |= {channel_name(e) for e, _ in out if True}
+        if not is_hotel:
+            claimed |= {channel_name(e) for e, _ in out}
     return result
 
 
@@ -399,9 +471,9 @@ def main():
         print("自动拉黑的整机（一条路径挂多个台）: %s" % ", ".join(sorted(block - load_host_blocklist())))
     print("共用同一路径的垫播源路径: %d 个 / 拉黑主机 %d 个" % (len(shared), len(block)))
 
-    sources = [collect(bbxx_lines, shared, block)]
+    sources = [collect(bbxx_lines, "bbxx", shared, block)]
     if hotel_lines:
-        sources.append(collect(hotel_lines, shared, block))
+        sources.append(collect(hotel_lines, "hotel", shared, block))
 
     buckets = merge_and_dedupe(sources)
 
