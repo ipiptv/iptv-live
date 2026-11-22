@@ -4,6 +4,10 @@ on:
   schedule:
     # 每 3 小时一次（北京时间 02:15 / 05:15 / 08:15 …），比主力源跑得勤
     - cron: "15 */3 * * *"
+  push:
+    paths:
+      - "scripts/build_yiqikan.py"
+      - ".github/workflows/yiqikan.yml"
   workflow_dispatch:
 
 permissions:
