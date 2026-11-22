@@ -5,6 +5,11 @@ on:
     # 三班，间隔 8 小时：UTC 21:30 / 05:30 / 13:30 = 北京 05:30 / 13:30 / 21:30
     - cron: "30 21,5,13 * * *"
   workflow_dispatch:
+  # 只在本工作流文件自身被改动时自动跑一次（用来验证参数调整），
+  # 普通的代码/内容提交不会触发整轮发布
+  push:
+    paths:
+      - ".github/workflows/schedule.yml"
 # ← 添加这行，允许手动触发测试
 
 permissions:
