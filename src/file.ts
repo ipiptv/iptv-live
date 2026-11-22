@@ -61,8 +61,8 @@ const listFilesRecursive = (dir: string, excludeDirs: string[] = []): string[] =
     });
 };
 
-const FETCH_CONCURRENCY = 8;
-const FETCH_RETRIES = 3;
+const FETCH_CONCURRENCY = 12;
+const FETCH_RETRIES = 2;
 
 let activeFetches = 0;
 const fetchQueue: Array<() => void> = [];
@@ -83,8 +83,8 @@ const withFetchSlot = async <T>(task: () => Promise<T>): Promise<T> => {
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-/** 单个上游源最多等 30 秒，超时按失败处理并走重试 */
-const FETCH_TIMEOUT_MS = 30000;
+/** 单个上游源最多等 20 秒，超时按失败处理并走重试（慢源直接放弃，别拖整轮） */
+const FETCH_TIMEOUT_MS = 20000;
 
 /**
  * 关键源的落盘兜底。
