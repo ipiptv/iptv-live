@@ -8,8 +8,10 @@
   kbps   估算码率（kbps），拿不到为 0
 """
 import re
+import socket
 import ssl
 import time
+import urllib.error
 import urllib.request
 
 _CTX = ssl.create_default_context()
@@ -40,6 +42,28 @@ def _first_segment(body):
     return None
 
 
+def _classify_error(e):
+    """把探测异常归类成和 stream_check 一致的 reason，便于共用失效缓存。
+    timeout / not_found / connection_error / server_error / other
+    """
+    if isinstance(e, socket.timeout):
+        return "timeout"
+    if isinstance(e, urllib.error.HTTPError):
+        if e.code in (404, 410):
+            return "not_found"
+        if e.code >= 500:
+            return "server_error"
+        return "other"
+    if isinstance(e, urllib.error.URLError):
+        reason = getattr(e, "reason", e)
+        if isinstance(reason, socket.timeout) or "timed out" in str(reason).lower():
+            return "timeout"
+        return "connection_error"
+    if "timed out" in str(e).lower():
+        return "timeout"
+    return "other"
+
+
 def analyze(url, timeout=6):
     low = url.lower()
     if low.split("?")[0].endswith(".mp4"):
@@ -48,8 +72,9 @@ def analyze(url, timeout=6):
         return {"kind": "junk", "ttfb": 0, "height": 0, "kbps": 0}
     try:
         body, ttfb, _ = _get(url, timeout)
-    except Exception:
-        return {"kind": "dead", "ttfb": 99999, "height": 0, "kbps": 0}
+    except Exception as e:
+        reason = _classify_error(e)
+        return {"kind": "dead", "ttfb": 99999, "height": 0, "kbps": 0, "reason": reason}
 
     if "#EXT-X-ENDLIST" in body or "PLAYLIST-TYPE:VOD" in body.upper():
         return {"kind": "vod", "ttfb": ttfb, "height": 0, "kbps": 0}

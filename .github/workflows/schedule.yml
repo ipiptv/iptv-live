@@ -137,6 +137,16 @@ jobs:
           OTT_SUB_URL: ${{ secrets.OTT_SUB_URL }}
         run: python scripts/merge_bbxx365_hotel.py
 
+      # 主力源整理（三步合一）：
+      #   1) 去掉所有测试频道（名字里带「测试/test」的）
+      #   2) 剔除死链：只有「连接失败/404」这种硬错误累计 2 次才删，
+      #      超时、5xx、403 一律不删（海外 CI 连不上≠国内看不了），每频道至少留 1 条
+      #   3) 按清晰度重排：每个频道最多探 10 条，tier(4K>1080p>720p>SD) → 实测分辨率
+      #      → 码率 → 打开耗时，把高清线路顶到前面；探测结果缓存在 data/stream-check
+      - name: Curate 主力源 (drop test channels / dead links / sort by quality)
+        timeout-minutes: 15
+        run: python scripts/sort_by_quality.py --max-probe 10 --budget 800
+
       # 迷你版：只留央视/卫视/专享/4K/国际台，每频道 2 条源，约 70KB。
       # 国内弱网或播放器超时短时，小文件才下得完。
       - name: Build mini playlist (small file for weak networks)

@@ -46,6 +46,10 @@ jobs:
       - name: Build yiqikan.m3u
         run: python3 scripts/build_yiqikan.py
 
+      # 去掉测试频道（一起看里拼进来的「测试」直播位不要）
+      - name: Drop test channels
+        run: python3 scripts/sort_by_quality.py --clean-only
+
       # 只镜像到 publish 分支，Gitee 不同步（那边审核会拦）
       - name: Mirror yiqikan.m3u to publish branch
         run: |
