@@ -147,6 +147,12 @@ jobs:
         timeout-minutes: 15
         run: python scripts/sort_by_quality.py --max-probe 10 --budget 800
 
+      # 补齐台标：缺 tvg-logo 的频道按台名去图库匹配（自家 tv-res 图库优先，
+      # fanmingming 清单兜底），只补空的，已有的不动
+      - name: Fill missing channel logos
+        timeout-minutes: 10
+        run: python scripts/fill_logos.py
+
       # 迷你版：只留央视/卫视/专享/4K/国际台，每频道 2 条源，约 70KB。
       # 国内弱网或播放器超时短时，小文件才下得完。
       - name: Build mini playlist (small file for weak networks)
