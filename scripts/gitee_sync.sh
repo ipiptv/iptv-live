@@ -34,7 +34,10 @@ KEY="$RUNNER_TEMP/gitee_key"
 printf '%s\n' "$GITEE_SSH_KEY" > "$KEY"
 chmod 600 "$KEY"
 
-export GIT_SSH_COMMAND="ssh -i $KEY -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+# ServerAlive* 保活：GitHub 的海外 runner 拉 Gitee 时链路上常被中断，
+# 不加保活会出现 "unexpected disconnect / early EOF / invalid index-pack output"。
+export GIT_SSH_COMMAND="ssh -i $KEY -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new \
+ -o ServerAliveInterval=15 -o ServerAliveCountMax=10 -o TCPKeepAlive=yes"
 export GIT_AUTHOR_NAME="github-actions[bot]"
 export GIT_AUTHOR_EMAIL="41898282+github-actions[bot]@users.noreply.github.com"
 export GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
@@ -42,7 +45,25 @@ export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 
 rm -rf /tmp/gitee && mkdir -p /tmp/gitee
 # 拉回旧分支再覆盖，保留本流水线在云端产不出的文件（mini_home 只能在家里网络实测产出）
-git clone -q --depth 1 -b master "$GITEE_REPO" /tmp/gitee
+# 海外 runner 到 Gitee 的链路不稳定，做成 3 次带退避的自动重试。
+clone_gitee() {
+  local attempt=1 wait=15
+  while [ "$attempt" -le 3 ]; do
+    rm -rf /tmp/gitee
+    if git clone -q --depth 1 --single-branch -b master "$GITEE_REPO" /tmp/gitee 2>"$RUNNER_TEMP/gitee_clone.err"; then
+      return 0
+    fi
+    echo "Gitee 克隆失败（第 ${attempt} 次）：$(tail -3 "$RUNNER_TEMP/gitee_clone.err" 2>/dev/null | tr '\n' ' ')"
+    [ "$attempt" -lt 3 ] && { echo "等待 ${wait}s 后重试…"; sleep "$wait"; wait=$((wait * 2)); }
+    attempt=$((attempt + 1))
+  done
+  return 1
+}
+
+if ! clone_gitee; then
+  echo "Gitee 克隆连续 3 次失败，本轮跳过同步（产物已在 GitHub 侧就绪）。"
+  exit 1
+fi
 
 rm -f /tmp/gitee/probe-*.xml /tmp/gitee/v-*.xml /tmp/gitee/d[0-9].xml /tmp/gitee/t-* /tmp/gitee/bbxx365_mini_home.m3u
 
@@ -72,8 +93,16 @@ fi
 git commit -q -m "sync $(date -u +%Y-%m-%dT%H:%MZ)"
 
 push_once() {
-  git push origin master 2>&1 | tail -20
-  return ${PIPESTATUS[0]}
+  local attempt=1 wait=10
+  while [ "$attempt" -le 3 ]; do
+    if git push origin master 2>&1 | tail -20; then
+      [ "${PIPESTATUS[0]}" -eq 0 ] && return 0
+    fi
+    echo "Gitee 推送失败（第 ${attempt} 次），${wait}s 后重试…"
+    [ "$attempt" -lt 3 ] && sleep "$wait"
+    wait=$((wait * 2)); attempt=$((attempt + 1))
+  done
+  return 1
 }
 
 if push_once; then
