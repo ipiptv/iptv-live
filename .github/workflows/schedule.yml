@@ -171,6 +171,11 @@ jobs:
         timeout-minutes: 20
         run: python scripts/stream_check.py --budget 1800 --discover 500
 
+      # 本机央视频网关导出的官方央视/卫视线路（assets/ysp-official.m3u）。
+      # 放在排序、体检这些会剔死链的步骤之后，避免 CI 连不到 192.168.3.104 被误判成死链删掉。
+      - name: Prepend official CCTV/Satellite channels
+        run: python scripts/append_ysp_group.py
+
       # 国内直连 pages.dev 会因限速中断（URLSession 报"网络连接已中断"），
       # 故把产物镜像到 publish 分支，供 raw.githubusercontent / 加速代理 拉取。
       # 用 orphan + force push，分支上永远只有一个提交，不会无限膨胀。
