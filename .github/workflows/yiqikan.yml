@@ -13,9 +13,10 @@ on:
 permissions:
   contents: write
 
-# 与主流水线共用一个组：都要写 publish 分支，串行执行避免互相覆盖
+# 独立并发组：和主流水线（publish-pipeline）分开排队，互相不顶掉；
+# 但两边都会写 publish 分支，各自只改自己那个 m3u 文件，不会覆盖
 concurrency:
-  group: publish-pipeline
+  group: publish-yiqikan
   cancel-in-progress: false
 
 jobs:
