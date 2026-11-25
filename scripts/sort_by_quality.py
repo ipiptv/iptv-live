@@ -32,6 +32,10 @@ CACHE_PATH = os.path.join(ROOT, "data", "stream-check", "quality-cache.json")
 FAILURE_PATH = os.path.join(ROOT, "data", "stream-check", "failure-cache.json")
 
 TEST_RE = re.compile(r"(测试|測試|test)", re.I)
+# 4K/8K 台只保留本机央视频网关（8767）那几条官方线路；外网那些
+# 107.150.x / 山东移动 8089 / 过期 auth_key 的地址在家里网络全连不上，整组清掉。
+UHD_RE = re.compile(r"(4K|8K)", re.I)
+OFFICIAL_PORT = ":8767"
 CACHE_TTL_OK = 7 * 24 * 3600
 CACHE_TTL_FAIL = 6 * 3600
 FAIL_TTLB = 99999
@@ -92,6 +96,28 @@ def write_m3u(path, header, entries):
             f.write(e["extinf"] + "\n")
             f.write(e["url"] + "\n")
     os.replace(tmp, path)
+
+
+# ---------- 4K/8K 只留官方线路 ----------
+def is_official_uhd(e):
+    return OFFICIAL_PORT in e["url"]
+
+
+def drop_fake_uhd(files):
+    removed_total = 0
+    for path in files:
+        if not os.path.exists(path):
+            continue
+        header, entries = parse_m3u(path)
+        keep = [e for e in entries
+                if not (UHD_RE.search(entry_name(e)) and not is_official_uhd(e))]
+        n = len(entries) - len(keep)
+        if n:
+            write_m3u(path, header, keep)
+            removed_total += n
+            print(f"[uhd] {os.path.basename(path)} 去掉非官方 4K/8K 线路 {n} 条")
+    print(f"[uhd] 合计去掉非官方 4K/8K 线路 {removed_total} 条")
+    return removed_total
 
 
 # ---------- 测试频道清理 ----------
@@ -355,6 +381,7 @@ def main():
 
     if not args.skip_clean:
         clean_tests(targets)
+        drop_fake_uhd(targets)
     if args.clean_only:
         return
 
