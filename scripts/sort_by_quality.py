@@ -381,7 +381,8 @@ def main():
 
     if not args.skip_clean:
         clean_tests(targets)
-        drop_fake_uhd(targets)
+        # 4K/8K 清理只针对主力源：全量源要保持"原样全量"，不能跟着丢线路
+        drop_fake_uhd([args.file])
     if args.clean_only:
         return
 
