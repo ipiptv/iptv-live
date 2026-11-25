@@ -1,0 +1,3444 @@
+{
+ "at": "2026-11-25T14:59:09",
+ "minKBs": 300,
+ "channels": {
+  "❤️卫视频道|浙江卫视": {
+   "order": [
+    "http://ali-m-l.cztv.com/channels/lantian/channel001/1080p.m3u8",
+    "http://ali-xwl.cztv.com/live/channel01720Plxw.m3u8",
+    "http://58.56.162.102:4466/newlive/live/hls/17/live.m3u8",
+    "http://ali-xwl.cztv.com/live/channel011080Plxw.m3u8",
+    "http://gfr.x3322.net:9901/tsfile/live/1087_1.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/0124_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://ali-xwl.cztv.com/live/channel011080Plxw.m3u8": {
+     "kbs": 1588,
+     "ttfb": 195,
+     "stall": 0
+    },
+    "http://ali-xwl.cztv.com/live/channel01720Plxw.m3u8": {
+     "kbs": 2193,
+     "ttfb": 94,
+     "stall": 0
+    },
+    "http://gfr.x3322.net:9901/tsfile/live/1087_1.m3u8": {
+     "kbs": 123,
+     "ttfb": 118,
+     "stall": 1
+    },
+    "http://ali-m-l.cztv.com/channels/lantian/channel001/1080p.m3u8": {
+     "kbs": 6072,
+     "ttfb": 71,
+     "stall": 0
+    },
+    "http://124.90.45.52:9901/tsfile/live/0124_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 79,
+     "ttfb": 62,
+     "stall": 1
+    },
+    "http://58.56.162.102:4466/newlive/live/hls/17/live.m3u8": {
+     "kbs": 1968,
+     "ttfb": 62,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|湖南卫视4K": {
+   "order": [
+    "http://hlsal-ldvt.qing.mgtv.com/nn_live/nn_x64/dWlwPTEyNy4wLjAuMSZ1aWQ9cWluZy1jbXMmbm5fdGltZXpvbmU9OCZjZG5leF9pZD1hbF9obHNfbGR2dCZ1dWlkPTliODY4NmU5ZTM2YzYwMmMmZT02OTE0NjA0JnY9MSZpZD1ITldTWkdTVCZzPTcwN2RiYTc2YzJjNmJmMTQ4MmUyZGYzOWU2NWM3YWFi/HNWSZGST.m3u8"
+   ],
+   "detail": {
+    "http://hlsal-ldvt.qing.mgtv.com/nn_live/nn_x64/dWlwPTEyNy4wLjAuMSZ1aWQ9cWluZy1jbXMmbm5fdGltZXpvbmU9OCZjZG5leF9pZD1hbF9obHNfbGR2dCZ1dWlkPTliODY4NmU5ZTM2YzYwMmMmZT02OTE0NjA0JnY9MSZpZD1ITldTWkdTVCZzPTcwN2RiYTc2YzJjNmJmMTQ4MmUyZGYzOWU2NWM3YWFi/HNWSZGST.m3u8": {
+     "kbs": 1836,
+     "ttfb": 122,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|浙江卫视4K": {
+   "order": [
+    "http://ali-xwl.cztv.com/live/channel4k2160p.m3u8"
+   ],
+   "detail": {
+    "http://ali-xwl.cztv.com/live/channel4k2160p.m3u8": {
+     "kbs": 3198,
+     "ttfb": 52,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|延边卫视": {
+   "order": [
+    "https://srs.iyb983.cn/video/CYS/index.m3u8",
+    "https://srs.iyb983.cn:443/video/CYS/index.m3u8",
+    "http://l.cztvcloud.com/channels/lantian/SXxinchang2/720p.m3u8",
+    "https://stream2.jlntv.cn/jlyb/sd/live.m3u8",
+    "http://satellitepull.cnr.cn/live/wxybws/playlist.m3u8",
+    "http://gmxw.7766.org:808/hls/15/index.m3u8"
+   ],
+   "detail": {
+    "https://srs.iyb983.cn/video/CYS/index.m3u8": {
+     "kbs": 6119,
+     "ttfb": 144,
+     "stall": 0
+    },
+    "https://srs.iyb983.cn:443/video/CYS/index.m3u8": {
+     "kbs": 4391,
+     "ttfb": 90,
+     "stall": 0
+    },
+    "http://gmxw.7766.org:808/hls/15/index.m3u8": {
+     "kbs": 62,
+     "ttfb": 377,
+     "stall": 1
+    },
+    "http://satellitepull.cnr.cn/live/wxybws/playlist.m3u8": {
+     "kbs": 0,
+     "ttfb": 539,
+     "stall": 0
+    },
+    "https://stream2.jlntv.cn/jlyb/sd/live.m3u8": {
+     "kbs": 623,
+     "ttfb": 158,
+     "stall": 0
+    },
+    "http://l.cztvcloud.com/channels/lantian/SXxinchang2/720p.m3u8": {
+     "kbs": 2040,
+     "ttfb": 156,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|东森美洲卫视": {
+   "order": [
+    "http://38.64.72.148/hls/modn/list/2015/playlist.m3u8"
+   ],
+   "detail": {
+    "http://38.64.72.148/hls/modn/list/2015/playlist.m3u8": {
+     "kbs": 0,
+     "ttfb": 390,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|苏州4K": {
+   "order": [
+    "https://tylive.kan0512.com/norecord/csztv4k_4k.m3u8",
+    "https://live-auth.51kandianshi.com/szgd/csztv4k_4k.m3u8",
+    "https://live-auth.51kandianshi.com/szgd/csztv4k_hd.m3u8"
+   ],
+   "detail": {
+    "https://live-auth.51kandianshi.com/szgd/csztv4k_hd.m3u8": {
+     "kbs": 912,
+     "ttfb": 204,
+     "stall": 0
+    },
+    "https://live-auth.51kandianshi.com/szgd/csztv4k_4k.m3u8": {
+     "kbs": 1516,
+     "ttfb": 186,
+     "stall": 0
+    },
+    "https://tylive.kan0512.com/norecord/csztv4k_4k.m3u8": {
+     "kbs": 9102,
+     "ttfb": 195,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|河北4K": {
+   "order": [
+    "https://event.pull.hebtv.com:443/live/live101.m3u8"
+   ],
+   "detail": {
+    "https://event.pull.hebtv.com:443/live/live101.m3u8": {
+     "kbs": 3597,
+     "ttfb": 201,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|南国都市4K": {
+   "order": [
+    "https://tencentplay.gztv.com/live/nanguodushi.m3u8?txSecret=550af55c0ea34ce492748481415b6dfa&txTime=1903e7b17de"
+   ],
+   "detail": {
+    "https://tencentplay.gztv.com/live/nanguodushi.m3u8?txSecret=550af55c0ea34ce492748481415b6dfa&txTime=1903e7b17de": {
+     "kbs": 3127,
+     "ttfb": 233,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|东南卫视": {
+   "order": [
+    "http://112.123.243.37:50085/tsfile/live/0113_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://153.0.171.163:9901/tsfile/live/1039_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1039_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2052,
+     "ttfb": 108,
+     "stall": 0
+    },
+    "http://112.123.243.37:50085/tsfile/live/0113_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 2716,
+     "ttfb": 85,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|东方卫视": {
+   "order": [
+    "http://120.198.86.251:9901/tsfile/live/1043_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://153.0.171.163:9901/tsfile/live/1027_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1027_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 865,
+     "ttfb": 119,
+     "stall": 0
+    },
+    "http://120.198.86.251:9901/tsfile/live/1043_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2354,
+     "ttfb": 183,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|兵团卫视": {
+   "order": [
+    "http://120.198.86.251:9901/tsfile/live/1075_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://112.123.243.37:50085/tsfile/live/0112_1.m3u8?key=txiptv&playlive=0&authid=0"
+   ],
+   "detail": {
+    "http://120.198.86.251:9901/tsfile/live/1075_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1766,
+     "ttfb": 113,
+     "stall": 0
+    },
+    "http://112.123.243.37:50085/tsfile/live/0112_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 342,
+     "ttfb": 66,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|厦门卫视": {
+   "order": [
+    "http://120.198.86.251:9901/tsfile/live/1076_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://120.198.86.251:9901/tsfile/live/1076_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1775,
+     "ttfb": 105,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|吉林卫视": {
+   "order": [
+    "http://153.0.171.163:9901/tsfile/live/1041_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1041_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1564,
+     "ttfb": 118,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|四川卫视": {
+   "order": [
+    "http://153.0.171.163:9901/tsfile/live/1035_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1035_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1441,
+     "ttfb": 148,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|天津卫视": {
+   "order": [
+    "http://153.0.171.163:9901/tsfile/live/1024_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1024_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2362,
+     "ttfb": 172,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|宁夏卫视": {
+   "order": [
+    "http://120.198.86.251:9901/tsfile/live/1071_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://112.123.243.37:50085/tsfile/live/0125_1.m3u8?key=txiptv&playlive=0&authid=0"
+   ],
+   "detail": {
+    "http://120.198.86.251:9901/tsfile/live/1071_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1854,
+     "ttfb": 166,
+     "stall": 0
+    },
+    "http://112.123.243.37:50085/tsfile/live/0125_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 1580,
+     "ttfb": 117,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|安徽卫视": {
+   "order": [
+    "http://153.0.171.163:9901/tsfile/live/1022_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1022_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1496,
+     "ttfb": 114,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|山东卫视": {
+   "order": [
+    "http://223.14.160.130:9901/tsfile/live/0131_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://153.0.171.163:9901/tsfile/live/1026_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1026_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1462,
+     "ttfb": 263,
+     "stall": 0
+    },
+    "http://223.14.160.130:9901/tsfile/live/0131_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2722,
+     "ttfb": 56,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|山东教育卫视": {
+   "order": [
+    "http://223.14.160.130:9901/tsfile/live/0127_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://223.14.160.130:9901/tsfile/live/0127_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 4008,
+     "ttfb": 129,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|广东南方卫视": {
+   "order": [
+    "http://120.198.86.251:9901/tsfile/live/1006_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://120.198.86.251:9901/tsfile/live/1006_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1710,
+     "ttfb": 122,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|广东卫视": {
+   "order": [
+    "http://153.0.171.163:9901/tsfile/live/1028_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1028_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1168,
+     "ttfb": 144,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|广西卫视": {
+   "order": [
+    "http://112.123.243.37:50085/tsfile/live/0137_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://223.14.160.130:9901/tsfile/live/0113_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://153.0.171.163:9901/tsfile/live/1029_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1029_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1905,
+     "ttfb": 129,
+     "stall": 0
+    },
+    "http://223.14.160.130:9901/tsfile/live/0113_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2114,
+     "ttfb": 77,
+     "stall": 0
+    },
+    "http://112.123.243.37:50085/tsfile/live/0137_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 2708,
+     "ttfb": 66,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|旅游卫视": {
+   "order": [
+    "http://112.123.243.37:50085/tsfile/live/0138_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://120.198.86.251:9901/tsfile/live/1070_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://112.123.243.37:50085/tsfile/live/0138_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 2069,
+     "ttfb": 107,
+     "stall": 0
+    },
+    "http://120.198.86.251:9901/tsfile/live/1070_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 805,
+     "ttfb": 125,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|星空卫视": {
+   "order": [
+    "http://120.198.86.251:9901/tsfile/live/1035_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://120.198.86.251:9901/tsfile/live/1035_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1637,
+     "ttfb": 172,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|江苏卫视": {
+   "order": [
+    "http://119.39.9.8:9901/tsfile/live/0127_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://183.239.248.218:8181/tsfile/live/0127_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://119.39.9.8:9901/tsfile/live/0127_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 2129,
+     "ttfb": 175,
+     "stall": 0
+    },
+    "http://183.239.248.218:8181/tsfile/live/0127_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1593,
+     "ttfb": 123,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|江西卫视": {
+   "order": [
+    "http://223.14.160.130:9901/tsfile/live/0138_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://153.0.171.163:9901/tsfile/live/1036_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://119.39.9.8:9901/tsfile/live/0138_1.m3u8?key=txiptv&playlive=0&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1036_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2276,
+     "ttfb": 180,
+     "stall": 0
+    },
+    "http://119.39.9.8:9901/tsfile/live/0138_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 2134,
+     "ttfb": 166,
+     "stall": 0
+    },
+    "http://223.14.160.130:9901/tsfile/live/0138_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 3405,
+     "ttfb": 72,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|河北卫视": {
+   "order": [
+    "http://119.39.9.8:9901/tsfile/live/0117_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://153.0.171.163:9901/tsfile/live/1040_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1040_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1812,
+     "ttfb": 156,
+     "stall": 0
+    },
+    "http://119.39.9.8:9901/tsfile/live/0117_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 2024,
+     "ttfb": 188,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|河南卫视": {
+   "order": [
+    "http://119.39.9.8:9901/tsfile/live/0139_1.m3u8?key=txiptv&playlive=0&authid=0"
+   ],
+   "detail": {
+    "http://119.39.9.8:9901/tsfile/live/0139_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 1476,
+     "ttfb": 156,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|浙江卫视": {
+   "order": [
+    "http://153.0.171.163:9901/tsfile/live/1021_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1021_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1130,
+     "ttfb": 120,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|湖南卫视": {
+   "order": [
+    "http://119.39.9.8:9901/tsfile/live/0128_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://153.0.171.163:9901/tsfile/live/1020_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1020_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2193,
+     "ttfb": 302,
+     "stall": 0
+    },
+    "http://119.39.9.8:9901/tsfile/live/0128_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 2462,
+     "ttfb": 151,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|甘肃卫视": {
+   "order": [
+    "http://119.39.9.8:9901/tsfile/live/0141_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://120.198.86.251:9901/tsfile/live/1074_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://119.39.9.8:9901/tsfile/live/0141_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 1325,
+     "ttfb": 292,
+     "stall": 0
+    },
+    "http://120.198.86.251:9901/tsfile/live/1074_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1258,
+     "ttfb": 168,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|西藏卫视": {
+   "order": [
+    "http://120.198.86.251:9901/tsfile/live/1072_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://120.198.86.251:9901/tsfile/live/1072_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2381,
+     "ttfb": 194,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|贵州卫视": {
+   "order": [
+    "http://153.0.171.163:9901/tsfile/live/1037_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1037_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1312,
+     "ttfb": 134,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|辽宁卫视": {
+   "order": [
+    "http://153.0.171.163:9901/tsfile/live/1025_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1025_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1306,
+     "ttfb": 136,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|重庆卫视": {
+   "order": [
+    "http://119.39.9.8:9901/tsfile/live/0142_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://112.123.243.37:50085/tsfile/live/0131_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://153.0.171.163:9901/tsfile/live/1038_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://112.123.243.37:50085/tsfile/live/0131_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 2462,
+     "ttfb": 103,
+     "stall": 0
+    },
+    "http://153.0.171.163:9901/tsfile/live/1038_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1916,
+     "ttfb": 201,
+     "stall": 0
+    },
+    "http://119.39.9.8:9901/tsfile/live/0142_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 2620,
+     "ttfb": 151,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|陕西卫视": {
+   "order": [
+    "http://119.39.9.8:9901/tsfile/live/0136_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://153.0.171.163:9901/tsfile/live/1042_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://120.198.86.251:9901/tsfile/live/1066_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://59.39.89.130:60901/tsfile/live/0125_23.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1042_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2117,
+     "ttfb": 225,
+     "stall": 0
+    },
+    "http://120.198.86.251:9901/tsfile/live/1066_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1908,
+     "ttfb": 221,
+     "stall": 0
+    },
+    "http://59.39.89.130:60901/tsfile/live/0125_23.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 720,
+     "ttfb": 328,
+     "stall": 0
+    },
+    "http://119.39.9.8:9901/tsfile/live/0136_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 2531,
+     "ttfb": 166,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|青海卫视": {
+   "order": [
+    "http://223.14.160.130:9901/tsfile/live/0140_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://120.198.86.251:9901/tsfile/live/1069_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://153.0.171.163:9901/tsfile/live/1045_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1045_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1888,
+     "ttfb": 268,
+     "stall": 0
+    },
+    "http://223.14.160.130:9901/tsfile/live/0140_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 3296,
+     "ttfb": 96,
+     "stall": 0
+    },
+    "http://120.198.86.251:9901/tsfile/live/1069_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2090,
+     "ttfb": 119,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|黑龙江卫视": {
+   "order": [
+    "http://153.0.171.163:9901/tsfile/live/1034_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://120.198.86.251:9901/tsfile/live/1051_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1034_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1838,
+     "ttfb": 124,
+     "stall": 0
+    },
+    "http://120.198.86.251:9901/tsfile/live/1051_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1581,
+     "ttfb": 122,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|凤凰卫视": {
+   "order": [
+    "http://221.7.175.154:8445/tsfile/live/1020_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://221.7.175.154:8445/tsfile/live/1020_1.m3u8"
+   ],
+   "detail": {
+    "http://221.7.175.154:8445/tsfile/live/1020_1.m3u8": {
+     "kbs": 2438,
+     "ttfb": 113,
+     "stall": 0
+    },
+    "http://221.7.175.154:8445/tsfile/live/1020_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 3275,
+     "ttfb": 87,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|南方卫视": {
+   "order": [
+    "http://120.198.95.220:9901/tsfile/live/1012_1.m3u8?key=txiptv&playlive=1&down=1",
+    "http://120.237.39.10:9901/tsfile/live/1012_1.m3u8?key=txiptv&playlive=1&down=1"
+   ],
+   "detail": {
+    "http://120.237.39.10:9901/tsfile/live/1012_1.m3u8?key=txiptv&playlive=1&down=1": {
+     "kbs": 252,
+     "ttfb": 131,
+     "stall": 1
+    },
+    "http://120.198.95.220:9901/tsfile/live/1012_1.m3u8?key=txiptv&playlive=1&down=1": {
+     "kbs": 358,
+     "ttfb": 146,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|安多卫视": {
+   "order": [
+    "https://liveout.xntv.tv/a65jur/96iln2.m3u8",
+    "http://39.164.143.66:13994/tsfile/live/1004_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "https://liveout.xntv.tv/a65jur/96iln2.m3u8": {
+     "kbs": 741,
+     "ttfb": 308,
+     "stall": 0
+    },
+    "http://39.164.143.66:13994/tsfile/live/1004_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 123,
+     "ttfb": 102,
+     "stall": 1
+    }
+   }
+  },
+  "🏨酒店卫视|云南卫视": {
+   "order": [
+    "http://112.123.243.37:50085/tsfile/live/0117_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://120.198.86.251:9901/tsfile/live/1064_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://120.198.86.251:9901/tsfile/live/1064_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1121,
+     "ttfb": 124,
+     "stall": 0
+    },
+    "http://112.123.243.37:50085/tsfile/live/0117_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 3060,
+     "ttfb": 86,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|内蒙古卫视": {
+   "order": [
+    "http://120.198.86.251:9901/tsfile/live/1068_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://153.0.171.163:9901/tsfile/live/1044_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://120.198.86.251:9901/tsfile/live/1068_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1690,
+     "ttfb": 189,
+     "stall": 0
+    },
+    "http://153.0.171.163:9901/tsfile/live/1044_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1602,
+     "ttfb": 110,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|北京卫视": {
+   "order": [
+    "http://153.0.171.163:9901/tsfile/live/1023_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1023_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1913,
+     "ttfb": 155,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店卫视|山西卫视": {
+   "order": [
+    "http://153.0.171.163:9901/tsfile/live/1043_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://112.123.243.37:50085/tsfile/live/0120_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://120.198.86.251:9901/tsfile/live/1067_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://59.39.89.130:60901/tsfile/live/0125_20.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://112.123.243.37:50085/tsfile/live/0120_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 1434,
+     "ttfb": 80,
+     "stall": 0
+    },
+    "http://153.0.171.163:9901/tsfile/live/1043_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2512,
+     "ttfb": 228,
+     "stall": 0
+    },
+    "http://120.198.86.251:9901/tsfile/live/1067_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1192,
+     "ttfb": 211,
+     "stall": 0
+    },
+    "http://59.39.89.130:60901/tsfile/live/0125_20.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 936,
+     "ttfb": 314,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|黑龙江卫视": {
+   "order": [
+    "http://l.cztvcloud.com/channels/lantian/SXyuyao3/720p.m3u8",
+    "http://27.129.145.110:4433/hls/34/index.m3u8",
+    "http://58.56.162.102:4466/newlive/live/hls/27/live.m3u8",
+    "http://fuxin.yunjifei.top:999/tsfile/live/0143_1.m3u8?key=txiptv",
+    "http://218.13.170.98:9901/tsfile/live/1006_1.m3u8",
+    "https://epg.pw/stream/c6c1262d0b35e59eac22bf513395f00f8b60cc5eab41f598412cdf8269312f32.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/0143_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://gfr.x3322.net:9901/tsfile/live/1094_1.m3u8"
+   ],
+   "detail": {
+    "http://gfr.x3322.net:9901/tsfile/live/1094_1.m3u8": {
+     "kbs": 100,
+     "ttfb": 181,
+     "stall": 1
+    },
+    "http://124.90.45.52:9901/tsfile/live/0143_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 115,
+     "ttfb": 75,
+     "stall": 1
+    },
+    "http://l.cztvcloud.com/channels/lantian/SXyuyao3/720p.m3u8": {
+     "kbs": 7240,
+     "ttfb": 97,
+     "stall": 0
+    },
+    "http://218.13.170.98:9901/tsfile/live/1006_1.m3u8": {
+     "kbs": 314,
+     "ttfb": 200,
+     "stall": 0
+    },
+    "http://58.56.162.102:4466/newlive/live/hls/27/live.m3u8": {
+     "kbs": 1284,
+     "ttfb": 74,
+     "stall": 0
+    },
+    "http://27.129.145.110:4433/hls/34/index.m3u8": {
+     "kbs": 2713,
+     "ttfb": 80,
+     "stall": 0
+    },
+    "http://fuxin.yunjifei.top:999/tsfile/live/0143_1.m3u8?key=txiptv": {
+     "kbs": 408,
+     "ttfb": 143,
+     "stall": 0
+    },
+    "https://epg.pw/stream/c6c1262d0b35e59eac22bf513395f00f8b60cc5eab41f598412cdf8269312f32.m3u8": {
+     "kbs": 0,
+     "ttfb": 3236,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|安徽卫视": {
+   "order": [
+    "http://112.123.243.37:50085/tsfile/live/0130_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://58.56.162.102:4466/newlive/live/hls/21/live.m3u8",
+    "http://27.129.145.110:4433/hls/26/index.m3u8",
+    "http://123.138.216.44:9901/tsfile/live/0130_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://59.39.89.130:60901/tsfile/live/0125_6.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://fuxin.yunjifei.top:999/tsfile/live/0130_1.m3u8?key=txiptv",
+    "http://183.11.239.36:808/hls/40/index.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/0130_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://39.165.39.49:85/tsfile/live/1134_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://49.87.154.246:85/tsfile/live/0130_1.m3u8?key=txiptv",
+    "http://gfr.x3322.net:9901/tsfile/live/1092_1.m3u8"
+   ],
+   "detail": {
+    "http://gfr.x3322.net:9901/tsfile/live/1092_1.m3u8": {
+     "kbs": 95,
+     "ttfb": 184,
+     "stall": 1
+    },
+    "http://124.90.45.52:9901/tsfile/live/0130_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 126,
+     "ttfb": 122,
+     "stall": 1
+    },
+    "http://183.11.239.36:808/hls/40/index.m3u8": {
+     "kbs": 193,
+     "ttfb": 384,
+     "stall": 1
+    },
+    "http://112.123.243.37:50085/tsfile/live/0130_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 2645,
+     "ttfb": 74,
+     "stall": 0
+    },
+    "http://49.87.154.246:85/tsfile/live/0130_1.m3u8?key=txiptv": {
+     "kbs": 106,
+     "ttfb": 108,
+     "stall": 1
+    },
+    "http://59.39.89.130:60901/tsfile/live/0125_6.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1272,
+     "ttfb": 259,
+     "stall": 0
+    },
+    "http://123.138.216.44:9901/tsfile/live/0130_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1341,
+     "ttfb": 44,
+     "stall": 0
+    },
+    "http://58.56.162.102:4466/newlive/live/hls/21/live.m3u8": {
+     "kbs": 2388,
+     "ttfb": 99,
+     "stall": 0
+    },
+    "http://39.165.39.49:85/tsfile/live/1134_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 113,
+     "ttfb": 62,
+     "stall": 1
+    },
+    "http://27.129.145.110:4433/hls/26/index.m3u8": {
+     "kbs": 2061,
+     "ttfb": 81,
+     "stall": 0
+    },
+    "http://fuxin.yunjifei.top:999/tsfile/live/0130_1.m3u8?key=txiptv": {
+     "kbs": 667,
+     "ttfb": 100,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|贵州卫视": {
+   "order": [
+    "http://58.56.162.102:4466/newlive/live/hls/41/live.m3u8",
+    "http://27.129.145.110:4433/hls/37/index.m3u8",
+    "http://59.39.89.130:60901/tsfile/live/0125_15.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://fuxin.yunjifei.top:999/tsfile/live/0120_1.m3u8?key=txiptv",
+    "http://gfr.x3322.net:9901/tsfile/live/1100_1.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/0120_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://gfr.x3322.net:9901/tsfile/live/1100_1.m3u8": {
+     "kbs": 140,
+     "ttfb": 139,
+     "stall": 1
+    },
+    "http://124.90.45.52:9901/tsfile/live/0120_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 70,
+     "ttfb": 75,
+     "stall": 1
+    },
+    "http://59.39.89.130:60901/tsfile/live/0125_15.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1185,
+     "ttfb": 192,
+     "stall": 0
+    },
+    "http://58.56.162.102:4466/newlive/live/hls/41/live.m3u8": {
+     "kbs": 4868,
+     "ttfb": 103,
+     "stall": 0
+    },
+    "http://27.129.145.110:4433/hls/37/index.m3u8": {
+     "kbs": 3464,
+     "ttfb": 94,
+     "stall": 0
+    },
+    "http://fuxin.yunjifei.top:999/tsfile/live/0120_1.m3u8?key=txiptv": {
+     "kbs": 440,
+     "ttfb": 104,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|深圳卫视": {
+   "order": [
+    "http://119.39.9.8:9901/tsfile/live/0126_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://58.56.162.102:4466/newlive/live/hls/24/live.m3u8",
+    "http://59.39.89.130:60901/tsfile/live/0125_11.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://120.198.95.220:9901/tsfile/live/1048_1.m3u8?key=txiptv",
+    "http://gfr.x3322.net:9901/tsfile/live/1095_1.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/0126_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://gfr.x3322.net:9901/tsfile/live/1095_1.m3u8": {
+     "kbs": 258,
+     "ttfb": 1107,
+     "stall": 1
+    },
+    "http://124.90.45.52:9901/tsfile/live/0126_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 113,
+     "ttfb": 135,
+     "stall": 1
+    },
+    "http://120.198.95.220:9901/tsfile/live/1048_1.m3u8?key=txiptv": {
+     "kbs": 450,
+     "ttfb": 184,
+     "stall": 0
+    },
+    "http://59.39.89.130:60901/tsfile/live/0125_11.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 723,
+     "ttfb": 326,
+     "stall": 0
+    },
+    "http://119.39.9.8:9901/tsfile/live/0126_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 4101,
+     "ttfb": 88,
+     "stall": 0
+    },
+    "http://58.56.162.102:4466/newlive/live/hls/24/live.m3u8": {
+     "kbs": 1251,
+     "ttfb": 177,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|天津卫视": {
+   "order": [
+    "http://112.123.243.37:50085/tsfile/live/0128_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://fuxin.yunjifei.top:999/tsfile/live/0135_1.m3u8?key=txiptv",
+    "http://27.129.145.110:4433/hls/29/index.m3u8",
+    "http://221.7.175.154:8445/tsfile/live/0135_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://120.237.39.10:9901/tsfile/live/1067_1.m3u8?key=txiptv&playlive=1&down=1",
+    "http://gfr.x3322.net:9901/tsfile/live/1090_1.m3u8",
+    "http://183.11.239.36:808/hls/42/index.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/0135_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://gfr.x3322.net:9901/tsfile/live/1090_1.m3u8": {
+     "kbs": 98,
+     "ttfb": 151,
+     "stall": 1
+    },
+    "http://124.90.45.52:9901/tsfile/live/0135_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 68,
+     "ttfb": 96,
+     "stall": 1
+    },
+    "http://183.11.239.36:808/hls/42/index.m3u8": {
+     "kbs": 88,
+     "ttfb": 394,
+     "stall": 1
+    },
+    "http://120.237.39.10:9901/tsfile/live/1067_1.m3u8?key=txiptv&playlive=1&down=1": {
+     "kbs": 417,
+     "ttfb": 125,
+     "stall": 0
+    },
+    "http://27.129.145.110:4433/hls/29/index.m3u8": {
+     "kbs": 2761,
+     "ttfb": 162,
+     "stall": 0
+    },
+    "http://fuxin.yunjifei.top:999/tsfile/live/0135_1.m3u8?key=txiptv": {
+     "kbs": 2819,
+     "ttfb": 118,
+     "stall": 0
+    },
+    "http://112.123.243.37:50085/tsfile/live/0128_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 3194,
+     "ttfb": 120,
+     "stall": 0
+    },
+    "http://221.7.175.154:8445/tsfile/live/0135_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2599,
+     "ttfb": 101,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|东方卫视4K": {
+   "order": [
+    "http://bp-resource-dfl.bestv.cn/148/3/video.m3u8"
+   ],
+   "detail": {
+    "http://bp-resource-dfl.bestv.cn/148/3/video.m3u8": {
+     "kbs": 993,
+     "ttfb": 102,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|人间卫视": {
+   "order": [
+    "https://5ddce30eb4b55.streamlock.net/bltvhd/bltv1/chunklist_w511254805.m3u8",
+    "http://61.216.67.119:1935/bltvhd/bltv1/chunklist_w1266569526.m3u",
+    "http://61.216.67.119:1935/bltvhd/bltv1/chunklist_w1266569526.m3u8",
+    "https://5ddce30eb4b55.streamlock.net/bltvhd/bltv1/playlist.m3u8"
+   ],
+   "detail": {
+    "http://61.216.67.119:1935/bltvhd/bltv1/chunklist_w1266569526.m3u": {
+     "kbs": 540,
+     "ttfb": 312,
+     "stall": 0
+    },
+    "http://61.216.67.119:1935/bltvhd/bltv1/chunklist_w1266569526.m3u8": {
+     "kbs": 372,
+     "ttfb": 314,
+     "stall": 0
+    },
+    "https://5ddce30eb4b55.streamlock.net/bltvhd/bltv1/playlist.m3u8": {
+     "kbs": 1,
+     "ttfb": 381,
+     "stall": 0
+    },
+    "https://5ddce30eb4b55.streamlock.net/bltvhd/bltv1/chunklist_w511254805.m3u8": {
+     "kbs": 553,
+     "ttfb": 296,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|北京卫视": {
+   "order": [
+    "http://59.39.89.130:60901/tsfile/live/0125_7.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://124.90.45.52:9901/tsfile/live/0122_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://gfr.x3322.net:9901/tsfile/live/1089_1.m3u8",
+    "http://183.11.239.36:808/hls/41/index.m3u8"
+   ],
+   "detail": {
+    "http://gfr.x3322.net:9901/tsfile/live/1089_1.m3u8": {
+     "kbs": 98,
+     "ttfb": 624,
+     "stall": 1
+    },
+    "http://124.90.45.52:9901/tsfile/live/0122_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 128,
+     "ttfb": 127,
+     "stall": 1
+    },
+    "http://183.11.239.36:808/hls/41/index.m3u8": {
+     "kbs": 61,
+     "ttfb": 1115,
+     "stall": 1
+    },
+    "http://59.39.89.130:60901/tsfile/live/0125_7.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1282,
+     "ttfb": 224,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|广东卫视": {
+   "order": [
+    "http://120.198.95.220:9901/tsfile/live/1006_1.m3u8?key=txiptv",
+    "http://124.90.45.52:9901/tsfile/live/0125_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://gfr.x3322.net:9901/tsfile/live/1096_1.m3u8",
+    "http://183.11.239.36:808/hls/80/index.m3u8"
+   ],
+   "detail": {
+    "http://gfr.x3322.net:9901/tsfile/live/1096_1.m3u8": {
+     "kbs": 100,
+     "ttfb": 110,
+     "stall": 1
+    },
+    "http://124.90.45.52:9901/tsfile/live/0125_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 182,
+     "ttfb": 99,
+     "stall": 1
+    },
+    "http://183.11.239.36:808/hls/80/index.m3u8": {
+     "kbs": 53,
+     "ttfb": 196,
+     "stall": 1
+    },
+    "http://120.198.95.220:9901/tsfile/live/1006_1.m3u8?key=txiptv": {
+     "kbs": 1060,
+     "ttfb": 131,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|河北卫视": {
+   "order": [
+    "http://event.pull.hebtv.com/jishi/weishi_tingyun.m3u8",
+    "http://221.7.175.154:8445/tsfile/live/0117_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://gfr.x3322.net:9901/tsfile/live/1091_1.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/0117_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://gfr.x3322.net:9901/tsfile/live/1091_1.m3u8": {
+     "kbs": 131,
+     "ttfb": 110,
+     "stall": 1
+    },
+    "http://124.90.45.52:9901/tsfile/live/0117_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 86,
+     "ttfb": 75,
+     "stall": 1
+    },
+    "http://event.pull.hebtv.com/jishi/weishi_tingyun.m3u8": {
+     "kbs": 4280,
+     "ttfb": 82,
+     "stall": 0
+    },
+    "http://221.7.175.154:8445/tsfile/live/0117_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 3237,
+     "ttfb": 103,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|湖北卫视": {
+   "order": [
+    "http://124.90.45.52:9901/tsfile/live/0118_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://gfr.x3322.net:9901/tsfile/live/1088_1.m3u8"
+   ],
+   "detail": {
+    "http://gfr.x3322.net:9901/tsfile/live/1088_1.m3u8": {
+     "kbs": 76,
+     "ttfb": 117,
+     "stall": 1
+    },
+    "http://124.90.45.52:9901/tsfile/live/0118_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 109,
+     "ttfb": 182,
+     "stall": 1
+    }
+   }
+  },
+  "❤️卫视频道|重庆卫视": {
+   "order": [
+    "http://124.90.45.52:9901/tsfile/live/0142_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://gfr.x3322.net:9901/tsfile/live/1093_1.m3u8"
+   ],
+   "detail": {
+    "http://gfr.x3322.net:9901/tsfile/live/1093_1.m3u8": {
+     "kbs": 111,
+     "ttfb": 132,
+     "stall": 1
+    },
+    "http://124.90.45.52:9901/tsfile/live/0142_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 151,
+     "ttfb": 66,
+     "stall": 1
+    }
+   }
+  },
+  "❤️卫视频道|厦门卫视": {
+   "order": [
+    "http://118.122.144.115:8888/newlive/live/hls/28/live.m3u8",
+    "http://221.226.51.220:50081/newlive/live/hls/28/live.m3u8",
+    "http://113.57.140.161:10081/newlive/live/hls/28/live.m3u8",
+    "http://183.11.239.36:808/hls/17/index.m3u8"
+   ],
+   "detail": {
+    "http://183.11.239.36:808/hls/17/index.m3u8": {
+     "kbs": 95,
+     "ttfb": 224,
+     "stall": 1
+    },
+    "http://113.57.140.161:10081/newlive/live/hls/28/live.m3u8": {
+     "kbs": 238,
+     "ttfb": 116,
+     "stall": 1
+    },
+    "http://221.226.51.220:50081/newlive/live/hls/28/live.m3u8": {
+     "kbs": 405,
+     "ttfb": 118,
+     "stall": 0
+    },
+    "http://118.122.144.115:8888/newlive/live/hls/28/live.m3u8": {
+     "kbs": 2074,
+     "ttfb": 212,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|东方卫视": {
+   "order": [
+    "http://gfr.x3322.net:9901/tsfile/live/1085_1.m3u8",
+    "http://173.208.212.130:8181/720p/dfws.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/0107_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://gfr.x3322.net:9901/tsfile/live/1085_1.m3u8": {
+     "kbs": 315,
+     "ttfb": 131,
+     "stall": 0
+    },
+    "http://124.90.45.52:9901/tsfile/live/0107_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 129,
+     "ttfb": 89,
+     "stall": 1
+    },
+    "http://173.208.212.130:8181/720p/dfws.m3u8": {
+     "kbs": 0,
+     "ttfb": 1247,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|山东卫视": {
+   "order": [
+    "http://58.56.162.102:4466/newlive/live/hls/47/live.m3u8",
+    "http://27.129.145.110:4433/hls/31/index.m3u8",
+    "http://fuxin.yunjifei.top:999/tsfile/live/0131_1.m3u8?key=txiptv",
+    "http://39.165.39.49:85/tsfile/live/1133_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://124.90.45.52:9901/tsfile/live/0131_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://gfr.x3322.net:9901/tsfile/live/1098_1.m3u8"
+   ],
+   "detail": {
+    "http://gfr.x3322.net:9901/tsfile/live/1098_1.m3u8": {
+     "kbs": 93,
+     "ttfb": 116,
+     "stall": 1
+    },
+    "http://124.90.45.52:9901/tsfile/live/0131_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 133,
+     "ttfb": 97,
+     "stall": 1
+    },
+    "http://58.56.162.102:4466/newlive/live/hls/47/live.m3u8": {
+     "kbs": 2629,
+     "ttfb": 87,
+     "stall": 0
+    },
+    "http://39.165.39.49:85/tsfile/live/1133_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 148,
+     "ttfb": 119,
+     "stall": 1
+    },
+    "http://27.129.145.110:4433/hls/31/index.m3u8": {
+     "kbs": 2338,
+     "ttfb": 99,
+     "stall": 0
+    },
+    "http://fuxin.yunjifei.top:999/tsfile/live/0131_1.m3u8?key=txiptv": {
+     "kbs": 687,
+     "ttfb": 147,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|辽宁卫视": {
+   "order": [
+    "http://119.39.9.8:9901/tsfile/live/0121_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://59.39.89.130:60901/tsfile/live/0125_13.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://gfr.x3322.net:9901/tsfile/live/1097_1.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/0121_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://gfr.x3322.net:9901/tsfile/live/1097_1.m3u8": {
+     "kbs": 142,
+     "ttfb": 144,
+     "stall": 1
+    },
+    "http://124.90.45.52:9901/tsfile/live/0121_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 96,
+     "ttfb": 90,
+     "stall": 1
+    },
+    "http://59.39.89.130:60901/tsfile/live/0125_13.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 940,
+     "ttfb": 302,
+     "stall": 0
+    },
+    "http://119.39.9.8:9901/tsfile/live/0121_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 1501,
+     "ttfb": 154,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|西藏卫视": {
+   "order": [
+    "http://222.71.55.147:85/tsfile/live/0111_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://221.7.175.154:8445/tsfile/live/1017_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://222.71.55.147:9901/tsfile/live/0111_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://112.27.5.218:9901/tsfile/live/0111_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://112.123.243.37:50085/tsfile/live/0141_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://59.39.89.130:60901/tsfile/live/0125_3.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://120.198.86.186:9901/tsfile/live/1089_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://fuxin.yunjifei.top:999/tsfile/live/0111_1.m3u8?key=txiptv",
+    "http://59.39.89.130:60901/tsfile/live/0125_4.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://58.56.162.102:4466/newlive/live/hls/45/live.m3u8",
+    "http://218.13.170.98:9901/tsfile/live/0111_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://218.13.170.98:9901/tsfile/live/0111_1.m3u8",
+    "http://183.11.239.36:808/hls/64/index.m3u8",
+    "http://cssbyd.imwork.net:8082/hls/46/index.m3u8"
+   ],
+   "detail": {
+    "http://183.11.239.36:808/hls/64/index.m3u8": {
+     "kbs": 113,
+     "ttfb": 170,
+     "stall": 1
+    },
+    "http://58.56.162.102:4466/newlive/live/hls/45/live.m3u8": {
+     "kbs": 295,
+     "ttfb": 76,
+     "stall": 0
+    },
+    "http://fuxin.yunjifei.top:999/tsfile/live/0111_1.m3u8?key=txiptv": {
+     "kbs": 1016,
+     "ttfb": 243,
+     "stall": 0
+    },
+    "http://218.13.170.98:9901/tsfile/live/0111_1.m3u8": {
+     "kbs": 217,
+     "ttfb": 133,
+     "stall": 1
+    },
+    "http://120.198.86.186:9901/tsfile/live/1089_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1148,
+     "ttfb": 219,
+     "stall": 0
+    },
+    "http://221.7.175.154:8445/tsfile/live/1017_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 3027,
+     "ttfb": 194,
+     "stall": 0
+    },
+    "http://222.71.55.147:9901/tsfile/live/0111_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 2753,
+     "ttfb": 74,
+     "stall": 0
+    },
+    "http://cssbyd.imwork.net:8082/hls/46/index.m3u8": {
+     "kbs": 84,
+     "ttfb": 175,
+     "stall": 1
+    },
+    "http://112.27.5.218:9901/tsfile/live/0111_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1874,
+     "ttfb": 92,
+     "stall": 0
+    },
+    "http://222.71.55.147:85/tsfile/live/0111_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 3571,
+     "ttfb": 71,
+     "stall": 0
+    },
+    "http://112.123.243.37:50085/tsfile/live/0141_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 1550,
+     "ttfb": 70,
+     "stall": 0
+    },
+    "http://218.13.170.98:9901/tsfile/live/0111_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 294,
+     "ttfb": 127,
+     "stall": 0
+    },
+    "http://59.39.89.130:60901/tsfile/live/0125_3.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1155,
+     "ttfb": 213,
+     "stall": 0
+    },
+    "http://59.39.89.130:60901/tsfile/live/0125_4.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 320,
+     "ttfb": 290,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|江苏卫视": {
+   "order": [
+    "http://218.13.170.98:9901/tsfile/live/1003_1.m3u8",
+    "http://gfr.x3322.net:9901/tsfile/live/1086_1.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/0127_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://183.11.239.36:808/hls/38/index.m3u8"
+   ],
+   "detail": {
+    "http://gfr.x3322.net:9901/tsfile/live/1086_1.m3u8": {
+     "kbs": 118,
+     "ttfb": 141,
+     "stall": 1
+    },
+    "http://124.90.45.52:9901/tsfile/live/0127_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 100,
+     "ttfb": 74,
+     "stall": 1
+    },
+    "http://183.11.239.36:808/hls/38/index.m3u8": {
+     "kbs": 60,
+     "ttfb": 106,
+     "stall": 1
+    },
+    "http://218.13.170.98:9901/tsfile/live/1003_1.m3u8": {
+     "kbs": 186,
+     "ttfb": 91,
+     "stall": 1
+    }
+   }
+  },
+  "❤️卫视频道|湖南卫视": {
+   "order": [
+    "https://txmov2.a.kwimgs.com/bs3/video-hls/5199687338554291078_hlsb.m3u8",
+    "http://hlsal-ldvt.qing.mgtv.com/nn_live/nn_x64/Y2RuZXhfaWQ9YWxfaGxzX2xkdnQmZT02OTE0NjA0JnY9MSZpZD1ITldTWkdTVCZzPTcwN2RiYTc2YzJjNmJmMTQ4MmUyZGYzOWU2NWM3YWFi/HNWSZGST.m3u8",
+    "http://173.208.212.130:8181/720p/hnws.m3u8",
+    "http://58.56.162.102:4466/newlive/live/hls/18/live.m3u8",
+    "http://218.13.170.98:9901/tsfile/live/1001_1.m3u8",
+    "http://gfr.x3322.net:9901/tsfile/live/1084_1.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/0128_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://gfr.x3322.net:9901/tsfile/live/1084_1.m3u8": {
+     "kbs": 119,
+     "ttfb": 1120,
+     "stall": 1
+    },
+    "http://hlsal-ldvt.qing.mgtv.com/nn_live/nn_x64/Y2RuZXhfaWQ9YWxfaGxzX2xkdnQmZT02OTE0NjA0JnY9MSZpZD1ITldTWkdTVCZzPTcwN2RiYTc2YzJjNmJmMTQ4MmUyZGYzOWU2NWM3YWFi/HNWSZGST.m3u8": {
+     "kbs": 4542,
+     "ttfb": 267,
+     "stall": 0
+    },
+    "https://txmov2.a.kwimgs.com/bs3/video-hls/5199687338554291078_hlsb.m3u8": {
+     "kbs": 5578,
+     "ttfb": 121,
+     "stall": 0
+    },
+    "http://124.90.45.52:9901/tsfile/live/0128_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 110,
+     "ttfb": 86,
+     "stall": 1
+    },
+    "http://173.208.212.130:8181/720p/hnws.m3u8": {
+     "kbs": 0,
+     "ttfb": 1083,
+     "stall": 0
+    },
+    "http://218.13.170.98:9901/tsfile/live/1001_1.m3u8": {
+     "kbs": 250,
+     "ttfb": 97,
+     "stall": 1
+    },
+    "http://58.56.162.102:4466/newlive/live/hls/18/live.m3u8": {
+     "kbs": 290,
+     "ttfb": 55,
+     "stall": 1
+    }
+   }
+  },
+  "❤️卫视频道|东南卫视": {
+   "order": [
+    "http://gfr.x3322.net:9901/tsfile/live/1099_1.m3u8",
+    "http://39.165.39.49:85/tsfile/live/1149_1.m3u8?key=txiptv&amp;authid=0",
+    "http://xhyx.gz.cn:1698/hls/88/index.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/0137_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://61.136.172.236:9901/tsfile/live/0137_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://gfr.x3322.net:9901/tsfile/live/1099_1.m3u8": {
+     "kbs": 241,
+     "ttfb": 131,
+     "stall": 1
+    },
+    "http://39.165.39.49:85/tsfile/live/1149_1.m3u8?key=txiptv&amp;authid=0": {
+     "kbs": 210,
+     "ttfb": 1048,
+     "stall": 1
+    },
+    "http://xhyx.gz.cn:1698/hls/88/index.m3u8": {
+     "kbs": 130,
+     "ttfb": 109,
+     "stall": 1
+    },
+    "http://124.90.45.52:9901/tsfile/live/0137_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 111,
+     "ttfb": 81,
+     "stall": 1
+    },
+    "http://61.136.172.236:9901/tsfile/live/0137_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 60,
+     "ttfb": 62,
+     "stall": 1
+    }
+   }
+  },
+  "❤️卫视频道|甘肃卫视": {
+   "order": [
+    "https://live.gstv.com.cn/live/oxfhvoy.m3u8",
+    "http://112.123.243.37:50085/tsfile/live/0123_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://119.39.9.8:9901/tsfile/live/0141_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://58.56.162.102:4466/newlive/live/hls/46/live.m3u8",
+    "http://120.198.86.186:9901/tsfile/live/1091_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://218.13.170.98:9901/tsfile/live/0141_1.m3u8",
+    "http://120.238.84.45:9901/tsfile/live/1079_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://118.193.115.2:9901/tsfile/live/0139_2.m3u8?key=txiptv",
+    "http://cssbyd.imwork.net:8082/hls/48/index.m3u8"
+   ],
+   "detail": {
+    "http://cssbyd.imwork.net:8082/hls/48/index.m3u8": {
+     "kbs": 179,
+     "ttfb": 120,
+     "stall": 1
+    },
+    "http://218.13.170.98:9901/tsfile/live/0141_1.m3u8": {
+     "kbs": 1076,
+     "ttfb": 188,
+     "stall": 0
+    },
+    "http://119.39.9.8:9901/tsfile/live/0141_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 2648,
+     "ttfb": 70,
+     "stall": 0
+    },
+    "http://120.198.86.186:9901/tsfile/live/1091_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1077,
+     "ttfb": 101,
+     "stall": 0
+    },
+    "http://58.56.162.102:4466/newlive/live/hls/46/live.m3u8": {
+     "kbs": 2187,
+     "ttfb": 69,
+     "stall": 0
+    },
+    "http://118.193.115.2:9901/tsfile/live/0139_2.m3u8?key=txiptv": {
+     "kbs": 292,
+     "ttfb": 67,
+     "stall": 1
+    },
+    "http://120.238.84.45:9901/tsfile/live/1079_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 878,
+     "ttfb": 161,
+     "stall": 0
+    },
+    "https://live.gstv.com.cn/live/oxfhvoy.m3u8": {
+     "kbs": 5093,
+     "ttfb": 100,
+     "stall": 0
+    },
+    "http://112.123.243.37:50085/tsfile/live/0123_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 4006,
+     "ttfb": 72,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|新疆卫视": {
+   "order": [
+    "http://58.56.162.102:4466/newlive/live/hls/44/live.m3u8",
+    "http://222.71.55.147:9901/tsfile/live/0110_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://120.198.86.186:9901/tsfile/live/1090_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://222.71.55.147:85/tsfile/live/0110_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://222.169.85.8:9901/tsfile/live/0110_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://218.84.12.186:8001/hls/main/playlist.m3u8?zxinjd;http://218.84.12.186:8001/hls/main/playlist.m3u8zxinjd",
+    "http://112.123.243.37:50085/tsfile/live/0143_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://118.193.115.2:9901/tsfile/live/0110_1.m3u8?key=txiptv",
+    "http://fuxin.yunjifei.top:999/tsfile/live/0110_1.m3u8?key=txiptv",
+    "http://live.wjyanghu.com/live/CH1.m3u8"
+   ],
+   "detail": {
+    "http://58.56.162.102:4466/newlive/live/hls/44/live.m3u8": {
+     "kbs": 3841,
+     "ttfb": 68,
+     "stall": 0
+    },
+    "http://218.84.12.186:8001/hls/main/playlist.m3u8?zxinjd;http://218.84.12.186:8001/hls/main/playlist.m3u8zxinjd": {
+     "kbs": 810,
+     "ttfb": 142,
+     "stall": 0
+    },
+    "http://live.wjyanghu.com/live/CH1.m3u8": {
+     "kbs": 276,
+     "ttfb": 386,
+     "stall": 0
+    },
+    "http://120.198.86.186:9901/tsfile/live/1090_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1669,
+     "ttfb": 205,
+     "stall": 0
+    },
+    "http://118.193.115.2:9901/tsfile/live/0110_1.m3u8?key=txiptv": {
+     "kbs": 650,
+     "ttfb": 178,
+     "stall": 0
+    },
+    "http://fuxin.yunjifei.top:999/tsfile/live/0110_1.m3u8?key=txiptv": {
+     "kbs": 518,
+     "ttfb": 103,
+     "stall": 0
+    },
+    "http://222.169.85.8:9901/tsfile/live/0110_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1103,
+     "ttfb": 4907,
+     "stall": 0
+    },
+    "http://222.71.55.147:9901/tsfile/live/0110_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 2541,
+     "ttfb": 67,
+     "stall": 0
+    },
+    "http://222.71.55.147:85/tsfile/live/0110_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 1145,
+     "ttfb": 94,
+     "stall": 0
+    },
+    "http://112.123.243.37:50085/tsfile/live/0143_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 654,
+     "ttfb": 73,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|内蒙古卫视": {
+   "order": [
+    "https://ali-m-l.cztv.com/channels/lantian/channel007/1080p.m3u8",
+    "http://222.71.55.147:9901/tsfile/live/0109_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://play1-qk.nmtv.cn/live/1769652018126032.m3u8",
+    "http://120.198.86.186:9901/tsfile/live/1085_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://satellitepull.cnr.cn/live/wx32nmgws/playlist.m3u8",
+    "http://118.193.115.2:9901/tsfile/live/0109_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://183.11.239.36:808/hls/60/index.m3u8",
+    "http://cssbyd.imwork.net:8082/hls/44/index.m3u8"
+   ],
+   "detail": {
+    "http://183.11.239.36:808/hls/60/index.m3u8": {
+     "kbs": 97,
+     "ttfb": 125,
+     "stall": 1
+    },
+    "http://120.198.86.186:9901/tsfile/live/1085_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1038,
+     "ttfb": 137,
+     "stall": 0
+    },
+    "http://222.71.55.147:9901/tsfile/live/0109_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 4383,
+     "ttfb": 70,
+     "stall": 0
+    },
+    "http://118.193.115.2:9901/tsfile/live/0109_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 274,
+     "ttfb": 76,
+     "stall": 1
+    },
+    "https://ali-m-l.cztv.com/channels/lantian/channel007/1080p.m3u8": {
+     "kbs": 7395,
+     "ttfb": 135,
+     "stall": 0
+    },
+    "http://cssbyd.imwork.net:8082/hls/44/index.m3u8": {
+     "kbs": 86,
+     "ttfb": 179,
+     "stall": 1
+    },
+    "http://satellitepull.cnr.cn/live/wx32nmgws/playlist.m3u8": {
+     "kbs": 0,
+     "ttfb": 566,
+     "stall": 0
+    },
+    "http://play1-qk.nmtv.cn/live/1769652018126032.m3u8": {
+     "kbs": 2737,
+     "ttfb": 207,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|大湾区卫视": {
+   "order": [
+    "http://183.237.95.108:9901/tsfile/live/1037_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "https://gx.484947.xyz/PLTV/77777777/224/3221225748/index.m3u8?servicetype=1&&IASHttpSessionId=RR778520250111113355399717&ispcode=1108",
+    "http://183.11.239.36:808/hls/132/index.m3u8"
+   ],
+   "detail": {
+    "http://183.11.239.36:808/hls/132/index.m3u8": {
+     "kbs": 218,
+     "ttfb": 112,
+     "stall": 1
+    },
+    "http://183.237.95.108:9901/tsfile/live/1037_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 695,
+     "ttfb": 128,
+     "stall": 0
+    },
+    "https://gx.484947.xyz/PLTV/77777777/224/3221225748/index.m3u8?servicetype=1&&IASHttpSessionId=RR778520250111113355399717&ispcode=1108": {
+     "kbs": 498,
+     "ttfb": 1193,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|香港卫视": {
+   "order": [
+    "https://piccpndali.v.myalicdn.com/audio/xianggangweishi_2.m3u8",
+    "https://piccpndks.v.kcdnvip.com/audio/xianggangweishi_2.m3u8"
+   ],
+   "detail": {
+    "https://piccpndali.v.myalicdn.com/audio/xianggangweishi_2.m3u8": {
+     "kbs": 679,
+     "ttfb": 126,
+     "stall": 0
+    },
+    "https://piccpndks.v.kcdnvip.com/audio/xianggangweishi_2.m3u8": {
+     "kbs": 487,
+     "ttfb": 317,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|云南卫视": {
+   "order": [
+    "http://119.39.9.8:9901/tsfile/live/0119_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://112.123.243.37:50085/tsfile/live/0117_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://fuxin.yunjifei.top:999/tsfile/live/0119_1.m3u8?key=txiptv",
+    "http://120.198.95.220:9901/tsfile/live/1007_1.m3u8?key=txiptv",
+    "http://59.39.89.130:60901/tsfile/live/0125_18.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://222.169.85.8:9901/tsfile/live/0119_1.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/0119_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://124.90.45.52:9901/tsfile/live/0119_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 112,
+     "ttfb": 79,
+     "stall": 1
+    },
+    "http://120.198.95.220:9901/tsfile/live/1007_1.m3u8?key=txiptv": {
+     "kbs": 1306,
+     "ttfb": 109,
+     "stall": 0
+    },
+    "http://59.39.89.130:60901/tsfile/live/0125_18.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 485,
+     "ttfb": 405,
+     "stall": 0
+    },
+    "http://222.169.85.8:9901/tsfile/live/0119_1.m3u8": {
+     "kbs": 186,
+     "ttfb": 2096,
+     "stall": 1
+    },
+    "http://fuxin.yunjifei.top:999/tsfile/live/0119_1.m3u8?key=txiptv": {
+     "kbs": 2867,
+     "ttfb": 86,
+     "stall": 0
+    },
+    "http://112.123.243.37:50085/tsfile/live/0117_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 4140,
+     "ttfb": 69,
+     "stall": 0
+    },
+    "http://119.39.9.8:9901/tsfile/live/0119_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 4260,
+     "ttfb": 59,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|宁夏卫视": {
+   "order": [
+    "http://58.56.162.102:4466/newlive/live/hls/43/live.m3u8",
+    "http://120.198.86.186:9901/tsfile/live/1088_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://222.71.55.147:9901/tsfile/live/0112_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://118.193.115.2:9901/tsfile/live/0112_1.m3u8?key=txiptv",
+    "http://fuxin.yunjifei.top:999/tsfile/live/0112_1.m3u8?key=txiptv",
+    "http://124.90.45.52:9901/tsfile/live/0139_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://124.90.45.52:9901/tsfile/live/0139_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 144,
+     "ttfb": 95,
+     "stall": 1
+    },
+    "http://58.56.162.102:4466/newlive/live/hls/43/live.m3u8": {
+     "kbs": 3892,
+     "ttfb": 66,
+     "stall": 0
+    },
+    "http://120.198.86.186:9901/tsfile/live/1088_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1701,
+     "ttfb": 110,
+     "stall": 0
+    },
+    "http://118.193.115.2:9901/tsfile/live/0112_1.m3u8?key=txiptv": {
+     "kbs": 940,
+     "ttfb": 198,
+     "stall": 0
+    },
+    "http://fuxin.yunjifei.top:999/tsfile/live/0112_1.m3u8?key=txiptv": {
+     "kbs": 637,
+     "ttfb": 100,
+     "stall": 0
+    },
+    "http://222.71.55.147:9901/tsfile/live/0112_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 1598,
+     "ttfb": 78,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|青海卫视": {
+   "order": [
+    "http://58.56.162.102:4466/newlive/live/hls/42/live.m3u8",
+    "http://120.198.86.186:9901/tsfile/live/1086_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://120.238.84.45:9901/tsfile/live/1073_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://124.90.45.52:9901/tsfile/live/0140_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://124.90.45.52:9901/tsfile/live/0140_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 77,
+     "ttfb": 82,
+     "stall": 1
+    },
+    "http://120.198.86.186:9901/tsfile/live/1086_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 573,
+     "ttfb": 139,
+     "stall": 0
+    },
+    "http://58.56.162.102:4466/newlive/live/hls/42/live.m3u8": {
+     "kbs": 2734,
+     "ttfb": 202,
+     "stall": 0
+    },
+    "http://120.238.84.45:9901/tsfile/live/1073_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 306,
+     "ttfb": 172,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|农林卫视": {
+   "order": [
+    "http://175.24.134.198:1234/956904896",
+    "http://113.98.11.46:3000/956904896"
+   ],
+   "detail": {
+    "http://175.24.134.198:1234/956904896": {
+     "kbs": 0,
+     "ttfb": 982,
+     "stall": 0
+    },
+    "http://113.98.11.46:3000/956904896": {
+     "kbs": 0,
+     "ttfb": 285,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|山西卫视": {
+   "order": [
+    "http://58.56.162.102:4466/newlive/live/hls/32/live.m3u8",
+    "http://119.39.9.8:9901/tsfile/live/0118_1.m3u8",
+    "https://stream2.jlntv.cn/baicheng1/sd/live.m3u8",
+    "http://222.169.85.8:9901/tsfile/live/0118_1.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/0112_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://183.11.239.36:808/hls/59/index.m3u8"
+   ],
+   "detail": {
+    "http://124.90.45.52:9901/tsfile/live/0112_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 78,
+     "ttfb": 72,
+     "stall": 1
+    },
+    "http://119.39.9.8:9901/tsfile/live/0118_1.m3u8": {
+     "kbs": 3507,
+     "ttfb": 57,
+     "stall": 0
+    },
+    "http://58.56.162.102:4466/newlive/live/hls/32/live.m3u8": {
+     "kbs": 3622,
+     "ttfb": 106,
+     "stall": 0
+    },
+    "http://222.169.85.8:9901/tsfile/live/0118_1.m3u8": {
+     "kbs": 288,
+     "ttfb": 1963,
+     "stall": 1
+    },
+    "http://183.11.239.36:808/hls/59/index.m3u8": {
+     "kbs": 66,
+     "ttfb": 122,
+     "stall": 1
+    },
+    "https://stream2.jlntv.cn/baicheng1/sd/live.m3u8": {
+     "kbs": 1423,
+     "ttfb": 269,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|广西卫视": {
+   "order": [
+    "http://221.7.175.154:8445/tsfile/live/0113_2.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://119.39.9.8:9901/tsfile/live/0113_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "https://hlscdn.liangtv.cn/live/de0f97348eb84f62aa6b7d8cf0430770/dd505d87880c478f901f38560ca4d4e6.m3u8",
+    "http://183.11.239.36:808/hls/56/index.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/1013_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://124.90.45.52:9901/tsfile/live/1013_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 73,
+     "ttfb": 71,
+     "stall": 1
+    },
+    "http://183.11.239.36:808/hls/56/index.m3u8": {
+     "kbs": 83,
+     "ttfb": 146,
+     "stall": 1
+    },
+    "https://hlscdn.liangtv.cn/live/de0f97348eb84f62aa6b7d8cf0430770/dd505d87880c478f901f38560ca4d4e6.m3u8": {
+     "kbs": 3,
+     "ttfb": 203,
+     "stall": 0
+    },
+    "http://119.39.9.8:9901/tsfile/live/0113_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 1429,
+     "ttfb": 98,
+     "stall": 0
+    },
+    "http://221.7.175.154:8445/tsfile/live/0113_2.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2864,
+     "ttfb": 87,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|河南卫视": {
+   "order": [
+    "http://119.39.9.8:9901/tsfile/live/0139_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://120.237.39.10:9901/tsfile/live/1055_1.m3u8?key=txiptv&playlive=1&down=1",
+    "http://120.237.39.10:9901/tsfile/live/1064_1.m3u8?key=txiptv&playlive=1&down=1",
+    "http://lxajh.top/tv/hn.php?id=hnws",
+    "http://124.90.45.52:9901/tsfile/live/0113_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://124.90.45.52:9901/tsfile/live/0113_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 173,
+     "ttfb": 65,
+     "stall": 1
+    },
+    "http://lxajh.top/tv/hn.php?id=hnws": {
+     "kbs": 14,
+     "ttfb": 680,
+     "stall": 0
+    },
+    "http://119.39.9.8:9901/tsfile/live/0139_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 1125,
+     "ttfb": 135,
+     "stall": 0
+    },
+    "http://120.237.39.10:9901/tsfile/live/1055_1.m3u8?key=txiptv&playlive=1&down=1": {
+     "kbs": 668,
+     "ttfb": 134,
+     "stall": 0
+    },
+    "http://120.237.39.10:9901/tsfile/live/1064_1.m3u8?key=txiptv&playlive=1&down=1": {
+     "kbs": 641,
+     "ttfb": 191,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|陕西卫视": {
+   "order": [
+    "http://58.56.162.102:4466/newlive/live/hls/29/live.m3u8",
+    "http://cssbyd.imwork.net:8082/hls/42/index.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/0136_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://124.90.45.52:9901/tsfile/live/0136_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 103,
+     "ttfb": 202,
+     "stall": 1
+    },
+    "http://58.56.162.102:4466/newlive/live/hls/29/live.m3u8": {
+     "kbs": 2993,
+     "ttfb": 125,
+     "stall": 0
+    },
+    "http://cssbyd.imwork.net:8082/hls/42/index.m3u8": {
+     "kbs": 246,
+     "ttfb": 130,
+     "stall": 1
+    }
+   }
+  },
+  "❤️卫视频道|兵团卫视": {
+   "order": [
+    "http://112.123.243.37:50085/tsfile/live/0112_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://221.7.175.154:8445/tsfile/live/0115_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://222.71.55.147:9901/tsfile/live/0115_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://218.13.170.98:9901/tsfile/live/0115_1.m3u8",
+    "http://fuxin.yunjifei.top:999/tsfile/live/0115_1.m3u8?key=txiptv",
+    "http://120.238.84.45:9901/tsfile/live/1080_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://183.11.239.36:808/hls/7/index.m3u8"
+   ],
+   "detail": {
+    "http://183.11.239.36:808/hls/7/index.m3u8": {
+     "kbs": 57,
+     "ttfb": 417,
+     "stall": 1
+    },
+    "http://221.7.175.154:8445/tsfile/live/0115_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2917,
+     "ttfb": 100,
+     "stall": 0
+    },
+    "http://fuxin.yunjifei.top:999/tsfile/live/0115_1.m3u8?key=txiptv": {
+     "kbs": 401,
+     "ttfb": 182,
+     "stall": 0
+    },
+    "http://222.71.55.147:9901/tsfile/live/0115_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 2779,
+     "ttfb": 172,
+     "stall": 0
+    },
+    "http://120.238.84.45:9901/tsfile/live/1080_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 358,
+     "ttfb": 185,
+     "stall": 0
+    },
+    "http://112.123.243.37:50085/tsfile/live/0112_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 3695,
+     "ttfb": 115,
+     "stall": 0
+    },
+    "http://218.13.170.98:9901/tsfile/live/0115_1.m3u8": {
+     "kbs": 627,
+     "ttfb": 129,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|吉林卫视": {
+   "order": [
+    "http://221.7.175.154:8445/tsfile/live/1014_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://59.39.89.130:60901/tsfile/live/0125_19.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://49.87.154.246:85/tsfile/live/0116_1.m3u8?key=txiptv",
+    "http://124.90.45.52:9901/tsfile/live/0116_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://183.11.239.36:808/hls/10/index.m3u8"
+   ],
+   "detail": {
+    "http://124.90.45.52:9901/tsfile/live/0116_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 145,
+     "ttfb": 88,
+     "stall": 1
+    },
+    "http://49.87.154.246:85/tsfile/live/0116_1.m3u8?key=txiptv": {
+     "kbs": 154,
+     "ttfb": 133,
+     "stall": 1
+    },
+    "http://183.11.239.36:808/hls/10/index.m3u8": {
+     "kbs": 87,
+     "ttfb": 1187,
+     "stall": 1
+    },
+    "http://59.39.89.130:60901/tsfile/live/0125_19.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 927,
+     "ttfb": 248,
+     "stall": 0
+    },
+    "http://221.7.175.154:8445/tsfile/live/1014_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2756,
+     "ttfb": 186,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|海南卫视": {
+   "order": [
+    "http://58.56.162.102:4466/newlive/live/hls/30/live.m3u8",
+    "http://cssbyd.imwork.net:8082/hls/31/index.m3u8",
+    "http://183.11.239.36:808/hls/124/index.m3u8"
+   ],
+   "detail": {
+    "http://183.11.239.36:808/hls/124/index.m3u8": {
+     "kbs": 69,
+     "ttfb": 100,
+     "stall": 1
+    },
+    "http://cssbyd.imwork.net:8082/hls/31/index.m3u8": {
+     "kbs": 144,
+     "ttfb": 135,
+     "stall": 1
+    },
+    "http://58.56.162.102:4466/newlive/live/hls/30/live.m3u8": {
+     "kbs": 677,
+     "ttfb": 71,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|三沙卫视": {
+   "order": [
+    "http://221.226.51.220:50081/newlive/live/hls/38/live.m3u8",
+    "http://116.237.170.51:7788/961023778"
+   ],
+   "detail": {
+    "http://221.226.51.220:50081/newlive/live/hls/38/live.m3u8": {
+     "kbs": 372,
+     "ttfb": 162,
+     "stall": 0
+    },
+    "http://116.237.170.51:7788/961023778": {
+     "kbs": 0,
+     "ttfb": 5271,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|江西卫视": {
+   "order": [
+    "http://59.39.89.130:60901/tsfile/live/0125_10.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://124.90.45.52:9901/tsfile/live/0138_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://182.150.23.74:808/hls/30/index.m3u8"
+   ],
+   "detail": {
+    "http://124.90.45.52:9901/tsfile/live/0138_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 79,
+     "ttfb": 73,
+     "stall": 1
+    },
+    "http://182.150.23.74:808/hls/30/index.m3u8": {
+     "kbs": 45,
+     "ttfb": 2951,
+     "stall": 1
+    },
+    "http://59.39.89.130:60901/tsfile/live/0125_10.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 867,
+     "ttfb": 312,
+     "stall": 0
+    }
+   }
+  },
+  "❤️卫视频道|四川卫视": {
+   "order": [
+    "http://221.7.175.154:8445/tsfile/live/0123_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://120.237.39.10:9901/tsfile/live/1060_1.m3u8?key=txiptv&playlive=1&down=1",
+    "http://222.169.85.8:9901/tsfile/live/0123_1.m3u8"
+   ],
+   "detail": {
+    "http://222.169.85.8:9901/tsfile/live/0123_1.m3u8": {
+     "kbs": 427,
+     "ttfb": 2575,
+     "stall": 0
+    },
+    "http://120.237.39.10:9901/tsfile/live/1060_1.m3u8?key=txiptv&playlive=1&down=1": {
+     "kbs": 1369,
+     "ttfb": 121,
+     "stall": 0
+    },
+    "http://221.7.175.154:8445/tsfile/live/0123_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 3121,
+     "ttfb": 103,
+     "stall": 0
+    }
+   }
+  },
+  "❤️央视频道|CCTV8K": {
+   "order": [
+    "http://107.150.52.50:82/live/cctv8k.m3u8"
+   ],
+   "detail": {
+    "http://107.150.52.50:82/live/cctv8k.m3u8": {
+     "kbs": 480,
+     "ttfb": 527,
+     "stall": 0
+    }
+   }
+  },
+  "❤️央视频道|CCTV+": {
+   "order": [
+    "https://cd-live-stream.news.cctvplus.com/live/smil:CHANNEL1.smil/playlist.m3u8",
+    "https://cd-live-stream.news.cctvplus.com/live/smil:CHANNEL2.smil/playlist.m3u8"
+   ],
+   "detail": {
+    "https://cd-live-stream.news.cctvplus.com/live/smil:CHANNEL1.smil/playlist.m3u8": {
+     "kbs": 1,
+     "ttfb": 146,
+     "stall": 0
+    },
+    "https://cd-live-stream.news.cctvplus.com/live/smil:CHANNEL2.smil/playlist.m3u8": {
+     "kbs": 1,
+     "ttfb": 222,
+     "stall": 0
+    }
+   }
+  },
+  "❤️央视频道|CCTV9576": {
+   "order": [
+    "https://xykt-fix.github.io/Y77.m3u8"
+   ],
+   "detail": {
+    "https://xykt-fix.github.io/Y77.m3u8": {
+     "kbs": 0,
+     "ttfb": 655,
+     "stall": 0
+    }
+   }
+  },
+  "❤️央视频道|CCTV★移动传媒": {
+   "order": [
+    "http://newcntv.qcloudcdn.com/asp/hls/1200/0303000a/3/default/649e19038fa74514ab3f00febbcd6de0/1200.m3u8"
+   ],
+   "detail": {
+    "http://newcntv.qcloudcdn.com/asp/hls/1200/0303000a/3/default/649e19038fa74514ab3f00febbcd6de0/1200.m3u8": {
+     "kbs": 4,
+     "ttfb": 166,
+     "stall": 1
+    }
+   }
+  },
+  "❤️央视频道|CCTV-NEWS": {
+   "order": [
+    "http://183.11.239.36:808/hls/34/index.m3u8"
+   ],
+   "detail": {
+    "http://183.11.239.36:808/hls/34/index.m3u8": {
+     "kbs": 78,
+     "ttfb": 128,
+     "stall": 1
+    }
+   }
+  },
+  "🏨酒店央视|CCTV1": {
+   "order": [
+    "http://153.0.171.163:9901/tsfile/live/1000_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1000_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1012,
+     "ttfb": 145,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店央视|CCTV2": {
+   "order": [
+    "http://153.0.171.163:9901/tsfile/live/1001_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1001_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1700,
+     "ttfb": 112,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店央视|CCTV4": {
+   "order": [
+    "http://223.14.160.130:9901/tsfile/live/0004_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://120.198.86.251:9901/tsfile/live/1021_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://120.198.86.251:9901/tsfile/live/1021_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1371,
+     "ttfb": 142,
+     "stall": 0
+    },
+    "http://223.14.160.130:9901/tsfile/live/0004_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 3893,
+     "ttfb": 46,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店央视|CCTV5": {
+   "order": [
+    "http://119.39.9.8:9901/tsfile/live/0005_1.m3u8?key=txiptv&playlive=0&authid=0"
+   ],
+   "detail": {
+    "http://119.39.9.8:9901/tsfile/live/0005_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 2626,
+     "ttfb": 62,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店央视|CCTV6": {
+   "order": [
+    "http://153.0.171.163:9901/tsfile/live/1005_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1005_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 884,
+     "ttfb": 162,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店央视|CCTV8": {
+   "order": [
+    "http://119.39.9.8:9901/tsfile/live/0008_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://112.99.195.122:65000/tsfile/live/0008_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://112.99.195.122:65000/tsfile/live/0008_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1312,
+     "ttfb": 334,
+     "stall": 0
+    },
+    "http://119.39.9.8:9901/tsfile/live/0008_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 1769,
+     "ttfb": 96,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店央视|CCTV9": {
+   "order": [
+    "http://153.0.171.163:9901/tsfile/live/1008_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://119.39.9.8:9901/tsfile/live/0009_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://183.239.248.218:8181/tsfile/live/0009_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://183.239.248.218:8181/tsfile/live/0009_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 66,
+     "ttfb": 188,
+     "stall": 0
+    },
+    "http://119.39.9.8:9901/tsfile/live/0009_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 2194,
+     "ttfb": 155,
+     "stall": 0
+    },
+    "http://153.0.171.163:9901/tsfile/live/1008_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2665,
+     "ttfb": 113,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店央视|CCTV10": {
+   "order": [
+    "http://153.0.171.163:9901/tsfile/live/1009_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1009_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2480,
+     "ttfb": 208,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店央视|CCTV12": {
+   "order": [
+    "http://153.0.171.163:9901/tsfile/live/1011_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://112.99.195.122:65000/tsfile/live/0012_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1011_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1936,
+     "ttfb": 158,
+     "stall": 0
+    },
+    "http://112.99.195.122:65000/tsfile/live/0012_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1347,
+     "ttfb": 218,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店央视|CCTV13": {
+   "order": [
+    "http://119.39.9.8:9901/tsfile/live/0013_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://153.0.171.163:9901/tsfile/live/1012_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://120.198.86.251:9901/tsfile/live/1031_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://120.198.86.251:9901/tsfile/live/1031_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1825,
+     "ttfb": 134,
+     "stall": 0
+    },
+    "http://153.0.171.163:9901/tsfile/live/1012_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2516,
+     "ttfb": 130,
+     "stall": 0
+    },
+    "http://119.39.9.8:9901/tsfile/live/0013_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 3040,
+     "ttfb": 64,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店央视|CCTV14": {
+   "order": [
+    "http://153.0.171.163:9901/tsfile/live/1013_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1013_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2065,
+     "ttfb": 154,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店央视|CCTV17": {
+   "order": [
+    "http://59.39.89.130:60901/tsfile/live/0017_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://59.39.89.130:60901/tsfile/live/0017_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1115,
+     "ttfb": 359,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店央视|CCTVnews": {
+   "order": [
+    "http://120.198.86.251:9901/tsfile/live/1034_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://120.198.86.251:9901/tsfile/live/1034_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1525,
+     "ttfb": 154,
+     "stall": 0
+    }
+   }
+  },
+  "❤️央视频道|CCTV1": {
+   "order": [
+    "http://221.7.175.154:8445/tsfile/live/1000_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://183.129.255.66:8480/hls/1/index.m3u8",
+    "http://120.40.39.246:352/newlive/live/hls/1/live.m3u8",
+    "http://173.208.212.130:8181/1080p/cctv1.m3u8",
+    "http://173.208.212.130:8181/720p/cctv1.m3u8",
+    "http://112.46.105.20:8009/hls/501/index.m3u8",
+    "http://223.78.65.165:9901/tsfile/live/0001_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://183.11.239.36:808/hls/19/index.m3u8"
+   ],
+   "detail": {
+    "http://112.46.105.20:8009/hls/501/index.m3u8": {
+     "kbs": 242,
+     "ttfb": 67,
+     "stall": 1
+    },
+    "http://173.208.212.130:8181/1080p/cctv1.m3u8": {
+     "kbs": 0,
+     "ttfb": 1115,
+     "stall": 0
+    },
+    "http://173.208.212.130:8181/720p/cctv1.m3u8": {
+     "kbs": 0,
+     "ttfb": 1174,
+     "stall": 0
+    },
+    "http://223.78.65.165:9901/tsfile/live/0001_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 231,
+     "ttfb": 4313,
+     "stall": 1
+    },
+    "http://183.11.239.36:808/hls/19/index.m3u8": {
+     "kbs": 56,
+     "ttfb": 119,
+     "stall": 1
+    },
+    "http://221.7.175.154:8445/tsfile/live/1000_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2520,
+     "ttfb": 101,
+     "stall": 0
+    },
+    "http://120.40.39.246:352/newlive/live/hls/1/live.m3u8": {
+     "kbs": 1159,
+     "ttfb": 225,
+     "stall": 0
+    },
+    "http://183.129.255.66:8480/hls/1/index.m3u8": {
+     "kbs": 2204,
+     "ttfb": 102,
+     "stall": 0
+    }
+   }
+  },
+  "❤️央视频道|CCTV2": {
+   "order": [
+    "http://119.39.9.8:9901/tsfile/live/0002_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://218.13.170.98:9901/tsfile/live/0002_1.m3u8",
+    "http://173.208.212.130:8181/1080p/cctv2.m3u8",
+    "http://173.208.212.130:8181/720p/cctv2.m3u8",
+    "http://183.11.239.36:808/hls/20/index.m3u8",
+    "http://112.46.105.20:8009/hls/502/index.m3u8",
+    "http://113.57.140.161:10081/newlive/live/hls/2/live.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/0002_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://112.46.105.20:8009/hls/502/index.m3u8": {
+     "kbs": 100,
+     "ttfb": 100,
+     "stall": 1
+    },
+    "http://124.90.45.52:9901/tsfile/live/0002_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 86,
+     "ttfb": 80,
+     "stall": 1
+    },
+    "http://173.208.212.130:8181/1080p/cctv2.m3u8": {
+     "kbs": 0,
+     "ttfb": 1170,
+     "stall": 0
+    },
+    "http://173.208.212.130:8181/720p/cctv2.m3u8": {
+     "kbs": 0,
+     "ttfb": 1118,
+     "stall": 0
+    },
+    "http://113.57.140.161:10081/newlive/live/hls/2/live.m3u8": {
+     "kbs": 100,
+     "ttfb": 94,
+     "stall": 1
+    },
+    "http://183.11.239.36:808/hls/20/index.m3u8": {
+     "kbs": 109,
+     "ttfb": 428,
+     "stall": 1
+    },
+    "http://218.13.170.98:9901/tsfile/live/0002_1.m3u8": {
+     "kbs": 377,
+     "ttfb": 441,
+     "stall": 0
+    },
+    "http://119.39.9.8:9901/tsfile/live/0002_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 2301,
+     "ttfb": 125,
+     "stall": 0
+    }
+   }
+  },
+  "❤️央视频道|CCTV3": {
+   "order": [
+    "http://221.7.175.154:8445/tsfile/live/1002_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://112.27.5.218:9901/tsfile/live/faacts/0003_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://153.0.171.163:9901/tsfile/live/1002_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://119.39.9.8:9901/tsfile/live/0003_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://59.39.89.130:60901/tsfile/live/0003_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://173.208.212.130:8181/1080p/cctv3.m3u8",
+    "http://121.57.88.206:898/hls/3/index.m3u8",
+    "http://113.57.140.161:10081/newlive/live/hls/3/live.m3u8",
+    "http://112.46.105.20:8009/hls/3/index.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/1015_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://112.46.105.20:8009/hls/3/index.m3u8": {
+     "kbs": 106,
+     "ttfb": 62,
+     "stall": 1
+    },
+    "http://153.0.171.163:9901/tsfile/live/1002_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2459,
+     "ttfb": 123,
+     "stall": 0
+    },
+    "http://124.90.45.52:9901/tsfile/live/1015_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 47,
+     "ttfb": 141,
+     "stall": 1
+    },
+    "http://173.208.212.130:8181/1080p/cctv3.m3u8": {
+     "kbs": 0,
+     "ttfb": 2072,
+     "stall": 0
+    },
+    "http://112.27.5.218:9901/tsfile/live/faacts/0003_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2608,
+     "ttfb": 76,
+     "stall": 0
+    },
+    "http://221.7.175.154:8445/tsfile/live/1002_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2874,
+     "ttfb": 97,
+     "stall": 0
+    },
+    "http://113.57.140.161:10081/newlive/live/hls/3/live.m3u8": {
+     "kbs": 107,
+     "ttfb": 134,
+     "stall": 1
+    },
+    "http://59.39.89.130:60901/tsfile/live/0003_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 673,
+     "ttfb": 185,
+     "stall": 0
+    },
+    "http://121.57.88.206:898/hls/3/index.m3u8": {
+     "kbs": 267,
+     "ttfb": 193,
+     "stall": 1
+    },
+    "http://119.39.9.8:9901/tsfile/live/0003_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 2456,
+     "ttfb": 72,
+     "stall": 0
+    }
+   }
+  },
+  "❤️央视频道|CCTV4": {
+   "order": [
+    "http://173.208.212.130:8181/1080p/cctv4.m3u8",
+    "http://112.46.105.20:8009/hls/4/index.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/0004_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://112.46.105.20:8009/hls/4/index.m3u8": {
+     "kbs": 193,
+     "ttfb": 84,
+     "stall": 1
+    },
+    "http://124.90.45.52:9901/tsfile/live/0004_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 93,
+     "ttfb": 71,
+     "stall": 1
+    },
+    "http://173.208.212.130:8181/1080p/cctv4.m3u8": {
+     "kbs": 0,
+     "ttfb": 2140,
+     "stall": 0
+    }
+   }
+  },
+  "❤️央视频道|CCTV5": {
+   "order": [
+    "http://221.7.175.154:8445/tsfile/live/0113_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://221.7.175.154:8445/tsfile/live/1018_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://113.57.140.161:10081/newlive/live/hls/6/live.m3u8",
+    "http://112.46.105.20:8009/hls/503/index.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/1016_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://112.46.105.20:8009/hls/503/index.m3u8": {
+     "kbs": 358,
+     "ttfb": 82,
+     "stall": 0
+    },
+    "http://124.90.45.52:9901/tsfile/live/1016_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 59,
+     "ttfb": 78,
+     "stall": 1
+    },
+    "http://221.7.175.154:8445/tsfile/live/0113_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2590,
+     "ttfb": 103,
+     "stall": 0
+    },
+    "http://221.7.175.154:8445/tsfile/live/1018_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2445,
+     "ttfb": 106,
+     "stall": 0
+    },
+    "http://113.57.140.161:10081/newlive/live/hls/6/live.m3u8": {
+     "kbs": 1193,
+     "ttfb": 1177,
+     "stall": 0
+    }
+   }
+  },
+  "❤️央视频道|CCTV6": {
+   "order": [
+    "http://221.7.175.154:8445/tsfile/live/1004_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://59.39.89.130:60901/tsfile/live/0006_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://173.208.212.130:8181/1080p/cctv6.m3u8",
+    "http://173.208.212.130:8181/720p/cctv6.m3u8",
+    "http://113.57.140.161:10081/newlive/live/hls/7/live.m3u8",
+    "http://112.46.105.20:8009/hls/6/index.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/1017_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://112.46.105.20:8009/hls/6/index.m3u8": {
+     "kbs": 127,
+     "ttfb": 66,
+     "stall": 1
+    },
+    "http://124.90.45.52:9901/tsfile/live/1017_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 98,
+     "ttfb": 78,
+     "stall": 1
+    },
+    "http://173.208.212.130:8181/1080p/cctv6.m3u8": {
+     "kbs": 0,
+     "ttfb": 1260,
+     "stall": 0
+    },
+    "http://173.208.212.130:8181/720p/cctv6.m3u8": {
+     "kbs": 0,
+     "ttfb": 1155,
+     "stall": 0
+    },
+    "http://113.57.140.161:10081/newlive/live/hls/7/live.m3u8": {
+     "kbs": 155,
+     "ttfb": 180,
+     "stall": 1
+    },
+    "http://221.7.175.154:8445/tsfile/live/1004_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2615,
+     "ttfb": 82,
+     "stall": 0
+    },
+    "http://59.39.89.130:60901/tsfile/live/0006_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 840,
+     "ttfb": 303,
+     "stall": 0
+    }
+   }
+  },
+  "❤️央视频道|CCTV7": {
+   "order": [
+    "http://221.7.175.154:8445/tsfile/live/1005_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://113.57.140.161:10081/newlive/live/hls/8/live.m3u8",
+    "http://120.237.39.10:9901/tsfile/live/1022_1.m3u8?key=txiptv&playlive=1&down=1",
+    "http://223.78.65.165:9901/tsfile/live/0008_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://112.46.105.20:8009/hls/504/index.m3u8",
+    "http://58.56.162.102:4466/newlive/live/hls/8/live.m3u8",
+    "http://183.11.239.36:808/hls/25/index.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/0007_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://112.46.105.20:8009/hls/504/index.m3u8": {
+     "kbs": 168,
+     "ttfb": 316,
+     "stall": 1
+    },
+    "http://124.90.45.52:9901/tsfile/live/0007_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 56,
+     "ttfb": 73,
+     "stall": 1
+    },
+    "http://223.78.65.165:9901/tsfile/live/0008_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 651,
+     "ttfb": 3356,
+     "stall": 0
+    },
+    "http://113.57.140.161:10081/newlive/live/hls/8/live.m3u8": {
+     "kbs": 1417,
+     "ttfb": 85,
+     "stall": 0
+    },
+    "http://221.7.175.154:8445/tsfile/live/1005_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 3104,
+     "ttfb": 212,
+     "stall": 0
+    },
+    "http://183.11.239.36:808/hls/25/index.m3u8": {
+     "kbs": 82,
+     "ttfb": 109,
+     "stall": 1
+    },
+    "http://120.237.39.10:9901/tsfile/live/1022_1.m3u8?key=txiptv&playlive=1&down=1": {
+     "kbs": 954,
+     "ttfb": 168,
+     "stall": 0
+    },
+    "http://58.56.162.102:4466/newlive/live/hls/8/live.m3u8": {
+     "kbs": 159,
+     "ttfb": 98,
+     "stall": 1
+    }
+   }
+  },
+  "❤️央视频道|CCTV8": {
+   "order": [
+    "http://153.0.171.163:9901/tsfile/live/1007_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://221.7.175.154:8445/tsfile/live/1006_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://173.208.212.130:8181/1080p/cctv8.m3u8",
+    "http://173.208.212.130:8181/720p/cctv8.m3u8",
+    "http://223.78.65.165:9901/tsfile/live/0009_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://112.46.85.60:8009/hls/8/index.m3u8",
+    "http://124.165.251.82:85/tsfile/live/0008_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://112.46.105.20:8009/hls/8/index.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/1018_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://183.11.239.36:808/hls/96/index.m3u8"
+   ],
+   "detail": {
+    "http://112.46.105.20:8009/hls/8/index.m3u8": {
+     "kbs": 153,
+     "ttfb": 774,
+     "stall": 1
+    },
+    "http://153.0.171.163:9901/tsfile/live/1007_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2071,
+     "ttfb": 140,
+     "stall": 0
+    },
+    "http://124.90.45.52:9901/tsfile/live/1018_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 96,
+     "ttfb": 141,
+     "stall": 1
+    },
+    "http://173.208.212.130:8181/1080p/cctv8.m3u8": {
+     "kbs": 0,
+     "ttfb": 1056,
+     "stall": 0
+    },
+    "http://173.208.212.130:8181/720p/cctv8.m3u8": {
+     "kbs": 0,
+     "ttfb": 1149,
+     "stall": 0
+    },
+    "http://223.78.65.165:9901/tsfile/live/0009_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 248,
+     "ttfb": 3863,
+     "stall": 1
+    },
+    "http://112.46.85.60:8009/hls/8/index.m3u8": {
+     "kbs": 239,
+     "ttfb": 69,
+     "stall": 1
+    },
+    "http://124.165.251.82:85/tsfile/live/0008_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 174,
+     "ttfb": 67,
+     "stall": 1
+    },
+    "http://221.7.175.154:8445/tsfile/live/1006_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1781,
+     "ttfb": 146,
+     "stall": 0
+    },
+    "http://183.11.239.36:808/hls/96/index.m3u8": {
+     "kbs": 71,
+     "ttfb": 170,
+     "stall": 1
+    }
+   }
+  },
+  "❤️央视频道|CCTV9": {
+   "order": [
+    "http://112.123.243.37:50085/tsfile/live/0010_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://221.7.175.154:8445/tsfile/live/1007_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://119.39.9.8:9901/tsfile/live/0009_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://153.0.171.163:9901/tsfile/live/1008_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://223.78.65.165:9901/tsfile/live/0010_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://play.kankanlive.com/live/1698423397390920.m3u8",
+    "http://112.46.105.20:8009/hls/509/index.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/1003_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://113.57.140.161:10081/newlive/live/hls/10/live.m3u8",
+    "http://183.11.239.36:808/hls/27/index.m3u8"
+   ],
+   "detail": {
+    "http://112.46.105.20:8009/hls/509/index.m3u8": {
+     "kbs": 169,
+     "ttfb": 301,
+     "stall": 1
+    },
+    "http://153.0.171.163:9901/tsfile/live/1008_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2000,
+     "ttfb": 136,
+     "stall": 0
+    },
+    "http://124.90.45.52:9901/tsfile/live/1003_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 122,
+     "ttfb": 77,
+     "stall": 1
+    },
+    "http://223.78.65.165:9901/tsfile/live/0010_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 351,
+     "ttfb": 2978,
+     "stall": 0
+    },
+    "http://112.123.243.37:50085/tsfile/live/0010_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 3389,
+     "ttfb": 196,
+     "stall": 0
+    },
+    "http://183.11.239.36:808/hls/27/index.m3u8": {
+     "kbs": 71,
+     "ttfb": 1131,
+     "stall": 1
+    },
+    "http://221.7.175.154:8445/tsfile/live/1007_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2981,
+     "ttfb": 99,
+     "stall": 0
+    },
+    "http://113.57.140.161:10081/newlive/live/hls/10/live.m3u8": {
+     "kbs": 103,
+     "ttfb": 102,
+     "stall": 1
+    },
+    "http://play.kankanlive.com/live/1698423397390920.m3u8": {
+     "kbs": 4,
+     "ttfb": 48,
+     "stall": 0
+    },
+    "http://119.39.9.8:9901/tsfile/live/0009_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 2366,
+     "ttfb": 185,
+     "stall": 0
+    }
+   }
+  },
+  "❤️央视频道|CCTV10": {
+   "order": [
+    "http://153.0.171.163:9901/tsfile/live/1009_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://120.237.39.10:9901/tsfile/live/1025_1.m3u8?key=txiptv&playlive=1&down=1",
+    "http://183.223.157.123:85/tsfile/live/0010_1.m3u8?key=txiptv",
+    "http://59.39.89.130:60901/tsfile/live/0010_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://223.78.65.165:9901/tsfile/live/0011_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://113.57.140.161:10081/newlive/live/hls/11/live.m3u8",
+    "http://112.46.105.20:8009/hls/506/index.m3u8",
+    "http://183.11.239.36:808/hls/28/index.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/0010_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://112.46.105.20:8009/hls/506/index.m3u8": {
+     "kbs": 257,
+     "ttfb": 109,
+     "stall": 1
+    },
+    "http://153.0.171.163:9901/tsfile/live/1009_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2275,
+     "ttfb": 223,
+     "stall": 0
+    },
+    "http://124.90.45.52:9901/tsfile/live/0010_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 69,
+     "ttfb": 89,
+     "stall": 1
+    },
+    "http://223.78.65.165:9901/tsfile/live/0011_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 485,
+     "ttfb": 2636,
+     "stall": 0
+    },
+    "http://183.11.239.36:808/hls/28/index.m3u8": {
+     "kbs": 80,
+     "ttfb": 1098,
+     "stall": 1
+    },
+    "http://183.223.157.123:85/tsfile/live/0010_1.m3u8?key=txiptv": {
+     "kbs": 997,
+     "ttfb": 235,
+     "stall": 0
+    },
+    "http://113.57.140.161:10081/newlive/live/hls/11/live.m3u8": {
+     "kbs": 309,
+     "ttfb": 60,
+     "stall": 0
+    },
+    "http://59.39.89.130:60901/tsfile/live/0010_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 925,
+     "ttfb": 225,
+     "stall": 0
+    },
+    "http://120.237.39.10:9901/tsfile/live/1025_1.m3u8?key=txiptv&playlive=1&down=1": {
+     "kbs": 1823,
+     "ttfb": 207,
+     "stall": 0
+    }
+   }
+  },
+  "❤️央视频道|CCTV12": {
+   "order": [
+    "http://58.56.162.102:4466/newlive/live/hls/13/live.m3u8",
+    "http://221.7.175.154:8445/tsfile/live/1010_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://153.0.171.163:9901/tsfile/live/1011_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://183.223.157.123:85/tsfile/live/0012_1.m3u8?key=txiptv",
+    "http://222.223.41.27:8888/hls/12/index.m3u8",
+    "http://120.237.39.10:9901/tsfile/live/1027_1.m3u8?key=txiptv&playlive=1&down=1",
+    "http://113.57.140.161:10081/newlive/live/hls/13/live.m3u8",
+    "http://124.165.251.82:85/tsfile/live/0012_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://112.46.105.20:8009/hls/507/index.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/0012_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://183.11.239.36:808/hls/30/index.m3u8"
+   ],
+   "detail": {
+    "http://112.46.105.20:8009/hls/507/index.m3u8": {
+     "kbs": 185,
+     "ttfb": 54,
+     "stall": 1
+    },
+    "http://153.0.171.163:9901/tsfile/live/1011_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2103,
+     "ttfb": 190,
+     "stall": 0
+    },
+    "http://124.90.45.52:9901/tsfile/live/0012_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 152,
+     "ttfb": 61,
+     "stall": 1
+    },
+    "http://183.223.157.123:85/tsfile/live/0012_1.m3u8?key=txiptv": {
+     "kbs": 1334,
+     "ttfb": 262,
+     "stall": 0
+    },
+    "http://183.11.239.36:808/hls/30/index.m3u8": {
+     "kbs": 70,
+     "ttfb": 126,
+     "stall": 1
+    },
+    "http://113.57.140.161:10081/newlive/live/hls/13/live.m3u8": {
+     "kbs": 349,
+     "ttfb": 1088,
+     "stall": 0
+    },
+    "http://221.7.175.154:8445/tsfile/live/1010_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2103,
+     "ttfb": 124,
+     "stall": 0
+    },
+    "http://124.165.251.82:85/tsfile/live/0012_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 273,
+     "ttfb": 88,
+     "stall": 1
+    },
+    "http://222.223.41.27:8888/hls/12/index.m3u8": {
+     "kbs": 1157,
+     "ttfb": 85,
+     "stall": 0
+    },
+    "http://120.237.39.10:9901/tsfile/live/1027_1.m3u8?key=txiptv&playlive=1&down=1": {
+     "kbs": 427,
+     "ttfb": 137,
+     "stall": 0
+    },
+    "http://58.56.162.102:4466/newlive/live/hls/13/live.m3u8": {
+     "kbs": 3820,
+     "ttfb": 1096,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店央视|CCTV11": {
+   "order": [
+    "http://119.39.9.8:9901/tsfile/live/0011_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://153.0.171.163:9901/tsfile/live/1010_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://120.198.86.251:9901/tsfile/live/1029_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1010_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2107,
+     "ttfb": 115,
+     "stall": 0
+    },
+    "http://120.198.86.251:9901/tsfile/live/1029_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 815,
+     "ttfb": 108,
+     "stall": 0
+    },
+    "http://119.39.9.8:9901/tsfile/live/0011_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 4331,
+     "ttfb": 74,
+     "stall": 0
+    }
+   }
+  },
+  "❤️央视频道|CCTV11": {
+   "order": [
+    "http://153.0.171.163:9901/tsfile/live/1010_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://cd-live-stream.news.cctvplus.com/live/smil:CHANNEL1.smil/chunklist_w744036192_b1000000.m3u8",
+    "http://58.56.162.102:4466/newlive/live/hls/12/live.m3u8",
+    "http://113.57.140.161:10081/newlive/live/hls/12/live.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/0011_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://124.90.45.52:9901/tsfile/live/0001_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://183.11.239.36:808/hls/29/index.m3u8"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1010_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2645,
+     "ttfb": 121,
+     "stall": 0
+    },
+    "http://124.90.45.52:9901/tsfile/live/0001_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 74,
+     "ttfb": 83,
+     "stall": 1
+    },
+    "http://124.90.45.52:9901/tsfile/live/0011_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 80,
+     "ttfb": 180,
+     "stall": 1
+    },
+    "http://183.11.239.36:808/hls/29/index.m3u8": {
+     "kbs": 56,
+     "ttfb": 179,
+     "stall": 1
+    },
+    "http://113.57.140.161:10081/newlive/live/hls/12/live.m3u8": {
+     "kbs": 112,
+     "ttfb": 129,
+     "stall": 1
+    },
+    "http://cd-live-stream.news.cctvplus.com/live/smil:CHANNEL1.smil/chunklist_w744036192_b1000000.m3u8": {
+     "kbs": 1156,
+     "ttfb": 202,
+     "stall": 0
+    },
+    "http://58.56.162.102:4466/newlive/live/hls/12/live.m3u8": {
+     "kbs": 334,
+     "ttfb": 62,
+     "stall": 0
+    }
+   }
+  },
+  "❤️央视频道|CCTV13": {
+   "order": [
+    "http://119.39.9.8:9901/tsfile/live/0013_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://221.7.175.154:8445/tsfile/live/1011_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://153.0.171.163:9901/tsfile/live/1012_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://59.39.89.130:60901/tsfile/live/0013_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "https://event.pull.hebtv.com/jishi/cp1.m3u8",
+    "http://58.56.162.102:4466/newlive/live/hls/14/live.m3u8",
+    "http://113.57.140.161:10081/newlive/live/hls/14/live.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/0013_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://183.11.239.36:808/hls/31/index.m3u8"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1012_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2226,
+     "ttfb": 113,
+     "stall": 0
+    },
+    "http://124.90.45.52:9901/tsfile/live/0013_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 98,
+     "ttfb": 226,
+     "stall": 1
+    },
+    "http://113.57.140.161:10081/newlive/live/hls/14/live.m3u8": {
+     "kbs": 121,
+     "ttfb": 72,
+     "stall": 1
+    },
+    "http://183.11.239.36:808/hls/31/index.m3u8": {
+     "kbs": 75,
+     "ttfb": 140,
+     "stall": 1
+    },
+    "http://221.7.175.154:8445/tsfile/live/1011_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 3343,
+     "ttfb": 94,
+     "stall": 0
+    },
+    "https://event.pull.hebtv.com/jishi/cp1.m3u8": {
+     "kbs": 262,
+     "ttfb": 183,
+     "stall": 1
+    },
+    "http://59.39.89.130:60901/tsfile/live/0013_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1019,
+     "ttfb": 212,
+     "stall": 0
+    },
+    "http://119.39.9.8:9901/tsfile/live/0013_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 4382,
+     "ttfb": 73,
+     "stall": 0
+    },
+    "http://58.56.162.102:4466/newlive/live/hls/14/live.m3u8": {
+     "kbs": 221,
+     "ttfb": 201,
+     "stall": 1
+    }
+   }
+  },
+  "❤️央视频道|CCTV14": {
+   "order": [
+    "https://event.pull.hebtv.com/jishi/cp2.m3u8",
+    "http://153.0.171.163:9901/tsfile/live/1013_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://173.208.212.130:8181/1080p/cctv14.m3u8",
+    "http://113.57.140.161:10081/newlive/live/hls/15/live.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/0014_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://153.0.171.163:9901/tsfile/live/1013_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 2042,
+     "ttfb": 118,
+     "stall": 0
+    },
+    "http://124.90.45.52:9901/tsfile/live/0014_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 72,
+     "ttfb": 98,
+     "stall": 1
+    },
+    "http://173.208.212.130:8181/1080p/cctv14.m3u8": {
+     "kbs": 0,
+     "ttfb": 1482,
+     "stall": 0
+    },
+    "http://113.57.140.161:10081/newlive/live/hls/15/live.m3u8": {
+     "kbs": 110,
+     "ttfb": 76,
+     "stall": 1
+    },
+    "https://event.pull.hebtv.com/jishi/cp2.m3u8": {
+     "kbs": 3381,
+     "ttfb": 292,
+     "stall": 0
+    }
+   }
+  },
+  "🏨酒店央视|CCTV15": {
+   "order": [
+    "http://119.39.9.8:9901/tsfile/live/0015_1.m3u8?key=txiptv&playlive=0&authid=0"
+   ],
+   "detail": {
+    "http://119.39.9.8:9901/tsfile/live/0015_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 2328,
+     "ttfb": 87,
+     "stall": 0
+    }
+   }
+  },
+  "❤️央视频道|CCTV4K": {
+   "order": [
+    "http://107.150.52.50:82/live/cctv4k.m3u8"
+   ],
+   "detail": {
+    "http://107.150.52.50:82/live/cctv4k.m3u8": {
+     "kbs": 350,
+     "ttfb": 581,
+     "stall": 0
+    }
+   }
+  },
+  "❤️央视频道|CCTV风云足球": {
+   "order": [
+    "http://111.61.236.247:9081/hls/58/index.m3u8",
+    "http://183.11.239.36:808/hls/11/index.m3u8"
+   ],
+   "detail": {
+    "http://183.11.239.36:808/hls/11/index.m3u8": {
+     "kbs": 75,
+     "ttfb": 258,
+     "stall": 1
+    },
+    "http://111.61.236.247:9081/hls/58/index.m3u8": {
+     "kbs": 556,
+     "ttfb": 297,
+     "stall": 0
+    }
+   }
+  },
+  "❤️央视频道|CCTV央视台球": {
+   "order": [
+    "http://183.11.239.36:808/hls/73/index.m3u8"
+   ],
+   "detail": {
+    "http://183.11.239.36:808/hls/73/index.m3u8": {
+     "kbs": 59,
+     "ttfb": 252,
+     "stall": 1
+    }
+   }
+  },
+  "❤️央视频道|CCTV16": {
+   "order": [
+    "http://112.27.5.218:9901/tsfile/live/faacts/1001_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://173.208.212.130:8181/1080p/cctv16.m3u8",
+    "http://183.11.239.36:808/hls/169/index.m3u8"
+   ],
+   "detail": {
+    "http://173.208.212.130:8181/1080p/cctv16.m3u8": {
+     "kbs": 0,
+     "ttfb": 1143,
+     "stall": 0
+    },
+    "http://112.27.5.218:9901/tsfile/live/faacts/1001_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 1828,
+     "ttfb": 76,
+     "stall": 0
+    },
+    "http://183.11.239.36:808/hls/169/index.m3u8": {
+     "kbs": 58,
+     "ttfb": 95,
+     "stall": 1
+    }
+   }
+  },
+  "❤️央视频道|CCTV15": {
+   "order": [
+    "http://119.39.9.8:9901/tsfile/live/0015_1.m3u8?key=txiptv&playlive=0&authid=0",
+    "http://173.208.212.130:8181/1080p/cctv15.m3u8",
+    "http://58.56.162.102:4466/newlive/live/hls/16/live.m3u8",
+    "http://113.57.140.161:10081/newlive/live/hls/16/live.m3u8",
+    "http://183.11.239.36:808/hls/102/index.m3u8",
+    "http://124.90.45.52:9901/tsfile/live/1014_1.m3u8?key=txiptv&playlive=1&authid=0"
+   ],
+   "detail": {
+    "http://124.90.45.52:9901/tsfile/live/1014_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 56,
+     "ttfb": 101,
+     "stall": 1
+    },
+    "http://173.208.212.130:8181/1080p/cctv15.m3u8": {
+     "kbs": 0,
+     "ttfb": 1234,
+     "stall": 0
+    },
+    "http://183.11.239.36:808/hls/102/index.m3u8": {
+     "kbs": 64,
+     "ttfb": 1130,
+     "stall": 1
+    },
+    "http://113.57.140.161:10081/newlive/live/hls/16/live.m3u8": {
+     "kbs": 145,
+     "ttfb": 52,
+     "stall": 1
+    },
+    "http://119.39.9.8:9901/tsfile/live/0015_1.m3u8?key=txiptv&playlive=0&authid=0": {
+     "kbs": 3165,
+     "ttfb": 75,
+     "stall": 0
+    },
+    "http://58.56.162.102:4466/newlive/live/hls/16/live.m3u8": {
+     "kbs": 238,
+     "ttfb": 95,
+     "stall": 1
+    }
+   }
+  },
+  "❤️央视频道|CCTV17": {
+   "order": [
+    "http://221.7.175.154:8445/tsfile/live/1009_1.m3u8?key=txiptv&playlive=1&authid=0",
+    "http://173.208.212.130:8181/1080p/cctv17.m3u8",
+    "http://183.11.239.36:808/hls/35/index.m3u8"
+   ],
+   "detail": {
+    "http://173.208.212.130:8181/1080p/cctv17.m3u8": {
+     "kbs": 0,
+     "ttfb": 1125,
+     "stall": 0
+    },
+    "http://183.11.239.36:808/hls/35/index.m3u8": {
+     "kbs": 130,
+     "ttfb": 239,
+     "stall": 1
+    },
+    "http://221.7.175.154:8445/tsfile/live/1009_1.m3u8?key=txiptv&playlive=1&authid=0": {
+     "kbs": 3274,
+     "ttfb": 96,
+     "stall": 0
+    }
+   }
+  },
+  "❤️央视频道|CCTV世界地理": {
+   "order": [
+    "http://111.61.236.247:9081/hls/62/index.m3u8"
+   ],
+   "detail": {
+    "http://111.61.236.247:9081/hls/62/index.m3u8": {
+     "kbs": 293,
+     "ttfb": 230,
+     "stall": 1
+    }
+   }
+  },
+  "❤️央视频道|CCTV5+": {
+   "order": [
+    "http://183.129.255.66:8480/hls/6/index.m3u8",
+    "http://223.112.114.228:50080/newlive/live/hls/180/live.m3u8",
+    "http://120.238.94.82:9901/tsfile/live/1030_1.m3u8"
+   ],
+   "detail": {
+    "http://223.112.114.228:50080/newlive/live/hls/180/live.m3u8": {
+     "kbs": 627,
+     "ttfb": 80,
+     "stall": 0
+    },
+    "http://183.129.255.66:8480/hls/6/index.m3u8": {
+     "kbs": 2447,
+     "ttfb": 146,
+     "stall": 0
+    },
+    "http://120.238.94.82:9901/tsfile/live/1030_1.m3u8": {
+     "kbs": 188,
+     "ttfb": 171,
+     "stall": 1
+    }
+   }
+  }
+ }
+}

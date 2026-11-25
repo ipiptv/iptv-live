@@ -184,6 +184,22 @@ def dead_urls(fail):
     return out
 
 
+HOME_RANK_PATH = os.path.join(ROOT, "assets", "home-rank.json")
+
+
+def load_home_rank():
+    """本机实测的排序结果（assets/home-rank.json，由 probe_home_rank.py 在本机生成）。
+    有实测的频道，直接按实测顺序排；没有的走海外探测的清晰度排序。"""
+    try:
+        with open(HOME_RANK_PATH, encoding="utf-8") as f:
+            d = json.load(f)
+            if isinstance(d.get("channels"), dict):
+                return d["channels"]
+    except Exception:
+        pass
+    return {}
+
+
 def cache_get(cache, url):
     rec = cache["records"].get(url)
     if not rec:
@@ -279,9 +295,24 @@ def sort_file(path, max_probe, budget, cache):
             for i, e in enumerate(entries):
                 by_name.setdefault((entry_group(e), entry_name(e)), []).append(i)
 
+    home = load_home_rank()
+    home_hit = 0
     changed = 0
     for key, idxs in by_name.items():
         if len(idxs) < 2:
+            continue
+        hkey = "%s|%s" % key
+        if hkey in home:
+            rank = home[hkey].get("order") or []
+            pos = {u: i for i, u in enumerate(rank)}
+            order = sorted(idxs, key=lambda i: (pos.get(entries[i]["url"], len(rank) + i)))
+            orig = [entries[i] for i in idxs]
+            new = [entries[i] for i in order]
+            if new != orig:
+                changed += 1
+            home_hit += 1
+            for p_, e_ in zip(idxs, new):
+                entries[p_] = e_
             continue
         good, rest = [], []
         for k, i in enumerate(idxs):
@@ -303,7 +334,8 @@ def sort_file(path, max_probe, budget, cache):
 
     write_m3u(path, header, entries)
     sorted_ch = sum(1 for k, i in by_name.items() if len(i) > 1)
-    print(f"[sort] {os.path.basename(path)}：{sorted_ch} 个多线路频道，{changed} 个顺序有变化")
+    print(f"[sort] {os.path.basename(path)}：{sorted_ch} 个多线路频道，{changed} 个顺序有变化"
+          + (f"（其中 {home_hit} 个用了本机实测顺序）" if home_hit else ""))
 
 
 def main():
