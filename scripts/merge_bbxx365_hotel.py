@@ -458,8 +458,9 @@ def main():
         print("缺少 %s，请先运行 main.py" % BBXX, file=sys.stderr)
         return 1
 
-    raw = [(channel_name(l), read_lines(BBXX)[i + 1]) for i, l in enumerate(read_lines(BBXX)) if l.startswith("#EXTINF")]
-    bbxx_lines, hotel_lines = read_lines(BBXX), []
+    bbxx_lines = read_lines(BBXX)
+    raw = [(channel_name(l), bbxx_lines[i + 1]) for i, l in enumerate(bbxx_lines) if l.startswith("#EXTINF")]
+    hotel_lines = []
     if os.path.exists(HOTEL) and os.path.getsize(HOTEL) > 0:
         hotel_lines = read_lines(HOTEL)
         raw += [(channel_name(l), hotel_lines[i + 1]) for i, l in enumerate(hotel_lines) if l.startswith("#EXTINF")]
