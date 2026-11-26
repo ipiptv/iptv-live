@@ -369,6 +369,7 @@ def main():
     ap.add_argument("--file", default=MAIN_FILE, help="要排序的 m3u（默认主力源）")
     ap.add_argument("--max-probe", type=int, default=10, help="每个频道最多探测几条")
     ap.add_argument("--budget", type=int, default=800, help="单次总探测预算（条 URL）")
+    ap.add_argument("--drop-uhd", action="store_true", help="去掉非官方(非 :8767)的 4K/8K 线路（默认保留）")
     ap.add_argument("--clean-only", action="store_true", help="只清测试频道，不排序")
     ap.add_argument("--skip-clean", action="store_true", help="只排序，不清测试频道")
     ap.add_argument("--quiet-files", default="", help="逗号分隔，额外要清测试频道的文件")
@@ -381,8 +382,9 @@ def main():
 
     if not args.skip_clean:
         clean_tests(targets)
-        # 4K/8K 清理只针对主力源：全量源要保持"原样全量"，不能跟着丢线路
-        drop_fake_uhd([args.file])
+        # 4K/8K 清理默认关闭（用户要求保留所有 4K/8K 线路），需要时加 --drop-uhd
+        if getattr(args, "drop_uhd", False):
+            drop_fake_uhd([args.file])
     if args.clean_only:
         return
 
