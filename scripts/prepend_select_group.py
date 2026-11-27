@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""把 assets/select-direct.m3u 与 assets/select-overseas.m3u（4K 卫视、海外精选）前置进主力源。
+"""把 assets/select-direct.m3u（精选直连，如官方 4K 卫视）前置进主力源。
 
 - 排在官方 64 台之后：本脚本在 append_ysp_group.py 之前跑，官方组最后再前置一次
 - 清单不存在或条目已存在就跳过
@@ -9,8 +9,7 @@ import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MAIN = os.path.join(ROOT, "m3u", "bbxx365_hotel.m3u")
-SRC = [os.path.join(ROOT, "assets", "select-direct.m3u"),
-       os.path.join(ROOT, "assets", "select-overseas.m3u")]
+SRC = [os.path.join(ROOT, "assets", "select-direct.m3u")]
 
 
 def entries_of(path):
