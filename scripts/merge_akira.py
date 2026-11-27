@@ -13,9 +13,9 @@ import urllib.request
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MAIN = os.path.join(ROOT, "m3u", "bbxx365_hotel.m3u")
 URL = os.environ.get("AKIRA_URL", "http://127.0.0.1:8900/interface.m3u")
-GROUP_CCTV = "咪咕央视"
-GROUP_SAT = "咪咕卫视"
-OLD_GROUPS = ("🌀智能源", GROUP_CCTV, GROUP_SAT)
+GROUP_CCTV = "❤️咪咕央视"
+GROUP_SAT = "❤️咪咕卫视"
+OLD_GROUPS = ("🌀智能源", "咪咕央视", "咪咕卫视", GROUP_CCTV, GROUP_SAT)
 LAN_HOST = "192.168.3.101:8900"
 
 
