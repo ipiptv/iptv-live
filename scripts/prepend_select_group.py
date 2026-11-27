@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""把 assets/select-direct.m3u（精选直连频道，如官方 4K 卫视）前置进主力源。
+"""把 assets/select-direct.m3u 与 assets/select-overseas.m3u（4K 卫视、海外精选）前置进主力源。
 
 - 排在官方 64 台之后：本脚本在 append_ysp_group.py 之前跑，官方组最后再前置一次
 - 清单不存在或条目已存在就跳过
@@ -9,7 +9,8 @@ import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MAIN = os.path.join(ROOT, "m3u", "bbxx365_hotel.m3u")
-SRC = os.path.join(ROOT, "assets", "select-direct.m3u")
+SRC = [os.path.join(ROOT, "assets", "select-direct.m3u"),
+       os.path.join(ROOT, "assets", "select-overseas.m3u")]
 
 
 def entries_of(path):
@@ -37,12 +38,16 @@ def main():
     if not os.path.exists(MAIN):
         print("[select] 缺少主力源，跳过")
         return
-    if not os.path.exists(SRC):
-        print("[select] 没有 assets/select-direct.m3u，跳过")
+    srcs = [p for p in SRC if os.path.exists(p)]
+    if not srcs:
+        print("[select] 没有精选清单，跳过")
         return
 
     m_header, m_items = entries_of(MAIN)
-    _, s_items = entries_of(SRC)
+    s_items = []
+    for p in srcs:
+        _, it = entries_of(p)
+        s_items.extend(it)
 
     exist = {(e.rsplit(",", 1)[-1].strip(), u) for e, u in m_items}
     add = [(e, u) for e, u in s_items if (e.rsplit(",", 1)[-1].strip(), u) not in exist]
