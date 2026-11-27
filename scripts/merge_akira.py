@@ -13,7 +13,9 @@ import urllib.request
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MAIN = os.path.join(ROOT, "m3u", "bbxx365_hotel.m3u")
 URL = os.environ.get("AKIRA_URL", "http://127.0.0.1:8900/interface.m3u")
-GROUP = "🌀智能源"
+GROUP_CCTV = "咪咕央视"
+GROUP_SAT = "咪咕卫视"
+OLD_GROUPS = ("🌀智能源", GROUP_CCTV, GROUP_SAT)
 LAN_HOST = "192.168.3.101:8900"
 
 
@@ -45,13 +47,19 @@ def entries_of_file(path):
     return header, entries_of_text(text)
 
 
+def is_cctv(name):
+    low = name.lower()
+    return low.startswith("cctv") or low.startswith("cgtn") or "央视" in name or "cgtv" in low
+
+
 def rename_group(ext):
     name = ext.rsplit(",", 1)[-1].strip()
     head = ext.rsplit(",", 1)[0]
+    group = GROUP_CCTV if is_cctv(name) else GROUP_SAT
     if 'group-title="' in head:
-        head = head.split('group-title="', 1)[0] + 'group-title="%s"' % GROUP
+        head = head.split('group-title="', 1)[0] + 'group-title="%s"' % group
     else:
-        head = head + ' group-title="%s"' % GROUP
+        head = head + ' group-title="%s"' % group
     return "%s,%s" % (head, name)
 
 
@@ -67,6 +75,7 @@ def main():
         return
 
     m_header, m_items = entries_of_file(MAIN)
+    m_items = [(e, u) for e, u in m_items if not any(g in e for g in OLD_GROUPS)]
     a_items = entries_of_text(remote)
     if not a_items:
         print("[akira] 订阅为空，跳过")
@@ -74,10 +83,9 @@ def main():
 
     a_items = [(e.replace("127.0.0.1:8900", LAN_HOST), u.replace("127.0.0.1:8900", LAN_HOST)) for e, u in a_items]
 
-    exist = {(e.rsplit(",", 1)[-1].strip(), u) for e, u in m_items}
-    add = [(rename_group(e), u) for e, u in a_items if (e.rsplit(",", 1)[-1].strip(), u) not in exist]
+    add = [(rename_group(e), u) for e, u in a_items]
     if not add:
-        print("[akira] %d 条已全部存在，跳过" % len(a_items))
+        print("[akira] 订阅为空，跳过")
         return
 
     lead = 0
