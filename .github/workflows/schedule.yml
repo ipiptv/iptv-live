@@ -186,6 +186,10 @@ jobs:
       - name: Build ❤️咪咕央视 / ❤️咪咕卫视 groups
         run: python scripts/make_migu_groups.py "m3u/bbxx365_hotel.m3u" "m3u/bbxx365_lite.m3u"
 
+      # 用户明确不要「少儿」和「咪咕」这两类分组：整组剔除，免得死台占列表
+      - name: Drop 少儿 / 咪咕 groups
+        run: python scripts/drop_groups.py "m3u/bbxx365*.m3u"
+
       # 国内直连 pages.dev 会因限速中断（URLSession 报"网络连接已中断"），
       # 故把产物镜像到 publish 分支，供 raw.githubusercontent / 加速代理 拉取。
       # 用 orphan + force push，分支上永远只有一个提交，不会无限膨胀。
