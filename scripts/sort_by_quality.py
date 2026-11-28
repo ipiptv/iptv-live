@@ -126,9 +126,6 @@ def drop_fake_uhd(files, enabled=True):
 # ---------- 测试频道清理 ----------
 def clean_tests(files):
     removed_total = 0
-    if not enabled:
-        print("[uhd] 保留全部 4K/8K 线路（不再只认 8767 官方线）")
-        return 0
     for path in files:
         if not os.path.exists(path):
             continue

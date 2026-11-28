@@ -10,7 +10,7 @@ on:
   push:
     paths:
       - ".github/workflows/schedule.yml"
-# ← 添加这行，允许手动触发测试
+# ← 手动触发测试（改动本文件会自动跑一轮验证）
 
 permissions:
   contents: write
