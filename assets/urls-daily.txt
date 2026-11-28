@@ -1,5 +1,5 @@
 --https://fy.188766.xyz/?ip=home.kuaidi521.com
-https://raw.githubusercontent.com/Guovin/iptv-api/gd/output/result.txt
+--https://raw.githubusercontent.com/Guovin/iptv-api/gd/output/result.txt
 https://raw.githubusercontent.com/fleung49/star/refs/heads/main/mit
 --http://live.nctv.top/x.txt
 --http://43.251.226.89:8080/live.txt
@@ -152,3 +152,8 @@ https://gitee.com/tushaoyong/live/raw/master/%E6%8E%A5%E5%8F%A3/IPV6.txt
 --http://122.228.85.203:5988/uploads/tvbox/tv.txt
 ++https://raw.githubusercontent.com/lystv/short/main/影视/tvb/MTV.txt
 ++
+
+https://raw.githubusercontent.com/Guovin/iptv-api/gd/output/result.m3u
+https://yonsm.github.io/IPTV/iptv.m3u8
+https://peterhchina.github.io/iptv/CNTV-V4.m3u
+https://peterhchina.github.io/iptv/CCTV-V4.m3u
