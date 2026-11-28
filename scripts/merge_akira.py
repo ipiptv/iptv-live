@@ -47,6 +47,13 @@ def entries_of_file(path):
     return header, entries_of_text(text)
 
 
+def group_of(ext):
+    marker = 'group-title="'
+    if marker not in ext:
+        return ""
+    return ext.split(marker, 1)[1].split('"', 1)[0]
+
+
 def is_cctv(name):
     low = name.lower()
     return low.startswith("cctv") or low.startswith("cgtn") or "央视" in name or "cgtv" in low
@@ -75,7 +82,7 @@ def main():
         return
 
     m_header, m_items = entries_of_file(MAIN)
-    m_items = [(e, u) for e, u in m_items if not any(g in e for g in OLD_GROUPS)]
+    m_items = [(e, u) for e, u in m_items if group_of(e) not in OLD_GROUPS]
     a_items = entries_of_text(remote)
     if not a_items:
         print("[akira] 订阅为空，跳过")
