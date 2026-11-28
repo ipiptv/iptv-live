@@ -181,10 +181,8 @@ jobs:
       - name: Strip LAN-only channels (192.168 / 10.x / 127.x)
         run: python scripts/strip_local_urls.py "m3u/*.m3u"
 
-      # 把散落在 ❤️央视频道 / ❤️卫视频道 里的咪咕线路挑出来，单独生成
-      # ❤️咪咕央视 / ❤️咪咕卫视 两个分组（原分组保留，不动备线）
-      - name: Build ❤️咪咕央视 / ❤️咪咕卫视 groups
-        run: python scripts/make_migu_groups.py "m3u/bbxx365_hotel.m3u" "m3u/bbxx365_lite.m3u"
+      # 咪咕分组不再单独生成（用户已整类不要），直接由下面的删组步骤清理；
+      # make_migu_groups.py 保留在仓库里备查，不再运行。
 
       # 用户明确不要「少儿」和「咪咕」这两类分组：整组剔除，免得死台占列表
       - name: Drop 少儿 / 咪咕 groups

@@ -56,7 +56,7 @@ UPDATE_URL = (
 TARGET_ORDER = [
     "❤️央视频道",
     "❤️卫视频道",
-    "💓少儿频道",
+    "💓4K频道",
     "🏨酒店央视",
     "🏨酒店卫视",
     "❤️更新时间",
@@ -169,9 +169,8 @@ def name_group(extinf):
 def classify(extinf, source="bbxx"):
     """按台名 + 来源分组名归到目标分组，归不进去返回 None（直接丢弃）。
 
-    4K 频道不再单独成堆：剥掉 4K 后缀先看它本来是哪个台——
-    CCTV4K 归央视，北京卫视4K / 河北4K / 苏州4K 这类带地名的归卫视，
-    境外 4K（Love Nature 之类）没有归属，直接丢弃；4K 组不再保留。
+    4K/8K 频道统一进「💓4K频道」独立分组（用户要求云端保留 4K）；
+    境外 4K（Love Nature 之类）仍然丢弃。
 
     source="hotel" 时只认央视/卫视，分别进酒店专用的两组；酒店源的“其他频道”不要。
     """
@@ -193,6 +192,11 @@ def classify(extinf, source="bbxx"):
         or RE_GROUP_SAT.search(group)
     )
 
+    if source != "hotel" and is_4k:
+        if RE_FOREIGN_4K.search(name):
+            return None
+        return "💓4K频道"
+
     if source == "hotel":
         # 酒店源：央视 → 酒店央视，卫视 → 酒店卫视；其他频道一律不要
         if is_cctv:
@@ -203,7 +207,7 @@ def classify(extinf, source="bbxx"):
             return None
         return None
 
-    # 少儿类：CCTV14 回央视；国内少儿台进“少儿频道”；境外/点播剧名丢掉
+    # 少儿类：用户已不要少儿分组，CCTV14 回央视，其余少儿台一律丢弃
     if RE_KID.search(name) or RE_KID.search(base) or RE_GROUP_KID.search(group):
         if RE_CCTV14.match(base) or RE_CCTV14.match(name):
             return "❤️央视频道"
@@ -214,20 +218,11 @@ def classify(extinf, source="bbxx"):
             or not (RE_KID_DOMESTIC.search(name) or RE_KID_DOMESTIC.search(base))
         ):
             return None
-        return "💓少儿频道"
+        return None
 
     if is_cctv:
         return "❤️央视频道"
     if is_sat:
-        return "❤️卫视频道"
-    if is_4k and base and len(base) <= 6 and any(w in base for w in REGION_WORDS):
-        # 只有“带地名的 4K 台”（北京4K/河北4K/苏州4K）才按卫视处理，
-        # 普通地方台不要被这条规则误拉进卫视组
-        return "❤️卫视频道"
-    if is_4k:
-        # 4K 组取消：境外 4K（Love Nature 之类）直接丢，其余 4K 都并入卫视组
-        if RE_FOREIGN_4K.search(name):
-            return None
         return "❤️卫视频道"
     if RE_GROUP_UPDATE.search(group):
         return "❤️更新时间"

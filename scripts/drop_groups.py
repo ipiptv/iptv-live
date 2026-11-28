@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""按 group-title 整组剔除频道（默认删「少儿」「咪咕」两类分组）"""
+"""按 group-title 整组 + 按频道名剔除（默认删「少儿」「咪咕」两类）"""
 import sys, os, re, glob
 from collections import Counter
 
 PATTERNS = [p.strip() for p in os.environ.get("DROP_PATTERNS", "少儿,咪咕").split(",") if p.strip()]
+NAME_PATTERNS = [p.strip() for p in os.environ.get("DROP_NAME_PATTERNS", "咪咕").split(",") if p.strip()]
 
 def process(path):
     with open(path, "r", encoding="utf-8", errors="replace") as f:
@@ -24,6 +25,10 @@ def process(path):
         grp = g.group(1) if g else ""
         if any(p in grp for p in PATTERNS):
             removed[grp] += 1
+            i = j; continue
+        name = l.split(",", 1)[1] if "," in l else ""
+        if any(p in name for p in NAME_PATTERNS):
+            removed["名称:" + name.strip()[:12]] += 1
             i = j; continue
         out.extend(blk); i = j
     if removed:

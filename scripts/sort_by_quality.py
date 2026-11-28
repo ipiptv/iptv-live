@@ -44,7 +44,7 @@ FAIL_TTLB = 99999
 # timeout / server_error / other（含 403 区域限制）一律不动，避免把国内可用、
 # 海外 CI 连不上的线路误杀。
 HARD_REASONS = {"not_found", "connection_error"}
-PURGE_FAIL_COUNT = 2          # 连续两次硬失败才剔除，防一次性抖动
+PURGE_FAIL_COUNT = 1          # 硬错误（连接失败/404）与网络位置无关，一次即剔除
 
 
 # ---------- m3u 解析 ----------
@@ -103,8 +103,11 @@ def is_official_uhd(e):
     return OFFICIAL_PORT in e["url"]
 
 
-def drop_fake_uhd(files):
+def drop_fake_uhd(files, enabled=True):
     removed_total = 0
+    if not enabled:
+        print("[uhd] 保留全部 4K/8K 线路（不再只认 8767 官方线）")
+        return 0
     for path in files:
         if not os.path.exists(path):
             continue
@@ -123,6 +126,9 @@ def drop_fake_uhd(files):
 # ---------- 测试频道清理 ----------
 def clean_tests(files):
     removed_total = 0
+    if not enabled:
+        print("[uhd] 保留全部 4K/8K 线路（不再只认 8767 官方线）")
+        return 0
     for path in files:
         if not os.path.exists(path):
             continue
@@ -384,7 +390,7 @@ def main():
         clean_tests(targets)
         # 4K/8K 清理默认关闭（用户要求保留所有 4K/8K 线路），需要时加 --drop-uhd
         if getattr(args, "drop_uhd", False):
-            drop_fake_uhd([args.file])
+            drop_fake_uhd([args.file], enabled=False)   # 4K 保留，交给「💓4K频道」分组
     if args.clean_only:
         return
 

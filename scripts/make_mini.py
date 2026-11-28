@@ -13,6 +13,7 @@
 输入 m3u/bbxx365_hotel.m3u，输出 m3u/bbxx365_mini.m3u
 """
 import concurrent.futures
+import json
 import os
 import re
 import sys
@@ -25,14 +26,26 @@ CANDIDATES = 6    # 每频道最多探测的候选数
 
 GROUPS = {
     "❤️央视频道", "❤️卫视频道", "❤️专享央视", "❤️专享卫视",
-    "💓4K(Auto)", "💕国际台",
+    "💓4K频道", "💕国际台",
 }
 
 # 分组在文件里的出场顺序（集合本身无序，必须显式写死）：央视打头
 GROUP_ORDER = ["❤️央视频道", "❤️专享央视", "❤️卫视频道", "❤️专享卫视",
-               "💓4K(Auto)", "💕国际台"]
+               "💓4K频道", "💕国际台"]
 
+FAIL_CACHE = "data/stream-check/failure-cache.json"
+HARD_REASONS = {"not_found", "connection_error", "no_signal"}
 BAD_URL = ("kwimgs.com", "jiduo.me", "kwai")
+
+
+def load_bad_urls():
+    """体检已判定失效（硬错误）的地址：mini 优先避开，全坏时仍兜底保留。"""
+    try:
+        with open(FAIL_CACHE, encoding="utf-8") as f:
+            rec = json.load(f).get("records", {})
+    except Exception:
+        return set()
+    return {u for u, r in rec.items() if r.get("reason") in HARD_REASONS}
 
 # 名字里带这些的，基本不是真频道：移动传媒、购物台、测试台、轮播台——进去常年放广告
 BAD_NAME = ("测试", "移动传媒", "轮播", "广告", "试播", "Demo", "demo")
@@ -144,6 +157,7 @@ def main() -> int:
     with concurrent.futures.ThreadPoolExecutor(40) as ex:
         info = list(ex.map(lambda t: analyze(t[2]), flat))
 
+    bad = load_bad_urls()
     picked, stat = {}, {}
     for (k, extinf, url), d in zip(flat, info):
         stat[d["kind"]] = stat.get(d["kind"], 0) + 1
@@ -163,8 +177,11 @@ def main() -> int:
                            -source_score(t[2], t[0].get("tier", 0)),
                            t[0]["ttfb"]),
         )
+        # 体检已判死的地址排到最后：该频道有更好的线就不选它
+        items.sort(key=lambda t: 1 if t[2] in bad else 0)
+        good = [t for t in items if t[2] not in bad] or items
         kept = 0
-        for d, extinf, url in items:
+        for d, extinf, url in good:
             if kept >= per or url in used:
                 continue
             out += [extinf, url]
