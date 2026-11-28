@@ -181,6 +181,11 @@ jobs:
       - name: Strip LAN-only channels (192.168 / 10.x / 127.x)
         run: python scripts/strip_local_urls.py "m3u/*.m3u"
 
+      # 把散落在 ❤️央视频道 / ❤️卫视频道 里的咪咕线路挑出来，单独生成
+      # ❤️咪咕央视 / ❤️咪咕卫视 两个分组（原分组保留，不动备线）
+      - name: Build ❤️咪咕央视 / ❤️咪咕卫视 groups
+        run: python scripts/make_migu_groups.py "m3u/bbxx365_hotel.m3u" "m3u/bbxx365_lite.m3u"
+
       # 国内直连 pages.dev 会因限速中断（URLSession 报"网络连接已中断"），
       # 故把产物镜像到 publish 分支，供 raw.githubusercontent / 加速代理 拉取。
       # 用 orphan + force push，分支上永远只有一个提交，不会无限膨胀。
