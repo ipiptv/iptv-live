@@ -26,7 +26,7 @@ export const sources: TSources = [
   ...yangM3uSources,
   ...joevessIptvSources,
   ...hotelTvnSources,
-  ...epgPwSources,
+  ...(process.env.SKIP_EPG === "1" ? [] : epgPwSources),
   ...qwerttvvBjIptvSources,
   ...chinaIptvSources,
   ...youhunSources,

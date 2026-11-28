@@ -28,13 +28,14 @@ cleanFiles();
 (async () => {
   try {
     const sourceResults = await Promise.all(sources.map(buildSource));
-    const epgResults = await Promise.all(epgSources.map(buildEpg));
-    await buildEpgPw();
+    const SKIP_EPG = process.env.SKIP_EPG === "1";
+    const epgResults = SKIP_EPG ? [] : await Promise.all(epgSources.map(buildEpg));
+    if (!SKIP_EPG) await buildEpgPw();
 
     console.log(`[TASK] Write important files`);
     mergeTxts();
     mergeSources();
-    await writeEpgJsonByDate();
+    if (!SKIP_EPG) await writeEpgJsonByDate();
     await writeTvBoxLiveJson(sourceResults);
     updateChannelsJson(sourceResults, epgSources);
     writeReadmePages(sourceResults, epgSources, epgResults);
