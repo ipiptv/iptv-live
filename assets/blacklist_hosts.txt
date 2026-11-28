@@ -100,3 +100,5 @@ bztv.tvbus.cc  # 16 条
 xiaoya.crccxw.top  # 15 条
 113.140.12.230  # 15 条
 1b6467f415.iok.la  # 15 条
+gslbmgsplive.miguvideo.com  # 咪咕静态直链，寿命约2小时，实测 0/37
+t.freetv.fun  # 实测 0/4
